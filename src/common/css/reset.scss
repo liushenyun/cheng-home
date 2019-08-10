@@ -1,0 +1,68 @@
+body, div, span, header, footer, nav, section, aside, article, ul, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  font-weight: normal;
+  font-family: "Microsoft Yahei";
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover{
+      outline: none;
+  }
+}
+html,body{ height: 100%; width: 100%;background-color: #F5F5F5; }
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {-webkit-appearance: none;}
+textarea { -webkit-appearance: none;}  
+img{  width:100%; height:100%;  }
+a,label,.pointer{  cursor: pointer  }
+select, input, textarea{  outline:none  }
+ul{  list-style: none;  }
+.tc{  text-align: center;  }
+.tr{  text-align: right;  }
+.flex{  display: flex;  }
+.between{ display: flex; justify-content:space-between; }
+.around{ display: flex; justify-content:space-around; }
+.center{ display: flex; justify-content:center; }
+.middle{ display: flex; align-items:center; }
+.fi{  flex:1  }
+.ellipsis{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wrap{  word-wrap:break-word;  word-break:break-all;  }
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar {  
+  width: 0px;  
+  height: 0px;  
+  background-color: #F5F5F5;  
+}  
+
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track {  
+-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);  
+border-radius: 10px;  
+background-color: #F5F5F5;  
+}  
+
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb {  
+border-radius: 10px;  
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+background-color: #555;  
+}
+/*清除ie10+文本框的叉叉和密码输入框的眼睛图标*/
+::-ms-clear,::-ms-reveal{ display:none; }
+/*ie滚动条样式*/
+textarea {
+padding-top:6px;
+line-height: 1.2 !important;
+scrollbar-face-color:#fff;
+scrollbar-arrow-color:#fff;
+scrollbar-shadow-color:#fff;
+scrollbar-dark-shadow-color:#fff;
+scrollbar-base-color:#fff;
+scrollbar-track-color:#fff;
+}
