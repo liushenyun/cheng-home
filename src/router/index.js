@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 const Home = () => import('../views/Home/index')
-const HomeA = () => import('../views/HomeA/index')
+const MeetSummary = () => import('../views/MeetSummary/index')
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
         component: Home
     },
     {
-        path: '/HomeA',
-        name: 'HomeA',
-        component: HomeA
+        path: '/MeetSummary',
+        name: 'MeetSummary',
+        component: MeetSummary
     }
   ]
 })

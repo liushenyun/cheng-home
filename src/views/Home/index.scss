@@ -1,4 +1,110 @@
 @import '../../common/css/rem';
-.text {
-    font-size: rem(80);
+@import '../../common/css/const';
+.home-ctr {
+  padding: rem(30) rem(30);
+  .h-banner {
+    height: rem(340);
+    border-radius: rem(10);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .h-fun-wrap {
+    margin: rem(36) 0 rem(48) 0;
+    .hf-ul-same {
+      display: flex;
+      justify-content: space-between;
+      &:nth-of-type(1) {
+        margin-bottom: rem(34)
+      }
+      li {
+        text-align: center;
+        img {
+          width: rem(86);
+          height: rem(86);
+        }
+        p {
+          margin-top: rem(8);
+          font-size: rpm(24);
+        }
+      }
+    }
+  }
+  .new-wrap {
+    background: #DC9B3869;
+    box-shadow: rem(-2) rem(-8) rem(-16) 0px rgba(220,155,56,0.41);
+    border-radius: rem(10);
+    padding: rem(44) rem(15) rem(15) rem(15);
+    nav {
+      margin-bottom: rem(40);
+      a{
+        font-size: $size-c;
+        font-weight: bolder;
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        position: relative;
+      }
+      a.active {
+        color: #CD1D1F
+      }
+      a.active::after {
+        position: absolute;
+        left: 50%;
+        bottom: rem(-12);
+        content: '';
+        height: rem(4);
+        width: rem(68);
+        background: #CD1D1F;
+        transform: translateX(-50%);
+        background:rgba(255,127,0,1);
+        border-radius: rem(2);
+      }
+    }
+    .new-con {
+      overflow: hidden;
+      li {
+        width: 49%;
+        float: left;
+        background: #FFF;
+        margin-bottom: rem(26);
+        padding-bottom: rem(12);
+        border-radius: rem(10);
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: rem(224);
+        }
+        p {
+          padding: 0 rem(12);
+        }
+        p:nth-of-type(1) {
+          margin: rem(12) 0 rem(34) 0;
+          font-weight: bolder;
+          font-size: $size-b;
+        }
+        p:nth-of-type(2) {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      li:nth-child(odd){
+        margin-right: 2%;
+      }
+    }
+  }
+}
+.home-tabbar {
+  overflow: hidden;
+  height: 100%;
+}
+
+.home-wrap {
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 70px;
+}
+.will {
+  font-size: rem(36);
 }
