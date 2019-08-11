@@ -16,6 +16,10 @@ function padLeftZero(str) {
  * => "2017-12-04 08:35:15"
  */
 function dateFormat(date, fmt) {
+  if (typeof date === 'string') {
+    // 解决IOS上无法从dateStr parse 到Date类型问题
+    date = date.replace(/-/g, '/');
+  }
   let _date = new Date(date);
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (_date.getFullYear() + '').substr(4 - RegExp.$1.length))
