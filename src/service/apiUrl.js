@@ -1,5 +1,6 @@
+import { Domain } from '../common/js/config'
 const apiUrl = {
-  'accountInitPwd': 'account/init_pwd' // account - 初始化账号密码
+  apiNewsPage: Domain + '/api/news/page' // account - 初始化账号密码
 }
 
 export default apiUrl;

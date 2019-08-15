@@ -32,7 +32,11 @@ const fetchs = (url, params = {}, user = true) => {
   setTimeout(_openLoading, 0);
   setTimeout(_closeLoading, 30000); // 防止接口报错，后台30s不返回数据，过30s后loading消失
   return new Promise((resolve, reject) => {
-    axios.post(url, params)
+    axios({
+      url: url,
+      data: params,
+      method: 'get'
+    })
       .then(response => {
         setTimeout(_closeLoading, 500);
         let _reData = response.data;
@@ -41,10 +45,10 @@ const fetchs = (url, params = {}, user = true) => {
             window.location.href = 'index.html';
             return;
           }
-          Vue.prototype.$message({
-            message: _reData.errmsg,
-            type: 'error'
-          });
+          // Vue.prototype.$message({
+          //   message: _reData.errmsg,
+          //   type: 'error'
+          // });
           return;
         }
         resolve(response.data)
@@ -55,11 +59,11 @@ const fetchs = (url, params = {}, user = true) => {
       // })
       .catch((error) => {
         // console.log(52, error);
-        Vue.prototype.$message({
-          message: '请求出错，可能是网络问题',
-          position: 'middle',
-          duration: 2000
-        });
+        // Vue.prototype.$message({
+        //   message: '请求出错，可能是网络问题',
+        //   position: 'middle',
+        //   duration: 2000
+        // });
         reject(error)
       })
   })

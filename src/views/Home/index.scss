@@ -1,5 +1,10 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
+.mint-tabbar > .mint-tab-item.is-selected {
+  background: none;
+  color: #CD1E20
+}
+
 .home-ctr {
   padding: rem(30) rem(30);
   .h-banner {
@@ -105,6 +110,19 @@
   height: 100%;
   padding-bottom: 70px;
 }
-.will {
-  font-size: rem(36);
+.wait-wrap {
+  padding-top: rem(100);
+  text-align: center;
+  img {
+    width: rem(444);
+    height: rem(314);
+    margin-bottom: rem(98);
+  }
+  p {
+    color: #EAA01E;
+    font-size: rem(40);
+    line-height: rem(56);
+    letter-spacing: rem(10);
+    font-weight: bolder;
+  }
 }

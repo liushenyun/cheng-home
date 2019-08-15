@@ -22,7 +22,9 @@ html,body{
 p,div {
   line-height: 1;
 }
-input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {-webkit-appearance: none;}
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+  -webkit-appearance: none;
+}
 textarea { -webkit-appearance: none;}  
 img{  width:100%; height:100%;  }
 a,label,.pointer{  cursor: pointer  }
@@ -65,11 +67,11 @@ background-color: #555;
 /*ie滚动条样式*/
 textarea {
 padding-top:6px;
-line-height: 1.2 !important;
-scrollbar-face-color:#fff;
-scrollbar-arrow-color:#fff;
-scrollbar-shadow-color:#fff;
-scrollbar-dark-shadow-color:#fff;
-scrollbar-base-color:#fff;
-scrollbar-track-color:#fff;
+  line-height: 1.2 !important;
+  scrollbar-face-color:#fff;
+  scrollbar-arrow-color:#fff;
+  scrollbar-shadow-color:#fff;
+  scrollbar-dark-shadow-color:#fff;
+  scrollbar-base-color:#fff;
+  scrollbar-track-color:#fff;
 }

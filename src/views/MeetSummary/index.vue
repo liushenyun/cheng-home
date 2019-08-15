@@ -26,11 +26,12 @@
     
     <ul class="m-btns-wrap">
       <li><img src="../../image/m_btns_1.png" /><span>参会指引</span></li>
-      <li><img src="../../image/m_btns_1.png" /><span>参会指引</span></li>
-      <li><img src="../../image/m_btns_1.png" /><span>参会指引</span></li>
+      <li><img src="../../image/m_btns_2.png" /><span>参会指引</span></li>
+      <li><img src="../../image/m_btns_3.png" /><span>参会指引</span></li>
     </ul>
 
-    <div class="m-btn-im">立即报名</div>
+    <div class="m-btn-im m-btn-wu">无私奉献</div>
+    <div class="m-btn-im" @click="toSignA">立即报名</div>
   </div>
 </template>
 
@@ -60,6 +61,11 @@ export default {
         //毫秒数除以一天的毫秒数,就的到了天数
         distance = Math.floor(distance / (24 * 3600 * 1000));
         return distance;
+    },
+    toSignA() {
+      this.$router.push({
+        name: 'sign'
+      })
     }
   },
   watch: { },

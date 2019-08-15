@@ -89,7 +89,7 @@ const Validate = (params) => {
       } else {
         let _vReturn = RegConfig[_vRegName].validate(_vCon);
         if (!_vReturn) {
-          Vue.prototype.$message.warning(_vErrTip + RegConfig[_vRegName].con);
+          // Vue.prototype.$message.warning(_vErrTip + RegConfig[_vRegName].con);
           return false;
         }
       }

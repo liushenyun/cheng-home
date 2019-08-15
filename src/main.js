@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import 'mint-ui/lib/style.css'
-import ajaxFun from './service/requestFun'
+// import ajaxFun from './service/requestFun'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
   Cell } from 'mint-ui'
 
@@ -15,7 +15,7 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 Vue.component(Cell.name, Cell);
 
 Object.assign(Vue.prototype, {
-  $http: ajaxFun
+  // $http: ajaxFun
 });
 Vue.config.productionTip = false
 new Vue({

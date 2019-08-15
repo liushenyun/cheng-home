@@ -25,8 +25,8 @@
           <div class="new-wrap">
             <nav> <a class="active">成氏新闻</a> <a>成氏活动</a> </nav>
             <ul class="new-con">
-              <li v-for="(item, index) in 50" :key="index">
-                <img src='../../image/h_btn-7.png' />
+              <li v-for="(item, index) in 10" :key="index">
+                <img src='../../image/home_banner.png' />
                 <p>活动名称活动名称活动...</p>
                 <p><span>08/01 周四</span><span>深圳宝安</span></p>
               </li>
@@ -34,32 +34,48 @@
           </div>
         </mt-tab-container-item>
         <mt-tab-container-item :id="tabObj.b">
-          <p class="will">成氏论坛加油开发中，敬请期待...</p>
+          <div class="wait-wrap">
+            <img src="../../image/wait_icon.jpg">
+            <p>相关功能逐步开放</p>
+            <p>·敬请期待·</p>
+          </div>
         </mt-tab-container-item>
         <mt-tab-container-item :id="tabObj.c">
-          <p class="will">寻根问祖加油开发中，敬请期待...</p>
+          <div class="wait-wrap">
+            <img src="../../image/wait_icon.jpg">
+            <p>相关功能逐步开放</p>
+            <p>·敬请期待·</p>
+          </div>
         </mt-tab-container-item>
         <mt-tab-container-item :id="tabObj.d">
-          <p class="will">个人中心加油开发中，敬请期待...</p>
+          <div class="wait-wrap">
+            <img src="../../image/wait_icon.jpg">
+            <p>相关功能逐步开放</p>
+            <p>·敬请期待·</p>
+          </div>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
 
     <mt-tabbar v-model="selected" fixed>
       <mt-tab-item :id="tabObj.a">
-        <img slot="icon" src="../../image/tab_a_on.png">
+        <img v-if="selected == tabObj.a" slot="icon" src="../../image/tab_a_on.png">
+        <img v-else slot="icon" src="../../image/tab_a_off.png">
         {{tabObj.a}}
       </mt-tab-item>
       <mt-tab-item :id="tabObj.b">
-        <img slot="icon" src="../../image/tab_b_on.png">
+        <img v-if="selected == tabObj.b" slot="icon" src="../../image/tab_b_on.png">
+        <img v-else slot="icon" src="../../image/tab_b_off.png">
         {{tabObj.b}}
       </mt-tab-item>
       <mt-tab-item :id="tabObj.c">
-        <img slot="icon" src="../../image/tab_b_on.png">
+        <img v-if="selected == tabObj.c" slot="icon" src="../../image/tab_b_on.png">
+        <img v-else slot="icon" src="../../image/tab_b_off.png">
         {{tabObj.c}}
       </mt-tab-item>
       <mt-tab-item :id="tabObj.d">
-        <img slot="icon" src="../../image/tab_d_on.png">
+        <img v-if="selected == tabObj.d" slot="icon" src="../../image/tab_d_on.png">
+        <img v-else slot="icon" src="../../image/tab_d_off.png">
         {{tabObj.d}}
       </mt-tab-item>
     </mt-tabbar>
@@ -68,6 +84,7 @@
 
 <script>
 // @ is an alias to /src
+import { apiNewsPageF } from '@/service/requestFun'
 export default {
   name: 'home',
   data () {
@@ -91,7 +108,7 @@ export default {
       },
       toClickA () {
         this.$router.push({
-              name: 'MeetSummary'
+          name: 'MeetSummary'
         })
       }
   },
@@ -104,6 +121,7 @@ export default {
   mounted () {
     document.title = this.tabObj.a
       // this.$store.dispatch('showLoading', true)
+      // apiNewsPageF(function(msg) { })
   }
 }
 </script>
