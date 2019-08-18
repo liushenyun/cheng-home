@@ -5,7 +5,7 @@ import store from './store/index'
 import 'mint-ui/lib/style.css'
 // import ajaxFun from './service/requestFun'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
-  Cell } from 'mint-ui'
+  Cell, Toast } from 'mint-ui'
 
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
@@ -15,7 +15,7 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 Vue.component(Cell.name, Cell);
 
 Object.assign(Vue.prototype, {
-  // $http: ajaxFun
+  $toast: Toast
 });
 Vue.config.productionTip = false
 new Vue({

@@ -13,13 +13,14 @@
 
 
 <script>
-import PubLoading from "./components/Loading";
+import PubLoading from "./components/Loading"
+
 export default {
-  name: "app",
+  name: 'app',
   components: {
     PubLoading
   }
-};
+}
 </script>
 
 <style  lang="scss">

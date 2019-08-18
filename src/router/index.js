@@ -3,10 +3,12 @@ import Router from 'vue-router'
 const Home = () => import('../views/Home/index')
 const MeetSummary = () => import('../views/MeetSummary/index')
 const Sign = () => import('../views/Sign/index')
+const ShowImage = () => import('../views/ShowImage/index')
 
 Vue.use(Router)
 
-export default new Router({
+const VueRouter = new Router({
+  mode: 'history',
   routes: [
     {
         path: '/',
@@ -22,6 +24,18 @@ export default new Router({
         path: '/sign',
         name: 'sign',
         component: Sign
+    },
+    {
+        path: '/showImage',
+        name: 'showImage',
+        component: ShowImage
     }
   ]
 })
+
+export default VueRouter
+
+// VueRouter.beforeEach((to, from, next) => {
+//   console.log(to, from, next)
+//   // next()
+// })

@@ -1,6 +1,20 @@
-import { Domain } from '../common/js/config'
-const apiUrl = {
-  apiNewsPage: Domain + '/api/news/page' // account - 初始化账号密码
-}
+import { Domain } from '../config/index'
 
-export default apiUrl;
+// 获取首页新闻列表
+const newsPageApi = () => `${Domain}/api/news/page`
+
+// 登录
+const loginApi = () => `${Domain}/api/user/login`
+
+// 获取jsapi配置
+const jsConfigApi = () => `${Domain}/wx/js/config`
+
+// 活动支付
+const activityPayApi = () => `${Domain}/api/activity/pay`
+
+export {
+  newsPageApi,
+  loginApi,
+  jsConfigApi,
+  activityPayApi
+};

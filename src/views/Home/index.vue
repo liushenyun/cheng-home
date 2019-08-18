@@ -119,8 +119,17 @@ export default {
     }
   },
   mounted () {
+    this.$toast('提示信息')
     document.title = this.tabObj.a
       // this.$store.dispatch('showLoading', true)
+      apiNewsPageF({
+         pageSize: 30,
+         currentPage: 1
+      }).then((result) => {
+        console.log(128, result)
+      }).catch((err) => {
+        
+      });
       // apiNewsPageF(function(msg) { })
   }
 }
