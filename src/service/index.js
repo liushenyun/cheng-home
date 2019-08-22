@@ -71,6 +71,7 @@ const fetchs = (options, fun) => {
             // getWeCodeA(APP_ID)
             console.log('去登录')
           } else {
+            Vue.prototype.$toast(errMsg)
             console.log('弹出', errMsg)
           }
         } else {

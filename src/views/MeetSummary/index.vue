@@ -105,17 +105,15 @@ export default {
     },
     toSignA() {
       
-      // let REDIRECT_URI = encodeURIComponent(location.href)
-      let REDIRECT_URI = 'http://testweixin.51vip.biz/MeetSummary'
-      let appid = 'wx19e86539dded8a42'
-      let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`
-      // window.open(url)
-      location.replace(url)
+      // let REDIRECT_URI = 'http://testweixin.51vip.biz/MeetSummary'
+      // let appid = 'wx19e86539dded8a42'
+      // let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`
+      // location.replace(url)
 
       
-      // this.$router.push({
-      //   name: 'sign'
-      // })
+      this.$router.push({
+        name: 'sign'
+      })
     }
   },
   watch: { },

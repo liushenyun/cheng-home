@@ -1,0 +1,17 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.sign-success-ctr {
+  height: 100%;
+  width: 100%;
+  background: $color-b;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(51) rem(42);
+  .sign-success-wrap {
+    background: #FFF;
+    height: 100%;
+    overflow: auto;
+    border-radius: rem(10);
+    padding: rem(64) rem(56);
+  }
+}
