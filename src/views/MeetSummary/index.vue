@@ -6,31 +6,35 @@
       <span>{{dateNum}}</span>
       <span>天</span>
     </div>
-    <div class="m-title-1"><span>·同宗同心同享·</span></div>
+    <div class="m-title-1"><span>·同宗同心同荣·</span></div>
     <div class="m-title-2"><span>赞助播报</span><img src='../../image/z_b_icon.png' /></div>
     <div class="line"></div>
     <div class="m-con-wrap">
       <div class="m-con-inner" @click="toP">
-        <div class="m-con-left"></div>
+        <div class="m-con-left">
+          <img src="../../image/niu_1.png" />
+        </div>
         <div class="m-con-right"><span>第六届世界成氏恳亲大会会议议程 》</span></div>
       </div>
     </div>
     <div class="line"></div>
     <div class="m-con-wrap">
       <div class="m-con-inner">
-        <div class="m-con-left"></div>
+        <div class="m-con-left">
+          <img src="../../image/niu_2.png" />
+        </div>
         <div class="m-con-right"><span>六大现场视频/图片直播 》</span></div>
       </div>
     </div>
     <div class="line"></div>
     
     <ul class="m-btns-wrap">
-      <li><img src="../../image/m_btns_1.png" /><span>参会指引</span></li>
-      <li><img src="../../image/m_btns_2.png" /><span>赞助公示</span></li>
+      <li @click="toZHi"><img src="../../image/m_btns_1.png" /><span>参会指南</span></li>
+      <li @click="toSponsor"><img src="../../image/m_btns_2.png" /><span>赞助公示</span></li>
       <li><img src="../../image/m_btns_3.png" /><span>实时播报</span></li>
     </ul>
 
-    <div class="m-btn-im m-btn-wu" @click="wuA">无私奉献</div>
+    <div class="m-btn-im m-btn-wu">无私奉献</div>
     <div class="m-btn-im" @click="toSignA">立即报名</div>
   </div>
 </template>
@@ -52,6 +56,11 @@ export default {
   },
   components: {
   },
+  beforeRouteLeave(to, from, next) {
+    // console.log(122, to, from, next)
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   methods: {
     daysDistance(date1, date2) {     
         let distance,
@@ -71,6 +80,14 @@ export default {
       this.$router.push({
         name: 'showImage'
       })
+    },
+    toSponsor() {
+      this.$router.push({
+        name: 'sponsor'
+      })
+    },
+    toZHi() {
+      location.href = 'https://mp.weixin.qq.com/s/28pD7gYzv3rk7Eg9dUzjRA'
     },
     wuA() {
 
@@ -118,19 +135,19 @@ export default {
   },
   watch: { },
   mounted () {
-    let _search = puGetSearch()
+    // let _search = puGetSearch()
     
-    if (_search.code) {
-      loginApiF({
-        code: _search.code,
-        state: 1
-      }).then((result) => {
-        setToken(result.token)
-        console.log(result)
-      }).catch((err) => {
+    // if (_search.code) {
+    //   loginApiF({
+    //     code: _search.code,
+    //     state: 1
+    //   }).then((result) => {
+    //     setToken(result.token)
+    //     console.log(result)
+    //   }).catch((err) => {
         
-      });
-    }
+    //   });
+    // }
     let _n = this.daysDistance(dateFormat(new Date(), 'yyyy/MM/dd'), '2019/10/17')
     this.dateNum = _n >= 0 ? _n : 0
   }

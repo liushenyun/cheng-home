@@ -1,0 +1,47 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.sign-ctr {
+  height: 100%;
+  width: 100%;
+  background: $color-b;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(87) rem(42) rem(20) rem(42);
+  .sign-form-wrap {
+    background: #FFF;
+    height: 100%;
+    overflow: auto;
+    border-radius: rem(10);
+    padding: rem(64) rem(24) rem(34) rem(24);
+    .i-tip {
+      font-size: $size-c;
+      margin-bottom: rem(15);
+      span:nth-of-type(2) {
+        color: #D52121
+      }
+    }
+    .i-input {
+      margin-bottom: rem(18);
+      border: rem(1) solid $color-c;
+      width: 100%;
+      height: rem(56);
+      font-size: $size-a;
+      padding: 0 rem(6);
+      border-radius: rem(6)
+    }
+    .sign-btn {
+      width: 90%;
+      margin-left: 5%;
+      height: rem(64);
+      line-height: rem(64);
+      background:rgba(255,196,96,1);
+      border-radius: rem(6);
+      text-align: center;
+      color: #B70909;
+      font-size: $size-d;
+      letter-spacing: rem(6);
+      font-weight: bolder;
+      margin-top: rem(44);
+    }
+  }
+}

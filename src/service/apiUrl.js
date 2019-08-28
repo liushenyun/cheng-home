@@ -1,4 +1,6 @@
 import { Domain } from '../config/index'
+// 判断用户是否登陆和关注
+const userIsloginApi = () => `${Domain}/api/user/islogin`
 
 // 获取首页新闻列表
 const newsPageApi = () => `${Domain}/api/news/page`
@@ -12,9 +14,26 @@ const jsConfigApi = () => `${Domain}/wx/js/config`
 // 活动支付
 const activityPayApi = () => `${Domain}/api/activity/pay`
 
+// 活动报名
+const activityApplyApi = () => `${Domain}/api/activity/apply`
+
+// 重新报名
+const activityReapplyApi = () => `${Domain}/api/activity/reapply`
+
+// 获取代表团
+const listParentApi = () => `${Domain}/common/dictionary/list/parent`
+
+// 捐款记录
+const sponsorListApi = () => `${Domain}/api/sponsor/list`
+
 export {
+  userIsloginApi,
   newsPageApi,
   loginApi,
   jsConfigApi,
-  activityPayApi
+  activityPayApi,
+  activityApplyApi,
+  activityReapplyApi,
+  listParentApi,
+  sponsorListApi
 };

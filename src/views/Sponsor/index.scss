@@ -1,0 +1,67 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.sponsor-ctr {
+  height: auto;
+  overflow: hidden;
+  padding-bottom: rem(20);
+  .spo-tip {
+    text-align: center;
+    margin: rem(26) 0;
+    span {
+      display: inline-block;
+      height: rem(58);
+      line-height: rem(58);
+      padding: 0 rem(23);
+      font-size: rem(30);
+      font-weight: bolder;
+      background:rgba(250,205,137, 0.51);
+    }
+    
+  }
+  .spo-list-outer {
+    padding: 0 rem(70);
+    dl {
+      margin-bottom: rem(20);
+      dt {
+        font-size: rem(28);
+        line-height: rem(40);
+        font-weight: bolder;
+        margin-bottom: rem(10);
+      }
+      dd {
+        width: 100%;
+        min-height: rem(10);
+        background: #FF715A;
+        margin-bottom: rem(6);
+        padding: rem(47) rem(16);
+        display: flex;
+        align-items: center;
+        border-radius: rem(8);
+        overflow: hidden;
+        img {
+          height: rem(116);
+          width: rem(116);
+          border-radius: 50%;
+          margin-right: rem(12);
+        }
+        .spo-con {
+          flex: 1;
+          .spo-name {
+            line-height: rem(36);
+            font-size: rem(28);
+            color: #FFF;
+            margin-bottom: rem(10);
+            span:nth-of-type(2){
+              font-size: rem(26);
+              color: rgba(255,255,255,0.8);
+            }
+          }
+          .spo-account {
+            font-size: rem(30);
+            line-height: rem(36);
+          }
+        }
+      }
+    }
+  }
+}

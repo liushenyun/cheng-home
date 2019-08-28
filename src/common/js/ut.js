@@ -1,6 +1,8 @@
 import { TOKEN_NAME } from '../../config/index'
+import Vue from 'vue'
 
 const setToken = (token) => {
+    // Vue.prototype.$eventQueue.toDoEvent()
     localStorage.setItem(TOKEN_NAME, token)
 }
 

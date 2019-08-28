@@ -101,6 +101,10 @@
     overflow: hidden;
     .m-con-left {
       width: rem(170);
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .m-con-right {
       flex: 1;

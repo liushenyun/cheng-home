@@ -5,9 +5,17 @@ import store from './store/index'
 import 'mint-ui/lib/style.css'
 // import ajaxFun from './service/requestFun'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
-  Cell, Toast, Picker } from 'mint-ui'
+  Cell, Toast, Picker,
+  Loadmore } from 'mint-ui'
 import LinkageBase from './components/linkageBase';
+import PickerS from './components/PickerS/index'
+import ShowScan from './components/ShowScan/index'
+import EventQueue from './common/js/eventQueue'
+
+Vue.use(PickerS);
+Vue.use(ShowScan);
 Vue.use(LinkageBase);
+Vue.component(Loadmore.name, Loadmore);
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
 Vue.component(Button.name, Button)
@@ -17,9 +25,11 @@ Vue.component(Cell.name, Cell);
 Vue.component(Picker.name, Picker);
 
 Object.assign(Vue.prototype, {
-  $toast: Toast
+  $toast: Toast,
+  $eventQueue: new EventQueue()
 });
 Vue.config.productionTip = false
+
 new Vue({
   router,
   store,
