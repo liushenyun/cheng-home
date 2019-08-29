@@ -126,3 +126,13 @@
     font-weight: bolder;
   }
 }
+
+.page-infinite-loading {
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

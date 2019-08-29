@@ -6,7 +6,7 @@ import 'mint-ui/lib/style.css'
 // import ajaxFun from './service/requestFun'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
   Cell, Toast, Picker,
-  Loadmore } from 'mint-ui'
+  Loadmore, InfiniteScroll, Spinner } from 'mint-ui'
 import LinkageBase from './components/linkageBase';
 import PickerS from './components/PickerS/index'
 import ShowScan from './components/ShowScan/index'
@@ -15,6 +15,8 @@ import EventQueue from './common/js/eventQueue'
 Vue.use(PickerS);
 Vue.use(ShowScan);
 Vue.use(LinkageBase);
+Vue.use(InfiniteScroll);
+Vue.component(Spinner.name, Spinner);
 Vue.component(Loadmore.name, Loadmore);
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);

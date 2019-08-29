@@ -9,6 +9,7 @@ const Sign = () => import('../views/Sign/index')
 const ShowImage = () => import('../views/ShowImage/index')
 const SignSuccess = () => import('../views/SignSuccess/index')
 const Sponsor = () => import('../views/Sponsor/index')
+const Selfless = () => import('../views/Selfless/index')
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ const VueRouter = new Router({
         path: '/sponsor',
         name: 'sponsor',
         component: Sponsor
+    },
+    { // 无私奉献
+        path: '/selfless',
+        name: 'selfless',
+        component: Selfless
     }
   ]
 })

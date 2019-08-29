@@ -2,7 +2,9 @@ import Vue from "vue";
 import fetch from './index';
 import packagePromise from './packagePromise'
 import {
-  newsPageApi, loginApi, activityPayApi,
+  newsPageApi,
+  activityPageApi,
+  loginApi, activityPayApi,
   activityApplyApi,
   activityReapplyApi,
   listParentApi,
@@ -47,6 +49,19 @@ const userIsloginApiF = (data = {}, fun) => packagePromise((resolve, reject) => 
 const apiNewsPageF = (data, fun) => packagePromise((resolve, reject) => {
   fetch({
     url: newsPageApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 获取首页活动列表
+const activityPageApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: activityPageApi(),
     method: 'GET',
     data
   }, fun)
@@ -174,6 +189,7 @@ export {
   userIsloginApiF,
   // SuccessTips,
   apiNewsPageF,
+  activityPageApiF,
   getWeCodeA,
   loginApiF,
   activityPayApiF,

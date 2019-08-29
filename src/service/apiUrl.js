@@ -5,6 +5,9 @@ const userIsloginApi = () => `${Domain}/api/user/islogin`
 // 获取首页新闻列表
 const newsPageApi = () => `${Domain}/api/news/page`
 
+// 获取首页活动列表
+const activityPageApi = () => `${Domain}/api/activity/page`
+
 // 登录
 const loginApi = () => `${Domain}/api/user/login`
 
@@ -29,6 +32,7 @@ const sponsorListApi = () => `${Domain}/api/sponsor/list`
 export {
   userIsloginApi,
   newsPageApi,
+  activityPageApi,
   loginApi,
   jsConfigApi,
   activityPayApi,

@@ -34,7 +34,7 @@
       <li><img src="../../image/m_btns_3.png" /><span>实时播报</span></li>
     </ul>
 
-    <div class="m-btn-im m-btn-wu">无私奉献</div>
+    <div class="m-btn-im m-btn-wu" @click="toSelflessA">无私奉献</div>
     <div class="m-btn-im" @click="toSignA">立即报名</div>
   </div>
 </template>
@@ -130,6 +130,11 @@ export default {
       
       this.$router.push({
         name: 'sign'
+      })
+    },
+    toSelflessA() {
+      this.$router.push({
+        name: 'selfless'
       })
     }
   },
