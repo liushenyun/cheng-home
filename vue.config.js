@@ -10,15 +10,15 @@ module.exports = {
             //     changeOrigin: true
             // },
             '/wx': {
-                target: 'http://uzw23m.natappfree.cc',
+                target: 'http://5cf8ue.natappfree.cc',
                 changeOrigin: true
             },
             '/api': {
-                target: 'http://uzw23m.natappfree.cc',
+                target: 'http://5cf8ue.natappfree.cc',
                 changeOrigin: true
             },
             '/common': {
-                target: 'http://uzw23m.natappfree.cc',
+                target: 'http://5cf8ue.natappfree.cc',
                 changeOrigin: true
             }
             // '/wx': {

@@ -17,7 +17,7 @@
       <input class="i-input" v-model="params.residence" placeholder="请输入现居" type="text" name="" id="">
 
       <p class="i-tip"><span>代表团</span><span>(必填)</span></p>
-      <input class="i-input"  readonly @focus="pickerFlag = true" placeholder="请输入代表团" type="text" name="" id="">
+      <input class="i-input" v-model="delegationName"  readonly @focus="pickerFlag = true" placeholder="请输入代表团" type="text" name="" id="">
 
       <p class="i-tip"><span>公司</span><span></span></p>
       <input class="i-input" v-model="params.company" placeholder="请输入公司" type="text" name="" id="">
@@ -53,28 +53,34 @@ export default {
       numberSlot: [{
           flex: 1,
           defaultIndex: 0,
-          values: [0, 111, 2, 3, 4, 5, 6],
+          values: [{name: 112, key: 'a'}, {name: 112, key: 'b'}],
           className: 'slot1'
      }],
+     delegationName: '',
      params: {
-       name: '',
-       tel: '',
-       ancestral: '',
-       residence: '',
-       delegationId: '',
-       company: '',
-       position: '',
-       industry: ''
+       name: '', // 姓名
+       tel: '', // 手机
+       ancestral: '', // 祖籍
+       residence: '', // 现居地
+       delegationId: '', // 代表团
+       company: '', // 公司
+       position: '', // 职务
+       industry: '' // 行业
      }
     }
   },
   components: { LinkageAddr },
   methods: {
     submit() {
+      this.$router.push({
+        name: 'signSuccess'
+      })
+      activityApplyApiF(this.params).then((result) => {
+        console.log(result)
+      }).catch(() => {
+
+      })
       console.log(this.params)
-    },
-    onNumberChange(picker, values) {
-      console.log(values)
     },
     handleConfirm(args, type, divide = '-') {
       let { val, bool } = args[0];
@@ -87,13 +93,18 @@ export default {
     },
     listParentApiFA(fun) {
       listParentApiF(2, fun).then((result) => {
-        console.log(result)
+        this.numberSlot[0].values = result.map(({name, key}) => {
+          console.log(name, key)
+          return { name: name, key: key }
+        })
       }).catch((err) => {
         
       });
     },
     pickerSure(data) {
-      console.log(data)
+      this.delegationName = data[0].name
+      this.params.delegationId = data[0].key
+      this.pickerFlag = false
     }
   },
   

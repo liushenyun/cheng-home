@@ -6,6 +6,7 @@ import {
   activityPageApi,
   loginApi, activityPayApi,
   activityApplyApi,
+  sponsorDonationApi,
   activityReapplyApi,
   listParentApi,
   userIsloginApi,
@@ -119,17 +120,59 @@ const getWeCodeA = (appid) => {
 }
 
 // 活动报名
-const activityApplyApiF = (data, fun) => packagePromise((resolve, reject) => {
+const activityApplyApiF = (data) => packagePromise((resolve, reject) => {
+  let _params = data
+  console.log(124, _params)
+  let vArr = [
+    ['name', _params.name, '姓名', 'empty'],
+    ['tel', _params.tel, '手机', 'empty|phone'],
+    ['ancestral', _params.ancestral, '祖籍', 'empty'],
+    ['residence', _params.residence, '现居地', 'empty'],
+    ['delegationId', _params.delegationId, '代表团', 'empty']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
   fetch({
     url: activityApplyApi(),
     method: 'POST',
+    header: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
     data
-  }, fun)
+  })
     .then(msg => {
       resolve(msg)
     })
     .catch(err => reject(err))
 })
+
+// 捐款
+const sponsorDonationApiF = (data) => packagePromise((resolve, reject) => {
+  let _params = data
+  console.log(124, _params)
+  let vArr = [
+    ['name', _params.name, '姓名', 'empty'],
+    ['tel', _params.tel, '手机', 'empty|phone'],
+    ['ancestral', _params.ancestral, '祖籍', 'empty'],
+    ['residence', _params.residence, '现居地', 'empty'],
+    ['delegationId', _params.delegationId, '代表团', 'empty']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
+  fetch({
+    url: sponsorDonationApi(),
+    method: 'POST',
+    header: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
 
 // 重新报名
 const activityReapplyApiF = (data, fun) => packagePromise((resolve, reject) => {
@@ -194,6 +237,7 @@ export {
   loginApiF,
   activityPayApiF,
   activityApplyApiF,
+  sponsorDonationApiF,
   activityReapplyApiF,
   listParentApiF,
   sponsorListApiF

@@ -26,6 +26,9 @@ const activityReapplyApi = () => `${Domain}/api/activity/reapply`
 // 获取代表团
 const listParentApi = () => `${Domain}/common/dictionary/list/parent`
 
+// 捐款
+const sponsorDonationApi = () => `${Domain}/api/sponsor/donation`
+
 // 捐款记录
 const sponsorListApi = () => `${Domain}/api/sponsor/list`
 
@@ -39,5 +42,6 @@ export {
   activityApplyApi,
   activityReapplyApi,
   listParentApi,
-  sponsorListApi
+  sponsorListApi,
+  sponsorDonationApi
 };

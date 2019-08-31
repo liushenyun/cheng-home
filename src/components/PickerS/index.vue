@@ -6,7 +6,7 @@
             <span @click="sure">确定</span>
           </div>
           <div class="picker-wrap">
-            <mt-picker :slots="pickerSolt" @change="onNumberChange" :visible-item-count="3"></mt-picker>
+            <mt-picker valueKey='name' :slots="pickerSolt" @change="onNumberChange" :visible-item-count="3"></mt-picker>
           </div>
         </div>
     </div>
@@ -22,7 +22,7 @@ export default {
         return [{
               flex: 1,
               defaultIndex: 0,
-              values: [0, 1, 2, 3, 4, 5, 6],
+              values: [],
               className: 'slot1'
         }];
       }
@@ -30,6 +30,7 @@ export default {
   },
   data() {
     return {
+      sureData: []
     };
   },
   methods: {
@@ -37,13 +38,11 @@ export default {
       this.$emit('picker-cance', false)
     },
     sure() {
-      this.$emit('picker-sure', {
-        a: 12
-      })
+      this.$emit('picker-sure', this.sureData)
     },
     onNumberChange(picker, values) {
-      console.log(values)
-    },
+      this.sureData = values
+    }
   }
 };
 </script>

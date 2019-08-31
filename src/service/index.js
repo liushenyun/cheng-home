@@ -75,7 +75,7 @@ const fetchs = (options, fun) => {
             //     fun
             //   });
             // }
-            getWeCodeA(APP_ID)
+            // getWeCodeA(APP_ID)
             console.log('去登录')
           } else if (errorCode == 403) {
             Store.dispatch('showScan', false)

@@ -1,8 +1,5 @@
 <template>
   <div class="home-tabbar home-ctr">
-    
-      
-
       <div class="home-wrap">
         <mt-tab-container  class="page-tabbar-container" v-model="selected">
           <mt-tab-container-item
@@ -105,7 +102,7 @@ export default {
   name: 'home',
   data () {
     return {
-      selected: '走进成氏',
+      selected: this.$route.params.selected || '走进成氏',
       tabObj: {
         a: '走进成氏',
         b: '成氏论坛',
