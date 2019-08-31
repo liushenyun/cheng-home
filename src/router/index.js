@@ -10,6 +10,8 @@ const ShowImage = () => import('../views/ShowImage/index')
 const SignSuccess = () => import('../views/SignSuccess/index')
 const Sponsor = () => import('../views/Sponsor/index')
 const Selfless = () => import('../views/Selfless/index')
+const ReviewStatus = () => import('../views/ReviewStatus/index')
+const ActiveDetail = () => import('../views/ActiveDetail/index')
 
 Vue.use(Router)
 
@@ -50,6 +52,16 @@ const VueRouter = new Router({
         path: '/selfless',
         name: 'selfless',
         component: Selfless
+    },
+    { // 审核状态
+        path: '/reviewStatus',
+        name: 'reviewStatus',
+        component: ReviewStatus
+    },
+    { // 活动详情
+        path: '/activeDetail',
+        name: 'activeDetail',
+        component: ActiveDetail
     }
   ]
 })

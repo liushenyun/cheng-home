@@ -152,10 +152,10 @@ const sponsorDonationApiF = (data) => packagePromise((resolve, reject) => {
   console.log(124, _params)
   let vArr = [
     ['name', _params.name, '姓名', 'empty'],
-    ['tel', _params.tel, '手机', 'empty|phone'],
     ['ancestral', _params.ancestral, '祖籍', 'empty'],
     ['residence', _params.residence, '现居地', 'empty'],
-    ['delegationId', _params.delegationId, '代表团', 'empty']
+    ['tel', _params.tel, '电话', 'empty|phone'],
+    ['amount', _params.amount, '金额', 'empty']
   ]
   let _Validated = Validate(vArr);
   if (!_Validated) { return };

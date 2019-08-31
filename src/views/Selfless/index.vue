@@ -1,11 +1,11 @@
 <template>
   <div class="selfless-ctr">
     <p class="self-titp">赞助第六届世界成氏恳亲大会,所有捐赠及金额去向将在赞助公示中向全族人公示。</p>
-    <div class="s-input-wrap"><input v-model="name" class="s-input"  placeholder="请输入捐赠人姓名(不填默认为匿名捐赠）" type="text" name="" id=""></div>
-    <div class="s-input-wrap"><input v-model="ancestral"  class="s-input"  placeholder="请输入捐赠人祖籍" type="text" name="" id=""></div>
-    <div class="s-input-wrap"><input v-model="residence"  class="s-input"  placeholder="请输入捐赠人现居城市" type="text" name="" id=""></div>
-    <div class="s-input-wrap"><input v-model="tel"  class="s-input" maxlength="11"  placeholder="请输入联系电话" type="number" name="" id=""></div>
-    <div class="s-input-wrap"><input v-model="amount"  class="s-input"  placeholder="请输入捐赠金额" type="number" name="" id=""></div>
+    <div class="s-input-wrap"><input v-model="params.name" class="s-input"  placeholder="请输入捐赠人姓名(不填默认为匿名捐赠）" type="text" name="" id=""></div>
+    <div class="s-input-wrap"><input v-model="params.ancestral"  class="s-input"  placeholder="请输入捐赠人祖籍" type="text" name="" id=""></div>
+    <div class="s-input-wrap"><input v-model="params.residence"  class="s-input"  placeholder="请输入捐赠人现居城市" type="text" name="" id=""></div>
+    <div class="s-input-wrap"><input v-model="params.tel"  class="s-input" maxlength="11"  placeholder="请输入联系电话" type="number" name="" id=""></div>
+    <div class="s-input-wrap"><input v-model="params.amount"  class="s-input"  placeholder="请输入捐赠金额" type="number" name="" id=""></div>
     <div class="self-btn" @click="selfSubmitA">立即捐赠</div>
   </div>
 </template>
@@ -30,6 +30,11 @@ export default {
   components: {},
   methods: {
     selfSubmitA() {
+      sponsorDonationApiF(this.params).then((result) => {
+        
+      }).catch((err) => {
+        
+      });
       console.log(12123)
     }
   },

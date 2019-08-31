@@ -73,7 +73,9 @@ export default {
   methods: {
     submit() {
       this.$router.push({
-        name: 'signSuccess'
+        name: 'activeDetail'
+        // name: 'signSuccess'
+        // name: 'reviewStatus'
       })
       activityApplyApiF(this.params).then((result) => {
         console.log(result)

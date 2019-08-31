@@ -1,0 +1,63 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.review-status-ctr {
+  height: 100%;
+  width: 100%;
+  background: $color-b;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(28) rem(76) rem(0) rem(76);
+  background:linear-gradient(151deg,rgba(230,197,133,1),rgba(255,168,0,1),rgba(230,197,133,1)) no-repeat left top;
+  background-size: 100% rem(408);
+  .review-con {
+    text-align: center;
+    img {
+      width: rem(219);
+      height: rem(169);
+    }
+  }
+  .review-word {
+    margin-top: rem(40);
+    width: 100%;
+    height: rem(640);
+    background: url('../../image/review_bg_icon.png') no-repeat left top;
+    background-size: 100% 100%;
+    
+    .rw-p-1 {
+      height: rem(122);
+      line-height: rem(122);
+      font-size: rem(36);
+      color:#FFA800;
+      font-weight: bolder;
+    }
+    .rw-p-2,
+    .rw-p-3 {
+      font-size: rem(30);
+      line-height: rem(64);
+      font-weight: bolder;
+    }
+    .rw-span-1,
+    .rw-span-2 {
+      display: inline-block;
+      height: rem(64);
+      line-height: rem(64);
+      background:linear-gradient(-28deg,rgba(255,222,158,1),rgba(255,168,0,1),rgba(255,222,157,1));
+      opacity:0.8;
+      border-radius: rem(10);
+      padding: 0 rem(16);
+      color: #B70909;
+      font-size: rem(30);
+      font-weight: bolder;
+      margin-bottom: rem(50);
+    }
+    .rw-p-4 {
+      width: 66%;
+      margin-left: 17%;
+      font-size: rem(30);
+      line-height: rem(44);
+      color: #B70909;
+      letter-spacing: rem(2);
+      font-weight: bolder;
+    }
+  }
+}
