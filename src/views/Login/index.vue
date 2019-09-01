@@ -17,7 +17,6 @@ export default {
   methods: {
     listParentApiFA(fun) {
       listParentApiF(2, fun).then((result) => {
-        console.log(result)
       }).catch((err) => {
         
       });
@@ -25,6 +24,10 @@ export default {
   },
   
   watch: { },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   mounted () {
     this.listParentApiFA(this.listParentApiFA.bind(this))
   }

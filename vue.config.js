@@ -1,3 +1,4 @@
+let d = 'http://192.168.7.200:8088'
 module.exports = {
     devServer: {
         proxy: {
@@ -10,15 +11,15 @@ module.exports = {
             //     changeOrigin: true
             // },
             '/wx': {
-                target: 'http://5cf8ue.natappfree.cc',
+                target: d,
                 changeOrigin: true
             },
             '/api': {
-                target: 'http://5cf8ue.natappfree.cc',
+                target: d,
                 changeOrigin: true
             },
             '/common': {
-                target: 'http://5cf8ue.natappfree.cc',
+                target: d,
                 changeOrigin: true
             }
             // '/wx': {

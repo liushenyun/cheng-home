@@ -41,12 +41,13 @@ export default {
       }).then((result) => {
         let { subscribe, token } = result
         setToken(token)
+        // debugger
         this.$store.dispatch('showScan', subscribe)
       }).catch((err) => {
         
       });
     } else {
-      // this.userIsloginApiFA(this.userIsloginApiFA.bind(this))
+      this.userIsloginApiFA(this.userIsloginApiFA.bind(this))
     }
     
   }

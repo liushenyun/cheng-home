@@ -13,12 +13,15 @@
 <script>
 import dateFormat from '../../utils/dateFormat'
 import { sponsorDonationApiF } from '@/service/requestFun.js'
+import { jsConfigApi } from '../../service/apiUrl'
+import wechat from '../../common/js/wechat'
 // @ is an alias to /src
 export default {
   name: 'Selfless',
   data () {
     return {
       params: {
+        name: '', // 姓名
         name: '', // 姓名
         ancestral: '', // 祖籍
         residence: '', // 现居地
@@ -30,15 +33,25 @@ export default {
   components: {},
   methods: {
     selfSubmitA() {
-      sponsorDonationApiF(this.params).then((result) => {
-        
-      }).catch((err) => {
-        
-      });
-      console.log(12123)
+      let _this = this
+      wechat.config(wechat.properties.interface.chooseWXPay, jsConfigApi(), function(r) {
+        sponsorDonationApiF(_this.params).then((result) => {
+          wechat.chooseWxPay(result, function (res) {
+              _this.$router.push({
+                name: 'sponsor'
+              })
+          })
+        }).catch((err) => {
+          
+        });
+      })
     }
   },
   watch: { },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   mounted () {
     document.title = '无私奉献'
   }

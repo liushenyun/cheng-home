@@ -10,7 +10,7 @@
             <img :src="subItem.headImage" alt="">
             <div class="spo-con">
               <p class="spo-name"><span>{{subItem.name}}</span><span>({{subItem.location}})</span></p>
-              <p class="spo-account">{{subItem.content}}元</p>
+              <p class="spo-account">{{subItem.content}}</p>
             </div>
           </dd>
         </dl>
@@ -33,10 +33,13 @@ export default {
   methods: {
   },
   watch: { },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   mounted () {
     sponsorListApiF().then((result) => {
       this.pageList = result
-      console.log(result)
     }).catch(() => {
 
     })

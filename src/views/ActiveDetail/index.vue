@@ -60,10 +60,13 @@ export default {
       })
     },
     singA() {
-      console.log('立即报名')
     }
   },
   watch: { },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   mounted () {
   }
 }

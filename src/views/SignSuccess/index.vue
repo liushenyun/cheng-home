@@ -26,7 +26,7 @@
 import dateFormat from '../../utils/dateFormat'
 // @ is an alias to /src
 export default {
-  name: 'Sign',
+  name: 'SignSuccess',
   data () {
     return {
       showShare: false
@@ -36,7 +36,7 @@ export default {
   methods: {
     backHomeA() {
       this.$router.push({
-        name: 'home'
+        name: 'MeetSummary'
       })
     },
     toMineA() {
@@ -49,6 +49,10 @@ export default {
     }
   },
   watch: { },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   mounted () {
   }
 }

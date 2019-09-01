@@ -35,14 +35,14 @@
     </ul>
 
     <div class="m-btn-im m-btn-wu" @click="toSelflessA">无私奉献</div>
-    <div class="m-btn-im" @click="toSignA">立即报名</div>
+    <div class="m-btn-im" @click="toSignA">{{statusText}}</div>
   </div>
 </template>
 
 <script>
 import dateFormat from '../../utils/dateFormat'
 import puGetSearch from '../../utils/puGetSearch'
-import { loginApiF, activityPayApiF } from '@/service/requestFun'
+import { loginApiF, activityPayApiF, activityStatusApiF } from '@/service/requestFun'
 import { setToken } from '../../common/js/ut'
 import { jsConfigApi } from '../../service/apiUrl'
 import wechat from '../../common/js/wechat'
@@ -51,15 +51,34 @@ export default {
   name: 'MeetSummary',
   data () {
     return {
-      dateNum: 0
+      dateNum: 0,
+      pageData: {
+        status: '0', // 0-未报名 2-待审核3-审核通过，4-审核拒绝
+        refuseReason: '',
+        pay: false, // 是否需要支付
+        applyId: null
+      }
     }
   },
   components: {
   },
   beforeRouteLeave(to, from, next) {
-    // console.log(122, to, from, next)
     history.pushState(null, null, location.search.replace(/code/g, 'XX'))
     next()
+  },
+  computed: {
+    statusText: function() {
+      let _status = this.pageData.status + ''
+      let _pay = this.pageData.pay
+      let _obj = {
+        '0': '立即报名',
+        '2': '审核中',
+        '3': _pay ? '立即支付' : '报名成功',
+        '4': '审核不通过，立即报名',
+        '5': '报名成功'
+      }
+      return _obj[_status]
+    }
   },
   methods: {
     daysDistance(date1, date2) {     
@@ -89,70 +108,81 @@ export default {
     toZHi() {
       location.href = 'https://mp.weixin.qq.com/s/28pD7gYzv3rk7Eg9dUzjRA'
     },
-    wuA() {
-
-      console.log(12, wechat.properties.interface.chooseWXPay)
+    payA() {
+      let _this = this
       wechat.config(wechat.properties.interface.chooseWXPay, jsConfigApi(), function(r) {
-      })
-
-       let param = {
-              "activityApplyId": 1
-          };
-          activityPayApiF(param).then((result) => {
-            alert(1)
-            alert(JSON.stringify(result))
+        activityPayApiF({
+              "activityApplyId": _this.pageData.applyId
+          }).then((result) => {
             let data = result;
             wechat.chooseWxPay(data,function (res) {
-                console.log(res);
-                alert('支付成功')
-                alert(res)
+                _this.$router.push({
+                  name: 'signSuccess'
+                })
             })
-            console.log(128, result)
           }).catch((err) => {
             
           });
-
-        
-        // request.getJson('/api/activity/pay',param,function (resp) {
-        //     let data = resp.data;
-        //     wechat.chooseWxPay(data,function (res) {
-        //         console.log(res);
-        //     })
-        // })
+      })
     },
     toSignA() {
-      
-      // let REDIRECT_URI = 'http://testweixin.51vip.biz/MeetSummary'
-      // let appid = 'wx19e86539dded8a42'
-      // let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`
-      // location.replace(url)
-
-      
-      this.$router.push({
-        name: 'sign'
-      })
+      let { pay, status } = this.pageData
+      if (status == 0) {
+        this.$router.push({
+          name: 'sign'
+        })
+      } else if (status == 2) {
+         this.$router.push({
+          name: 'reviewStatus'
+        })
+      } else if (status == 3) {
+        if (pay) {
+          this.payA()
+        } else {
+           this.$router.push({
+              name: 'signSuccess'
+            })
+        }
+      } else if (status == 4) {
+         this.$router.push({
+          name: 'sign',
+          params: {
+            applyId: this.pageData.applyId
+          }
+        })
+      } else if (status == 5) {
+        this.$router.push({
+          name: 'signSuccess'
+        })
+      }
     },
     toSelflessA() {
       this.$router.push({
-        name: 'selfless'
+        name: 'selfless',
+        params: {
+          applyId: this.pageData.applyId
+        }
+      })
+    },
+    activityStatusApiFA() {
+      activityStatusApiF({
+        activityId: 1
+      }).then((result) => {
+        let { pay, status, refuseReason, applyId } = result
+        this.pageData = {
+          status,
+          refuseReason,
+          pay,
+          applyId
+        }
+      }).catch(() => {
+
       })
     }
   },
   watch: { },
   mounted () {
-    // let _search = puGetSearch()
-    
-    // if (_search.code) {
-    //   loginApiF({
-    //     code: _search.code,
-    //     state: 1
-    //   }).then((result) => {
-    //     setToken(result.token)
-    //     console.log(result)
-    //   }).catch((err) => {
-        
-    //   });
-    // }
+    this.activityStatusApiFA()
     let _n = this.daysDistance(dateFormat(new Date(), 'yyyy/MM/dd'), '2019/10/17')
     this.dateNum = _n >= 0 ? _n : 0
   }

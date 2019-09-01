@@ -5,10 +5,10 @@
       <input class="i-input" v-model="params.name" placeholder="请输入姓名" type="text" name="" id="">
 
       <p class="i-tip"><span>手机</span><span>(必填)</span></p>
-      <input class="i-input" v-model="params.tel" maxlength="11" placeholder="请输入手机号" type="number" name="" id="">
+      <input class="i-input" v-model="params.tel" maxLength="11" placeholder="请输入手机号" type="number" name="" id="">
 
       <p class="i-tip"><span>身份证号</span><span>(必填)</span></p>
-      <input class="i-input" maxlength="18" placeholder="请输入身份证号" type="text" name="" id="">
+      <input class="i-input" v-model="params.idcard" maxlength="18" placeholder="请输入身份证号" type="text" name="" id="">
 
       <p class="i-tip"><span>祖籍</span><span>(必填)</span></p>
       <input class="i-input" readonly @focus="addrFlag = true" placeholder="请输入祖籍" type="text" v-model="addr" name="" id="">
@@ -40,6 +40,7 @@
 import dateFormat from '../../utils/dateFormat'
 import LinkageAddr from '@/components/linkageAddr/index.vue'
 import { activityApplyApiF, listParentApiF } from "@/service/requestFun.js"
+import puGetSearch from '@/utils/puGetSearch'
 // import { LinkageTime, LinkageDate, LinkageAddr } from '@/components';
 // @ is an alias to /src
 export default {
@@ -53,14 +54,17 @@ export default {
       numberSlot: [{
           flex: 1,
           defaultIndex: 0,
-          values: [{name: 112, key: 'a'}, {name: 112, key: 'b'}],
+          values: [],
           className: 'slot1'
      }],
      delegationName: '',
+     applyId: null,
      params: {
+       activityId: '1',
        name: '', // 姓名
        tel: '', // 手机
        ancestral: '', // 祖籍
+       idcard: '', // 身份证
        residence: '', // 现居地
        delegationId: '', // 代表团
        company: '', // 公司
@@ -72,21 +76,28 @@ export default {
   components: { LinkageAddr },
   methods: {
     submit() {
-      this.$router.push({
-        name: 'activeDetail'
-        // name: 'signSuccess'
-        // name: 'reviewStatus'
-      })
+      // this.$router.push({
+      //   name: 'activeDetail'
+      //   // name: 'signSuccess'
+      //   // name: 'reviewStatus'
+      // })
+      if (this.applyId) {
+        this.params.id = this.applyId
+      }
       activityApplyApiF(this.params).then((result) => {
-        console.log(result)
+        this.$toast('提交成功')
+
+        setTimeout(() => {
+          this.$router.push({
+            name: 'MeetSummary'
+          })
+        }, 1500)
       }).catch(() => {
 
       })
-      console.log(this.params)
     },
     handleConfirm(args, type, divide = '-') {
       let { val, bool } = args[0];
-      console.log(val)
       if (bool) {
         this[type] = val.join(divide);
         this.params.ancestral = val.join(divide)
@@ -96,7 +107,6 @@ export default {
     listParentApiFA(fun) {
       listParentApiF(2, fun).then((result) => {
         this.numberSlot[0].values = result.map(({name, key}) => {
-          console.log(name, key)
           return { name: name, key: key }
         })
       }).catch((err) => {
@@ -111,7 +121,12 @@ export default {
   },
   
   watch: { },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   mounted () {
+    this.applyId = this.$route.params.applyId
     this.listParentApiFA(this.listParentApiFA.bind(this))
   }
 }

@@ -32,6 +32,9 @@ const sponsorDonationApi = () => `${Domain}/api/sponsor/donation`
 // 捐款记录
 const sponsorListApi = () => `${Domain}/api/sponsor/list`
 
+// 获取活动的审核状态
+const activityStatusApi = () => `${Domain}/api/activity/status`
+
 export {
   userIsloginApi,
   newsPageApi,
@@ -43,5 +46,6 @@ export {
   activityReapplyApi,
   listParentApi,
   sponsorListApi,
-  sponsorDonationApi
+  sponsorDonationApi,
+  activityStatusApi
 };

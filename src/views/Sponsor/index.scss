@@ -31,7 +31,8 @@
       dd {
         width: 100%;
         min-height: rem(10);
-        background: #FF715A;
+        background: url('../../image/self_less_bg.png') no-repeat left top;
+        background-size: 100% 100%;
         margin-bottom: rem(6);
         padding: rem(47) rem(16);
         display: flex;

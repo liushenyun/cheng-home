@@ -7,6 +7,7 @@ import {
   loginApi, activityPayApi,
   activityApplyApi,
   sponsorDonationApi,
+  activityStatusApi,
   activityReapplyApi,
   listParentApi,
   userIsloginApi,
@@ -39,7 +40,6 @@ const userIsloginApiF = (data = {}, fun) => packagePromise((resolve, reject) => 
     data: {}
   }, fun)
     .then(msg => {
-      console.log(msg)
       // debugger
       resolve(msg)
     })
@@ -75,7 +75,6 @@ const activityPageApiF = (data, fun) => packagePromise((resolve, reject) => {
 // 登录
 const loginApiF = (data, fun) => packagePromise((resolve, reject) => {
   let isLogin = localStorage.getItem('PU-isLogin')
-  console.log(1222, isLogin, Vue.prototype.$eventQueue)
   if (isLogin == 'YES') { return }
   localStorage.setItem('PU-isLogin', 'YES')
   // debugger
@@ -85,7 +84,6 @@ const loginApiF = (data, fun) => packagePromise((resolve, reject) => {
     data
   }, fun)
     .then(msg => {
-      console.log(msg)
       localStorage.setItem('PU-isLogin', 'NO')
       // debugger
       resolve(msg)
@@ -122,10 +120,10 @@ const getWeCodeA = (appid) => {
 // 活动报名
 const activityApplyApiF = (data) => packagePromise((resolve, reject) => {
   let _params = data
-  console.log(124, _params)
   let vArr = [
     ['name', _params.name, '姓名', 'empty'],
     ['tel', _params.tel, '手机', 'empty|phone'],
+    ['idcard', _params.idcard, '身份证', 'empty'],
     ['ancestral', _params.ancestral, '祖籍', 'empty'],
     ['residence', _params.residence, '现居地', 'empty'],
     ['delegationId', _params.delegationId, '代表团', 'empty']
@@ -134,7 +132,7 @@ const activityApplyApiF = (data) => packagePromise((resolve, reject) => {
   if (!_Validated) { return };
   fetch({
     url: activityApplyApi(),
-    method: 'POST',
+    method: 'post',
     header: {
       'Content-Type': 'application/json;charset=UTF-8'
     },
@@ -149,7 +147,6 @@ const activityApplyApiF = (data) => packagePromise((resolve, reject) => {
 // 捐款
 const sponsorDonationApiF = (data) => packagePromise((resolve, reject) => {
   let _params = data
-  console.log(124, _params)
   let vArr = [
     ['name', _params.name, '姓名', 'empty'],
     ['ancestral', _params.ancestral, '祖籍', 'empty'],
@@ -173,6 +170,18 @@ const sponsorDonationApiF = (data) => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
+// 获取活动的审核状态
+const activityStatusApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: activityStatusApi(),
+    method: 'GET',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
 
 // 重新报名
 const activityReapplyApiF = (data, fun) => packagePromise((resolve, reject) => {
@@ -238,6 +247,7 @@ export {
   activityPayApiF,
   activityApplyApiF,
   sponsorDonationApiF,
+  activityStatusApiF,
   activityReapplyApiF,
   listParentApiF,
   sponsorListApiF

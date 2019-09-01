@@ -13,8 +13,10 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 全局ajax请求拦截器
 // POST传参序列化
 axios.interceptors.request.use((config) => {
-  if (config.method === 'post') {
-    config.data = qs.stringify(config.data)
+  if (config.method === 'post' || config.method == 'POST') {
+    if (config.headers && config.headers['Content-Type'] && config.headers['Content-Type'].indexOf('application/json') < 0) {
+      config.data = qs.stringify(config.data)
+    }
   }
   return config
 }, (error) => {
@@ -24,7 +26,6 @@ const _closeLoading = () => { Store.dispatch('showLoading', false) };
 const _openLoading = () => { Store.dispatch('showLoading', true) };
 
 const fetchs = (options, fun) => {
-  console.log(27, options)
   // Vue.prototype.$toast('454')
   let params = options.data || {}
   let _header = Object.assign({}, options.header)
@@ -48,13 +49,11 @@ const fetchs = (options, fun) => {
   }
   return new Promise((resolve, reject) => {
     axios({
-      url: options.url,
-      params: params,
-      method: options.method || 'GET',
       headers: {
         UserAuthentication: getToken() || '',
         ..._header
-      }
+      },
+      ..._config
     })
       .then(response => {
         setTimeout(_closeLoading, 500);
@@ -63,27 +62,22 @@ const fetchs = (options, fun) => {
         let errMsg = data.msg
         let result = data.data
           console.log(errMsg, errorCode)
+          // debugger
         if (status == 200) {
           if (errorCode == 0) {
              resolve(result)
           } else if (errorCode == 401) {
-            console.log('--fun', fun)
-            // if (fun && typeof fun === 'function') {
-            //   var _pathname = location.pathname
-            //   Vue.prototype.$eventQueue.addEvent({
-            //     key: `${_pathname}${fun.name}`,
-            //     fun
-            //   });
-            // }
-            // getWeCodeA(APP_ID)
-            console.log('去登录')
+            getWeCodeA(APP_ID)
+            reject(errMsg)
           } else if (errorCode == 403) {
             Store.dispatch('showScan', false)
+            reject(errMsg)
           } else {
+            reject(errMsg)
             Vue.prototype.$toast(errMsg)
-            console.log('弹出', errMsg)
           }
         } else {
+          Vue.prototype.$toast('系统错误')
           console.log('系统错误')
         }
       })
