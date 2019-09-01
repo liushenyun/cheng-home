@@ -1,0 +1,91 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.public-welfare-ctr {
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(37) rem(44) rem(24) rem(44);
+  .pw-title {
+    color: #B2700B;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(32);
+    div {
+      flex: 1;
+      img {
+        height: rem(29);
+        width: rem(94);
+      }
+    }
+    div:nth-of-type(1) {
+      text-align: right;
+    }
+    div:nth-of-type(2) {
+      text-align: left;
+    }
+    span {
+      margin: 0 rem(20);
+    }
+    p:nth-of-type(1) {
+      font-size: rem(36);
+      margin-bottom: rem(14);
+    }
+    p:nth-of-type(2) {
+      font-size: rem(18);
+    }
+  }
+
+  ul {
+    li:nth-of-type(1) {
+      background: url('../../image/welfare_intro_bg.png') no-repeat left top;
+      background-size: 100% 100%;
+    }
+    li:nth-of-type(2) {
+      background: url('../../image/welfare_info_bg.png') no-repeat left top;
+      background-size: 100% 100%;
+    }
+    li:nth-of-type(3) {
+      background: url('../../image/welfare_active_bg.png') no-repeat left top;
+      background-size: 100% 100%;
+    }
+    li:nth-of-type(4) {
+      background: url('../../image/welfare_apply_bg.png') no-repeat left top;
+      background-size: 100% 100%;
+    }
+    li {
+      position: relative;
+      margin-bottom: rem(28);
+      height: rem(240);
+      text-align: center;
+      line-height: rem(240);
+      width: 100%;
+      
+      color: #FFF;
+      // padding-left: rem(60);
+      img {
+        position: absolute;
+        left: rem(44);
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(76);
+        height: rem(81);
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        p:nth-of-type(1) {
+          font-size: rem(36);
+          letter-spacing: rem(8);
+          font-weight: bolder;
+          margin-bottom: rem(10);
+        }
+        p:nth-of-type(2) {
+          font-size: rem(14);
+        }
+      }
+    }
+  }
+}

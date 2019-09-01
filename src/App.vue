@@ -46,7 +46,7 @@ export default {
         
       });
     } else {
-      this.userIsloginApiFA(this.userIsloginApiFA.bind(this))
+      // this.userIsloginApiFA(this.userIsloginApiFA.bind(this))
     }
     
   }

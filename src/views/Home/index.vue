@@ -19,7 +19,7 @@
                 </ul>
                 <ul class="hf-ul-same">
                   <li><img src='../../image/h_btn-5.png' /><p>宗亲总会</p></li>
-                  <li><img src='../../image/h_btn-6.png' /><p>成氏公益</p></li>
+                  <li @click="toPublicWelfareA"><img src='../../image/h_btn-6.png' /><p>成氏公益</p></li>
                   <li><img src='../../image/h_btn-7.png' /><p>信息公开</p></li>
                   <li><img src='../../image/h_btn-8.png' /><p>文化研究会</p></li>
                 </ul>
@@ -122,6 +122,11 @@ export default {
   components: {
   },
   methods: {
+      toPublicWelfareA() {
+        this.$router.push({
+          name: 'publicWelfare'
+        })
+      },
       loadMore() {
         if (this.hasMoreData) {
           this.loading = true

@@ -1,0 +1,89 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.sign-success-ctr {
+  height: 100%;
+  width: 100%;
+  background: $color-b;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(51) rem(42) rem(0) rem(42);
+  .sign-success-wrap {
+    position: relative;
+    background: #FFF;
+    height: 100%;
+    overflow: auto;
+    border-radius: rem(10);
+    padding: rem(64) rem(56);
+  }
+  .sign-con {
+    height: 100%;
+    text-align: center;
+    padding-top: rem(91);
+    box-sizing: border-box;
+    img {
+      width: rem(168);
+      height: rem(168);
+    }
+    .s-tip1 {
+      font-size: rem(40);
+      line-height: rem(88);
+      font-weight: bolder;
+      color: #333;
+    }
+    .s-tip2 {
+      font-size: rem(28);
+      line-height: rem(46);
+      font-weight: bolder;
+      color: #333;
+      b {
+        color: #C11111;
+        font-weight: bolder;
+      }
+    }
+    .share-active-btn,
+    .back-home {
+      height: rem(64);
+      line-height: rem(64);
+      text-align: center;
+      border-radius: rem(6);
+      margin-left: 10%;
+      width: 80%;
+    }
+    .share-active-btn {
+      background: #FFC460;
+      color: #B70909;
+      margin: rem(88) 0 rem(46) 10%;
+    }
+    .back-home {
+      color: #C11111;
+      border: rem(2) solid rgba(255,196,96,1);
+      background:linear-gradient(125deg,rgba(255,196,96,1),rgba(244,240,188,1),rgba(243,204,122,1));
+    }
+  }
+  .share-btn-s {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 rem(100) rem(20) rem(100);
+    span {
+      display: inline-block;
+      text-align: center;
+      img {
+        width: rem(84);
+        height: rem(84);
+      }
+      p {
+        font-size: rem(26);
+        margin-top: rem(6);
+      }
+    }
+    span:nth-of-type(1) {
+      float: left;
+    }
+    span:nth-of-type(1) {
+      float: right;
+    }
+  }
+}

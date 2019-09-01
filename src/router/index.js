@@ -12,6 +12,11 @@ const Sponsor = () => import('../views/Sponsor/index')
 const Selfless = () => import('../views/Selfless/index')
 const ReviewStatus = () => import('../views/ReviewStatus/index')
 const ActiveDetail = () => import('../views/ActiveDetail/index')
+const PublicWelfare = () => import('../views/PublicWelfare/index')
+const FundingApply = () => import('../views/FundingApply/index')
+const WelfareIntroduce = () => import('../views/WelfareIntroduce/index')
+const WelfareInfo = () => import('../views/WelfareInfo/index')
+const WelfareAction = () => import('../views/WelfareAction/index')
 
 Vue.use(Router)
 
@@ -62,6 +67,31 @@ const VueRouter = new Router({
         path: '/activeDetail',
         name: 'activeDetail',
         component: ActiveDetail
+    },
+    { // 成氏公益
+        path: '/publicWelfare',
+        name: 'publicWelfare',
+        component: PublicWelfare
+    },
+    { // 资助申请
+        path: '/fundingApply',
+        name: 'fundingApply',
+        component: FundingApply
+    },
+    { // 基金会介绍
+        path: '/welfareIntroduce',
+        name: 'welfareIntroduce',
+        component: WelfareIntroduce
+    },
+    { // 信息公开
+        path: '/welfareInfo',
+        name: 'welfareInfo',
+        component: WelfareInfo
+    },
+    { // 基金会行动
+        path: '/welfareAction',
+        name: 'welfareAction',
+        component: WelfareAction
     }
   ]
 })
