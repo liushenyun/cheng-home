@@ -148,7 +148,7 @@ const activityApplyApiF = (data) => packagePromise((resolve, reject) => {
 const sponsorDonationApiF = (data) => packagePromise((resolve, reject) => {
   let _params = data
   let vArr = [
-    ['name', _params.name, '姓名', 'empty'],
+    // ['name', _params.name, '姓名', 'empty'],
     ['ancestral', _params.ancestral, '祖籍', 'empty'],
     ['residence', _params.residence, '现居地', 'empty'],
     ['tel', _params.tel, '电话', 'empty|phone'],

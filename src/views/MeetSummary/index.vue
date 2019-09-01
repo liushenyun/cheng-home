@@ -116,9 +116,11 @@ export default {
           }).then((result) => {
             let data = result;
             wechat.chooseWxPay(data,function (res) {
+              if (res.errMsg === 'chooseWXPay:ok') {
                 _this.$router.push({
                   name: 'signSuccess'
                 })
+              }
             })
           }).catch((err) => {
             

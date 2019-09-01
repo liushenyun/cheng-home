@@ -9,7 +9,7 @@ const wechat = {};
 
 wechat.properties = {
     appId:"wx19e86539dded8a42",
-    debug:true,
+    debug: false,
     interface :{
         onMenuShareTimeline:'onMenuShareTimeline',
         onMenuShareAppMessage:'onMenuShareAppMessage',
@@ -139,7 +139,7 @@ wechat.chooseWxPay = function(data,cb){
         package: pg, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
         signType: signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
         paySign: paySign, // 支付签名
-        complete: function (res) {
+        success: function (res) {
             // 支付成功后的回调函数
             cb(res)
         }
