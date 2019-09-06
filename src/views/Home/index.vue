@@ -2,7 +2,7 @@
   <div class="home-tabbar home-ctr">
       <div class="home-wrap">
         <mt-tab-container  class="page-tabbar-container" v-model="selected">
-          <mt-tab-container-item
+          <mt-tab-container-item class="mt-padding"
           v-infinite-scroll="loadMore"
           infinite-scroll-disabled="loading"
           infinite-scroll-distance="10" :id="tabObj.a">
@@ -56,12 +56,31 @@
               <p>·敬请期待·</p>
             </div>
           </mt-tab-container-item>
-          <mt-tab-container-item :id="tabObj.d">
-            <div class="wait-wrap">
+          <mt-tab-container-item class="mine-mt-item" :id="tabObj.d">
+            <div class="mine-top-outer">
+
+              <div class="mine-info" @click="toEditInfo">
+                <img src="../../image/we_icon.png" alt="">
+                <span>
+                  <p>成家尧</p>
+                  <p>男 广州深圳</p>
+                </span>
+                <img src="../../image/mine_edit_icon.png" alt="">
+              </div>
+            </div>
+
+            <div class="mine-action-outer">
+              <ul>
+                <li @click="toMeetTripA"><img src="../../image/mine_lu_ic.png" alt=""><b>我的行程</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li><img src="../../image/mine_lu_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+              </ul>
+            </div>
+            <!-- <div class="wait-wrap">
               <img src="../../image/wait_icon.jpg">
               <p>相关功能逐步开放</p>
               <p>·敬请期待·</p>
-            </div>
+            </div> -->
           </mt-tab-container-item>
         </mt-tab-container>
       </div>
@@ -102,7 +121,7 @@ export default {
   name: 'home',
   data () {
     return {
-      selected: this.$route.params.selected || '走进成氏',
+      selected: this.$route.params.selected || '个人中心',
       tabObj: {
         a: '走进成氏',
         b: '成氏论坛',
@@ -122,6 +141,16 @@ export default {
   components: {
   },
   methods: {
+      toMeetTripA() {
+        this.$router.push({
+          name: 'meetTrip'
+        })
+      },
+      toEditInfo() {
+        this.$router.push({
+          name: 'mineInfo'
+        })
+      },
       toPublicWelfareA() {
         this.$router.push({
           name: 'publicWelfare'

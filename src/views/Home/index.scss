@@ -5,8 +5,10 @@
   color: #CD1E20
 }
 
-.home-ctr {
+.mt-padding {
   padding: rem(30) rem(30);
+}
+.home-ctr {
   .h-banner {
     height: rem(340);
     border-radius: rem(10);
@@ -109,6 +111,7 @@
   overflow: auto;
   height: 100%;
   padding-bottom: 70px;
+  background: #EDEDED;
 }
 .wait-wrap {
   padding-top: rem(100);
@@ -134,5 +137,69 @@
   span {
     display: inline-block;
     vertical-align: middle;
+  }
+}
+
+.mine-mt-item {
+
+  .mine-top-outer {
+    padding-top: rem(36);
+    height: rem(260);
+    background: url('../../image/mine_bg_ic.png') no-repeat left center;
+    background-size: 100% 100%;
+  }
+  .mine-info {
+    height: rem(126);
+    padding: 0 rem(46);
+    display: flex;
+    align-items: center;
+    // padding-top: rem(50);
+    img:nth-of-type(1) {
+      width: rem(126);
+      height: rem(126);
+    }
+    span {
+      flex: 1;
+      padding: 0 rem(22);
+      color: #FFF;
+      p:nth-of-type(1) {
+        font-size: $size-d;
+        margin-bottom: rem(16);
+      }
+    }
+    img:nth-of-type(2) {
+      width: rem(31);
+      height: rem(31);
+    }
+  }
+  .mine-action-outer {
+    padding: 0 rem(28);
+    position: relative;
+    transform: translateY(rem(-44));
+    ul {
+      li {
+        padding: rem(28) rem(16);
+        background: #FFF;
+        display: flex;
+        border-radius: rem(6);
+        margin-bottom: rem(20);
+        align-items: center;
+        img:nth-of-type(1) {
+          width: rem(52);
+          height: rem(42);
+        }
+        b{
+          flex: 1;
+          font-weight: bolder;
+          padding: 0 rem(14);
+          font-size: rem(30);
+          font-weight: bolder;
+        }
+        img:nth-of-type(2) {
+          width: rem(13);
+          height: rem(24);
+        }
+      }
+    }
   }
 }

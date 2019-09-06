@@ -17,7 +17,8 @@ const FundingApply = () => import('../views/FundingApply/index')
 const WelfareIntroduce = () => import('../views/WelfareIntroduce/index')
 const WelfareInfo = () => import('../views/WelfareInfo/index')
 const WelfareAction = () => import('../views/WelfareAction/index')
-
+const MineInfo = () => import('../views/MineInfo/index')
+const MeetTrip = () => import('../views/MeetTrip/index')
 Vue.use(Router)
 
 const VueRouter = new Router({
@@ -92,6 +93,16 @@ const VueRouter = new Router({
         path: '/welfareAction',
         name: 'welfareAction',
         component: WelfareAction
+    },
+    { // 填写个人信息
+        path: '/mineInfo',
+        name: 'mineInfo',
+        component: MineInfo
+    },
+    { // 会议行程
+        path: '/meetTrip',
+        name: 'meetTrip',
+        component: MeetTrip
     }
   ]
 })

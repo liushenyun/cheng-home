@@ -37,7 +37,8 @@ const fetchs = (options, fun) => {
   //   axios.defaults.headers['Access-Token'] = '';
   // }
   setTimeout(_openLoading, 0);
-  setTimeout(_closeLoading, 30000); // 防止接口报错，后台30s不返回数据，过30s后loading消失
+  // setTimeout(_closeLoading, 30000); // 防止接口报错，后台30s不返回数据，过30s后loading消失
+  setTimeout(_closeLoading, 300); // 防止接口报错，后台30s不返回数据，过30s后loading消失
   let _config = {
     url: options.url,
     method: options.method || 'GET'

@@ -1,3 +1,5 @@
+@import './rem.scss';
+@import './const.scss';
 // @font-face {
 //   font-family: 'PingFang';
 //   src: url(/src/common/font/PingFang.ttf);
@@ -79,7 +81,6 @@ background-color: #555;
 ::-ms-clear,::-ms-reveal{ display:none; }
 /*ie滚动条样式*/
 textarea {
-padding-top:6px;
   line-height: 1.2 !important;
   scrollbar-face-color:#fff;
   scrollbar-arrow-color:#fff;
@@ -87,4 +88,24 @@ padding-top:6px;
   scrollbar-dark-shadow-color:#fff;
   scrollbar-base-color:#fff;
   scrollbar-track-color:#fff;
+}
+
+.pub-textarea {
+  margin-bottom: rem(18);
+  border: rem(1) solid #666;
+  height: rem(236);
+  width: 100%;
+  font-size: $size-a;
+  padding: rem(10) rem(6);
+  border-radius: rem(6);
+}
+
+.pub-input {
+  margin-bottom: rem(18);
+  border: rem(1) solid #666;
+  width: 100%;
+  height: rem(56);
+  font-size: $size-a;
+  padding: 0 rem(6);
+  border-radius: rem(6)
 }
