@@ -22,7 +22,9 @@ const MeetTrip = () => import('../views/MeetTrip/index')
 const BindPhone = () => import('../views/BindPhone/index')
 const Release = () => import('../views/Release/index')
 const Broadcast = () => import('../views/Broadcast/index')
-
+const HelpSpecification = () => import('../views/HelpSpecification/index')
+const MemberTerms = () => import('../views/MemberTerms/index')
+const InformationDisclosure = () => import('../views/InformationDisclosure/index')
 Vue.use(Router)
 const VueRouter = new Router({
   mode: 'history',
@@ -121,6 +123,21 @@ const VueRouter = new Router({
         path: '/broadcast',
         name: 'broadcast',
         component: Broadcast
+    },
+    { // 求助规范
+        path: '/helpSpecification',
+        name: 'helpSpecification',
+        component: HelpSpecification
+    },
+    { // 会员条款
+        path: '/memberTerms',
+        name: 'memberTerms',
+        component: MemberTerms
+    },
+    { // 会员条款
+        path: '/informationDisclosure',
+        name: 'informationDisclosure',
+        component: InformationDisclosure
     }
   ]
 })
@@ -131,7 +148,10 @@ const DOC_TITLE = {
     'meetTrip': '会议议程',
     'bindPhone': '绑定手机',
     'release': '六大专题',
-    'broadcast': '六大专题'
+    'broadcast': '六大专题',
+    'memberTerms': '会员条款',
+    'helpSpecification': '求助规范',
+    'informationDisclosure': '信息公开'
 }
 VueRouter.afterEach((to, from) => {
     let { name } = to

@@ -6,6 +6,21 @@
       <span><p>成氏商城公益基金会</p><p>CHENG MALL FOUNDATION</p></span>
       <div><img src="../../image/welfar_word_bg_right.png" alt=""></div>
     </div>
+
+    <div class="pw-btns-wrap">
+      <div class="btns-l" @click="toMemberTermsA">
+        <span>
+          <p>会员条款 》</p>
+          <p>Membership terms</p>
+        </span>
+      </div>
+      <div class="btns-r" @click="toHelpSpecificationA">
+        <span>
+          <p>求助规范 》</p>
+          <p>Help specification</p>
+        </span>
+      </div>
+    </div>
     
     <div class="pw-word-con">
       <p class="pw-word-titpe">一.名称</p>
@@ -31,6 +46,20 @@
         <br><b> 理事长简介：成文全</b><br>
         <b> 秘书长简介：成志</b><br>
       </p>
+      <p class="pw-word-titpe">五.联系我们</p>
+      <p class="pw-word-s">
+        地址：广东省深圳市南山区西丽街道聚创金谷创意园A栋808室
+        <br><b>官网：www.chengmall.cn</b><br>
+        <b>邮箱：gongyi@chengmall.cn</b><br>
+      </p>
+      <p class="pw-word-titpe">六.法律声明</p>
+      <p class="pw-word-s">
+        1、本网站呈现的任何内容,包括但不限于商标、设计、文字、图片、视频和任何其他信息，未经特殊说明，其著作权均归属成氏商城公益基金会或成氏商城（深圳）有限公司所有。 <br />
+        2、本网站包含部分由其他组织、团体或商业机构提供的文字、图片、视频等内容，这些内容属于相应的提供者，本网站摘录或转载这些内容时均已注明来源。<br />
+        3、任何人均不得将本网站内的任何内容用于商业目的，否则成氏商城公益基金会（英文名“Cheng Mall Foundation”）或成氏商城（深圳）有限公司均有权追究其法律责任。 <br />
+        特别声明： <br />
+        本网站引用、摘录或转载来自第三方的文字、图片、视频内容时，仅基于传播公益精神之目的，并不表明这些内容代表成氏商城公益基金会的观点。<br />
+      </p>
 
     </div>
 
@@ -49,31 +78,16 @@ export default {
   },
   components: {  },
   methods: {
-    toWelfareIntroduceA() {
+    toMemberTermsA() {
       this.$router.push({
-        name: 'welfareIntroduce'
+        name: 'memberTerms'
       })
     },
-    toWelfareInfoA() {
+    toHelpSpecificationA() {
       this.$router.push({
-        name: 'welfareInfo'
-      })
-    },
-    toWelfareActionA() {
-      this.$router.push({
-        name: 'welfareAction'
-      })
-    },
-    toFundingApplyA() {
-      this.$router.push({
-        name: 'fundingApply'
+        name: 'helpSpecification'
       })
     }
-  },
-  watch: { },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
   },
   mounted () {
   }

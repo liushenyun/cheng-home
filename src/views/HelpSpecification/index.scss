@@ -38,41 +38,6 @@
     }
   }
 
-  .pw-btns-wrap {
-    display: flex;
-    justify-content: space-between;
-    margin: rem(50) 0 rem(38) 0;
-    .btns-l,
-    .btns-r {
-      height: rem(128);
-      width: rem(286);
-      border-radius: rem(10);
-      position: relative;
-      span {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        white-space: nowrap;
-        text-align: center;
-        color: #FFF;
-        p:nth-of-type(1) {
-          font-size: $size-d;
-        }
-        p:nth-of-type(2) {
-          font-size: $size-a;
-        }
-      }
-    }
-    .btns-l {
-      background:linear-gradient(90deg,rgba(116,60,234,1),rgba(161,88,217,1));
-      box-shadow: 0px rem(4) rem(7) 0px rgba(159,87,218,0.43);
-    }
-    .btns-r {
-      background: linear-gradient(90deg,rgba(81,101,245,1),rgba(98,198,250,1));
-      box-shadow: 0px rem(4) rem(7) 0px rgba(59,80,196,0.43);
-    }
-  }
 
   .pw-word-con {
     padding: rem(30) rem(14) rem(142) rem(14);
@@ -85,20 +50,10 @@
       position: relative;
       height: rem(38);
       line-height: rem(38);
-      padding-left: rem(14);
       font-size: $size-d;
-      color: #B2700B;
+      color: #563722;
       font-weight: bolder;
-      margin-bottom: rem(20);
-      &::before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: rem(10);
-        content: '';
-        height: 100%;
-        background: #FFC460;
-      }
+      margin-bottom: rem(10);
     }
     .pw-word-s {
       color: #563722;

@@ -14,7 +14,7 @@
         <div class="dp-input_div">
           <input type="text" placeholder="请输入验证码">
         </div>
-        <span>发送验证码</span>
+        <span @click="toSendCodeA">{{codeText}}</span>
       </div>
 
       <div class="bp-btn">确定</div>
@@ -29,11 +29,30 @@ export default {
   name: 'BindPhone',
   data () {
     return {
-      showShare: false
+      showShare: false,
+      codeText: '发送验证码',
+      codeLock: false
     }
   },
   components: {  },
   methods: {
+    toSendCodeA() {
+      if (this.codeLock) {
+        return
+      }
+      this.codeLock = true
+      let time = 60
+      let timer = setInterval(() => {
+                    time--;
+                    this.codeText = time + ' 秒';
+                    if (time === 0) {
+                        clearInterval(timer);
+                        this.codeText = '重新获取';
+                        this.codeLock = false
+                    }
+                }, 1000)
+
+    },
     backHomeA() {
       this.$router.push({
         name: 'MeetSummary'
