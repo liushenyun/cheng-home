@@ -72,8 +72,8 @@
             <div class="mine-action-outer">
               <ul>
                 <li @click="toMeetTripA"><img src="../../image/mine_lu_ic.png" alt=""><b>我的行程</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
-                <li><img src="../../image/mine_lu_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
-                <li><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toBindPhoneA"><img src="../../image/mine_lu_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toReleaseA"><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
               </ul>
             </div>
             <!-- <div class="wait-wrap">
@@ -146,9 +146,19 @@ export default {
           name: 'meetTrip'
         })
       },
+      toBindPhoneA() {
+        this.$router.push({
+          name: 'bindPhone'
+        })
+      },
       toEditInfo() {
         this.$router.push({
           name: 'mineInfo'
+        })
+      },
+      toReleaseA() {
+        this.$router.push({
+          name: 'release'
         })
       },
       toPublicWelfareA() {

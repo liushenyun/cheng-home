@@ -1,0 +1,68 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.Broadcast-ctr {
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(40) rem(52) rem(10) rem(28);
+  ul {
+    li {
+      position: relative;
+      padding: 0 0 rem(40) rem(20);
+      border-left: rem(1) solid rgba(250,205,137,.8);
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        width: rem(24);
+        height: rem(24);
+        background: #FACD89;
+        transform: translateX(-50%);
+        border-radius: 50%;
+      }
+      .b_time {
+        font-size: rem(28);
+        margin-bottom: rem(10);
+        font-weight: bolder;
+      }
+      .b_con {
+        display: flex;
+      }
+      .b_l {
+        width: rem(102);
+        margin-right: rem(20);
+        img {
+          width: rem(100);
+          height: rem(100);
+        }
+      }
+      .b_r {
+        flex: 1;
+        .b_r_name {
+          color: #A60605;
+          font-size: rem(30);
+          margin-bottom: rem(12);
+          font-weight: bolder;
+        }
+        .b_r_title {
+          font-size: rem(28);
+          line-height: rem(38);
+          margin-bottom: rem(20);
+        }
+        .b_r_imgs {
+          height: auto;
+          overflow: hidden;
+          img {
+            width: rem(164);
+            height: rem(164);
+            background: #999;
+            margin: 0 rem(8) rem(10) 0;
+          }
+        }
+      }
+    }
+  }
+}

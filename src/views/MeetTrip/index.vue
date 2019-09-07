@@ -1,45 +1,59 @@
 <template>
-  <div class="sign-ctr">
-    <div class="sign-form-wrap">
+  <div class="meet-trip-ctr">
+    <div class="mt-form-wrap">
+      <div class="mt-title">
+        <p @click="mtTitleA('GO')" :class=" currentTap == 'GO' ? 'active' :''">·参加会议行程·</p>
+        <p @click="mtTitleA('BACK')" :class=" currentTap == 'BACK' ? 'active' :''">·返回行程·</p>
+      </div>
+      <div class="meet-info-wrap" v-if="currentTap == 'GO'">
+        <p class="i-tip"><span>出发时间</span><span></span></p>
+        <input class="i-input" @focus="strtTimepickerA" v-model="params.goTime" placeholder="请选择出发时间" type="text" name="" id="">
 
-      <div class="sign-tu">
-        <span>
-          <p>头像</p>
-          <p>(点击头像修改)</p>
-        </span>
-        <img src="../../image/we_icon.png" alt="">
+        <p class="i-tip"><span>到达时间</span><span></span></p>
+        <input class="i-input" v-model="params.tel" maxLength="11" placeholder="请选择到达时间" type="number" name="" id="">
+
+        
+        <p class="i-tip"><span>交通工具</span><span></span></p>
+        <input class="i-input" readonly @focus="trafficToolsFlag = true" placeholder="请选择交通工具" type="text" v-model="addr" name="" id="">
+
+        <p class="i-tip"><span>到达位置</span><span></span></p>
+        <input class="i-input" readonly @focus="pickerFlaga = true" placeholder="请选择到达位置" type="text" name="" id="">
+
+        <p class="i-tip"><span>是否已安排住宿</span><span></span></p>
+        <input class="i-input" v-model="params.company" placeholder="请选择" type="text" name="" id="">
+
+        <p class="i-tip"><span>同行人数</span><span></span></p>
+        <input class="i-input" v-model="params.position" placeholder="请输入" type="text" name="" id="">
       </div>
 
-      <p class="i-tip"><span>姓名</span><span>(必填)</span></p>
-      <input class="i-input" v-model="params.name" placeholder="请输入姓名" type="text" name="" id="">
+      <div class="meet-info-wrap" v-if="currentTap == 'BACK'">
+        <p class="i-tip"><span>出发时间</span><span></span></p>
+        <input class="i-input" @focus="strtTimepickerA" v-model="params.goTime" placeholder="请选择出发时间" type="text" name="" id="">
 
-      <p class="i-tip"><span>手机</span><span>(必填)</span></p>
-      <input class="i-input" v-model="params.tel" maxLength="11" placeholder="请输入手机号" type="number" name="" id="">
+        <p class="i-tip"><span>到达时间</span><span></span></p>
+        <input class="i-input" v-model="params.tel" maxLength="11" placeholder="请选择到达时间" type="number" name="" id="">
 
-      
-      <p class="i-tip"><span>祖籍</span><span>(必填)</span></p>
-      <input class="i-input" readonly @focus="addrFlag = true" placeholder="请输入祖籍" type="text" v-model="addr" name="" id="">
+        
+        <p class="i-tip"><span>交通工具</span><span></span></p>
+        <input class="i-input" readonly @focus="trafficToolsFlag = true" placeholder="请选择交通工具" type="text" v-model="addr" name="" id="">
 
-      <p class="i-tip"><span>现居</span><span>(必填)</span></p>
-      <input class="i-input" v-model="params.residence" placeholder="请输入现居" type="text" name="" id="">
+        <p class="i-tip"><span>出发位置</span><span></span></p>
+        <input class="i-input" readonly @focus="pickerFlaga = true" placeholder="请选择到达位置" type="text" name="" id="">
 
-      <p class="i-tip"><span>公司</span><span></span></p>
-      <input class="i-input" v-model="params.company" placeholder="请输入公司" type="text" name="" id="">
+        <p class="i-tip"><span>同行人数</span><span></span></p>
+        <input class="i-input" v-model="params.position" placeholder="请输入" type="text" name="" id="">
+      </div>
 
-      <p class="i-tip"><span>职务</span><span></span></p>
-      <input class="i-input" v-model="params.position" placeholder="请输入职务" type="text" name="" id="">
-
-      <p class="i-tip"><span>行业</span><span></span></p>
-      <input class="i-input" v-model="params.industry" placeholder="请输入行业" type="text" name="" id="">
-
-      <p class="i-tip"><span>自我介绍</span><span></span></p>
-      <textarea class="pub-textarea" v-model="params.industry" placeholder="请输入自我介绍" type="text" name="" id=""></textarea>
-
-      <div class="sign-btn" @click="submit">提交</div>
+      <div class="mt-btn" @click="submit">提交</div>
     </div>
 
     <LinkageAddr :initVal="['广东省', '深圳市', '宝安区']" @cancel="addrFlag = false" @confirm="handleConfirm(arguments, 'addr')" :isShow="addrFlag"></LinkageAddr>
-    <picker-s @picker-cance='pickerFlag = false' @picker-sure='pickerSure' v-if="pickerFlag" :pickerSolt='numberSlot'></picker-s>
+    <picker-s @picker-cance='trafficToolsFlag = false' v-if="trafficToolsFlag" @picker-sure='trafficToolsSure'  :pickerSolt='trafficTools'></picker-s>
+    <picker-s @picker-cance='pickerFlaga = false' @picker-sure='pickerSure' v-if="pickerFlaga" :pickerSolt='numberSlot1'></picker-s>
+    <mt-datetime-picker @confirm='goConfirm' :startDate='new Date()' :endDate='goEndDate' ref="strtTimepickerA" type="datetime"></mt-datetime-picker>
+    <mt-datetime-picker @confirm='goConfirmB' :startDate='new Date()' :endDate='goEndDateB' ref="strtTimepickerB" type="datetime"></mt-datetime-picker>
+    <mt-datetime-picker @confirm='backConfirm' :startDate='new Date()' :endDate='backEndDate' ref="strtTimepickerC" type="datetime"></mt-datetime-picker>
+    <mt-datetime-picker @confirm='backConfirmB' :startDate='new Date()' :endDate='backEndDateB' ref="strtTimepickerD" type="datetime"></mt-datetime-picker>
   </div>
 </template>
 
@@ -54,34 +68,69 @@ export default {
   name: 'MeetTrip',
   data () {
     return {
-      dateNum: 0,
+      goEndDate: new Date('2019/10/17'),
+      goEndDateB: new Date('2019/10/17'),
+      backEndDate: new Date('2019/11/17'),
+      backEndDateB: new Date('2019/12/17'),
+      currentTap: 'GO',
+      trafficToolsFlag: false,
+      trafficTools: [
+        {
+          flex: 1,
+          defaultIndex: 0,
+          values: ['火车', '飞机'],
+          className: 'slot1'
+        }
+      ],
       addr: '',
       addrFlag: false,
       pickerFlag: false,
+      pickerFlaga: false,
       numberSlot: [{
           flex: 1,
           defaultIndex: 0,
-          values: [],
+          values: [1, 2],
           className: 'slot1'
      }],
+    numberSlot1: [{
+        flex: 1,
+        defaultIndex: 0,
+        values: [2, 3],
+        className: 'slot1'
+    }],
      delegationName: '',
      applyId: null,
      params: {
-       activityId: '1',
-       name: '', // 姓名
-       tel: '', // 手机
-       ancestral: '', // 祖籍
-       idcard: '', // 身份证
-       residence: '', // 现居地
-       delegationId: '', // 代表团
-       company: '', // 公司
-       position: '', // 职务
-       industry: '' // 行业
+      goTime: '',
+      goTimeB: ''
      }
     }
   },
   components: { LinkageAddr },
   methods: {
+    goConfirm(v) {
+      this.params.goTime = dateFormat(v, 'yyyy-MM-dd hh:mm')
+      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
+    },
+    goConfirmB(v) {
+      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
+    },
+    backConfirm(v) {
+      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
+    },
+    backConfirmB(v) {
+      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
+    },
+    strtTimepickerA() {
+      this.$refs.strtTimepickerA.open()
+    },
+    mtTitleA(f) {
+      this.currentTap = f
+    },
+    trafficToolsSure(v) {
+      this.trafficToolsFlag = false
+      console.log(v)
+    },
     submit() {
       // this.$router.push({
       //   name: 'activeDetail'
@@ -133,7 +182,6 @@ export default {
     next()
   },
   mounted () {
-    document.title = '会议行程'
     this.applyId = this.$route.params.applyId
     this.listParentApiFA(this.listParentApiFA.bind(this))
   }

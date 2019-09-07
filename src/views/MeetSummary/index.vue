@@ -31,7 +31,7 @@
     <ul class="m-btns-wrap">
       <li @click="toZHi"><img src="../../image/m_btns_1.png" /><span>参会指南</span></li>
       <li @click="toSponsor"><img src="../../image/m_btns_2.png" /><span>赞助公示</span></li>
-      <li><img src="../../image/m_btns_3.png" /><span>实时播报</span></li>
+      <li @click="toBroadcastA"><img src="../../image/m_btns_3.png" /><span>实时播报</span></li>
     </ul>
 
     <div class="m-btn-im m-btn-wu" @click="toSelflessA">无私奉献</div>
@@ -81,6 +81,11 @@ export default {
     }
   },
   methods: {
+    toBroadcastA() {
+      this.$router.push({
+        name: 'broadcast'
+      })
+    },
     daysDistance(date1, date2) {     
         let distance,
             tempDate,

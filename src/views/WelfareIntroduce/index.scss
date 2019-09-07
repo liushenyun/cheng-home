@@ -1,89 +1,78 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
-.sign-success-ctr {
+.public-welfare-ctr {
   height: 100%;
   width: 100%;
-  background: $color-b;
+  background: #FFF;
   overflow: auto;
   padding-bottom: rem(20);
-  padding: rem(51) rem(42) rem(0) rem(42);
-  .sign-success-wrap {
-    position: relative;
-    background: #FFF;
-    height: 100%;
-    overflow: auto;
-    border-radius: rem(10);
-    padding: rem(64) rem(56);
-  }
-  .sign-con {
-    height: 100%;
+  padding: rem(37) rem(44) rem(24) rem(44);
+  .pw-title {
+    color: #B2700B;
     text-align: center;
-    padding-top: rem(91);
-    box-sizing: border-box;
-    img {
-      width: rem(168);
-      height: rem(168);
-    }
-    .s-tip1 {
-      font-size: rem(40);
-      line-height: rem(88);
-      font-weight: bolder;
-      color: #333;
-    }
-    .s-tip2 {
-      font-size: rem(28);
-      line-height: rem(46);
-      font-weight: bolder;
-      color: #333;
-      b {
-        color: #C11111;
-        font-weight: bolder;
-      }
-    }
-    .share-active-btn,
-    .back-home {
-      height: rem(64);
-      line-height: rem(64);
-      text-align: center;
-      border-radius: rem(6);
-      margin-left: 10%;
-      width: 80%;
-    }
-    .share-active-btn {
-      background: #FFC460;
-      color: #B70909;
-      margin: rem(88) 0 rem(46) 10%;
-    }
-    .back-home {
-      color: #C11111;
-      border: rem(2) solid rgba(255,196,96,1);
-      background:linear-gradient(125deg,rgba(255,196,96,1),rgba(244,240,188,1),rgba(243,204,122,1));
-    }
-  }
-  .share-btn-s {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    padding: 0 rem(100) rem(20) rem(100);
-    span {
-      display: inline-block;
-      text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(32);
+    div {
+      flex: 1;
       img {
-        width: rem(84);
-        height: rem(84);
-      }
-      p {
-        font-size: rem(26);
-        margin-top: rem(6);
+        height: rem(29);
+        width: rem(94);
       }
     }
-    span:nth-of-type(1) {
-      float: left;
+    div:nth-of-type(1) {
+      text-align: right;
     }
-    span:nth-of-type(1) {
-      float: right;
+    div:nth-of-type(2) {
+      text-align: left;
+    }
+    span {
+      margin: 0 rem(20);
+    }
+    p:nth-of-type(1) {
+      font-size: rem(36);
+      margin-bottom: rem(14);
+    }
+    p:nth-of-type(2) {
+      font-size: rem(18);
     }
   }
+  .pw-word-con {
+    padding: rem(30) rem(14) rem(142) rem(14);
+    background:rgba(255,251,229,1);
+    box-shadow: rem(5) rem(1) rem(10) 0px rgba(171,129,3,0.36);
+    border-radius: rem(20);
+    background: url('../../image/pw_word_con_bg.png') no-repeat left bottom;
+    background-size: 100% auto;
+    .pw-word-titpe {
+      position: relative;
+      height: rem(38);
+      line-height: rem(38);
+      padding-left: rem(14);
+      font-size: $size-d;
+      color: #B2700B;
+      font-weight: bolder;
+      margin-bottom: rem(20);
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: rem(10);
+        content: '';
+        height: 100%;
+        background: #FFC460;
+      }
+    }
+    .pw-word-s {
+      color: #563722;
+      font-size: $size-d;
+      line-height: rem(48);
+      margin-bottom: rem(32);
+      .blod {
+        font-weight: bolder;
+        color: #563722;
+      }
+    }
+  }
+
 }

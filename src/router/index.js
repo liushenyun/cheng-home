@@ -19,8 +19,11 @@ const WelfareInfo = () => import('../views/WelfareInfo/index')
 const WelfareAction = () => import('../views/WelfareAction/index')
 const MineInfo = () => import('../views/MineInfo/index')
 const MeetTrip = () => import('../views/MeetTrip/index')
-Vue.use(Router)
+const BindPhone = () => import('../views/BindPhone/index')
+const Release = () => import('../views/Release/index')
+const Broadcast = () => import('../views/Broadcast/index')
 
+Vue.use(Router)
 const VueRouter = new Router({
   mode: 'history',
   routes: [
@@ -103,26 +106,38 @@ const VueRouter = new Router({
         path: '/meetTrip',
         name: 'meetTrip',
         component: MeetTrip
+    },
+    { // 绑定手机
+        path: '/bindPhone',
+        name: 'bindPhone',
+        component: BindPhone
+    },
+    { // 绑定手机
+        path: '/release',
+        name: 'release',
+        component: Release
+    },
+    { // 绑定手机
+        path: '/broadcast',
+        name: 'broadcast',
+        component: Broadcast
     }
   ]
 })
 
 export default VueRouter
 
-// VueRouter.beforeEach((to, from, next) => {
-//     let _search = puGetSearch()
-//     if (_search.code) {
-//         midLoginApiF({
-//             code: _search.code
-//         }).then((result) => {
-//             let { webToken } = result
-//             setToken(webToken)
-//         }).catch(() => {
-//         });
-//     }
-//   console.log(to, from, next)
-//   // next()
-// })
+const DOC_TITLE = {
+    'meetTrip': '会议议程',
+    'bindPhone': '绑定手机',
+    'release': '六大专题',
+    'broadcast': '六大专题'
+}
+VueRouter.afterEach((to, from) => {
+    let { name } = to
+    document.title = DOC_TITLE[name] || '成氏之家'
+    console.log(to, from)
+})
 
 // VueRouter.beforeRouteLeave((to, from, next) => {
 //   console.log('leave', to, from, next)

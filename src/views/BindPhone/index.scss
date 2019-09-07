@@ -1,0 +1,81 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.BindPhone-ctr {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background:linear-gradient(187deg,rgba(255,201,108,1),rgba(251,77,56,1));
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(0) rem(44);
+  .bp-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 86%;
+    padding: rem(60) rem(40);
+    background: #FFF;
+    border-radius: rem(20);
+  }
+  .bp-tip {
+    position: relative;
+    font-size: rem(38);
+    line-height: rem(38);
+    height: rem(38);
+    padding-left: rem(16);
+    font-weight: bolder;
+    letter-spacing: rem(2);
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: rem(6);
+      background: #FFA63D;
+      content: '';
+    }
+  }
+  .bp-tel {
+    margin: rem(50) 0 rem(22) 0;
+  }
+  .bp-input-wrap {
+    display: flex;
+    align-items: center;
+    padding: rem(4) rem(8) rem(4) rem(34);
+    height: rem(82);
+    border: rem(1) solid rgba(181,181,181,1);
+    border-radius: rem(40);
+    img {
+      width: rem(32);
+      height: rem(50);
+      margin-right: rem(20);
+    }
+    .dp-input_div {
+      flex: 1;
+      input {
+        width: 100%;
+      }
+    }
+    
+    span {
+     white-space: nowrap;
+     padding: rem(20) rem(40);
+     background: #FFA63D;
+     color:rgba(255,255,255,1);
+     font-size: $size-d;
+     border-radius: rem(40);
+    }
+  }
+  .bp-btn {
+    margin-top: rem(100);
+    height: rem(82);
+    line-height: rem(82);
+    text-align: center;
+    background:linear-gradient(180deg,rgba(255,201,108,1),rgba(251,77,56,1));
+    border-radius: rem(40);
+    font-size: rem(38);
+    color: #FFF;
+    letter-spacing: rem(10);
+  }
+}

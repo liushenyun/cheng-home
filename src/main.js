@@ -6,7 +6,8 @@ import 'mint-ui/lib/style.css'
 // import ajaxFun from './service/requestFun'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
   Cell, Toast, Picker,
-  Loadmore, InfiniteScroll, Spinner } from 'mint-ui'
+  Loadmore, InfiniteScroll, Spinner,
+  DatetimePicker } from 'mint-ui'
 import LinkageBase from './components/linkageBase';
 import PickerS from './components/PickerS/index'
 import ShowScan from './components/ShowScan/index'
@@ -25,6 +26,7 @@ Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);
 Vue.component(Cell.name, Cell);
 Vue.component(Picker.name, Picker);
+Vue.component(DatetimePicker.name, DatetimePicker);
 
 Object.assign(Vue.prototype, {
   $toast: Toast,

@@ -1,18 +1,18 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
-.sign-ctr {
+.meet-trip-ctr {
   height: 100%;
   width: 100%;
   background: $color-b;
   overflow: auto;
   padding-bottom: rem(20);
   padding: rem(87) rem(42) rem(20) rem(42);
-  .sign-form-wrap {
+  .mt-form-wrap {
     background: #FFF;
     height: 100%;
     overflow: auto;
     border-radius: rem(10);
-    padding: rem(64) rem(24) rem(34) rem(24);
+    padding: rem(20) rem(24) rem(34) rem(24);
     .i-tip {
       font-size: $size-c;
       font-weight: bolder;
@@ -21,27 +21,24 @@
         color: #D52121
       }
     }
-    .sign-tu {
-      padding: rem(22) rem(12);
-      border: rem(1) solid $color-c;
-      margin-bottom: rem(18);
+    .mt-title {
+      height: rem(70);
+      text-align: center;
       display: flex;
-      align-items: center;
-      span {
+      margin-bottom: rem(42);
+      p {
+        line-height: rem(70);
+        height: 100%;
         flex: 1;
-        P {
-          font-size: $size-c;
-          font-weight: bolder;
-        }
-        p:nth-of-type(2) {
-          font-size: $size-a;
-          color: $color-e;
-          margin-top: rem(6);
-        }
+        font-size: rem(32);
+        color: $color-c;
+        letter-spacing: rem(1);
+        font-weight: bolder;
       }
-      img {
-        width: rem(100);
-        height: rem(100);
+      p.active {
+        background: url('../../image/mt_trip_btn_active.png') no-repeat top center;
+        background-size: auto 100%;
+        color: #FFF;
       }
     }
     .i-input {
@@ -53,7 +50,7 @@
       padding: 0 rem(6);
       border-radius: rem(6)
     }
-    .sign-btn {
+    .mt-btn {
       width: 90%;
       margin-left: 5%;
       height: rem(64);
