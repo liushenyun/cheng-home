@@ -35,6 +35,24 @@ const sponsorListApi = () => `${Domain}/api/sponsor/list`
 // 获取活动的审核状态
 const activityStatusApi = () => `${Domain}/api/activity/status`
 
+// 发送验证码
+const codeSendApi = () => `${Domain}/common/code/send`
+
+// 绑定手机号
+const userBindApi = () => `${Domain}/api/user/bind`
+
+// 获取用户信息
+const userInfoApi = () => `${Domain}/api/user/info`
+
+// 编辑用户信息
+const userUpdateApi = () => `${Domain}/api/user/update`
+
+// 上传实时播报内容
+const broadcastUpdateApi = () => `${Domain}/api/activity/broadcast/update`
+
+// 获取实时播报内容
+const broadcastListApi = () => `${Domain}/api/activity/broadcast/list`
+
 export {
   userIsloginApi,
   newsPageApi,
@@ -47,5 +65,11 @@ export {
   listParentApi,
   sponsorListApi,
   sponsorDonationApi,
-  activityStatusApi
+  activityStatusApi,
+  codeSendApi,
+  userBindApi,
+  userInfoApi,
+  userUpdateApi,
+  broadcastUpdateApi,
+  broadcastListApi
 };

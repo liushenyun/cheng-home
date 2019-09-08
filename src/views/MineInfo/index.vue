@@ -7,20 +7,20 @@
           <p>头像</p>
           <p>(点击头像修改)</p>
         </span>
-        <img src="../../image/we_icon.png" alt="">
+        <img :src="headimage" alt="">
+        <input type="file" name="myfile" accept=".png, .jpg" @change="onFileChange($event)" />
       </div>
 
-      <p class="i-tip"><span>姓名</span><span>(必填)</span></p>
-      <input class="i-input" v-model="params.name" placeholder="请输入姓名" type="text" name="" id="">
-
-      <p class="i-tip"><span>手机</span><span>(必填)</span></p>
-      <input class="i-input" v-model="params.tel" maxLength="11" placeholder="请输入手机号" type="number" name="" id="">
-
+      <p class="i-tip"><span>姓名</span><span></span></p>
+      <input class="i-input" v-model="params.realName" placeholder="请输入姓名" type="text" name="" id="">
       
-      <p class="i-tip"><span>祖籍</span><span>(必填)</span></p>
-      <input class="i-input" readonly @focus="addrFlag = true" placeholder="请输入祖籍" type="text" v-model="addr" name="" id="">
+      <p class="i-tip"><span>身份证</span><span></span></p>
+      <input class="i-input" v-model="params.idCard" placeholder="请输入身份证" maxlength="18" type="text" name="" id="">
 
-      <p class="i-tip"><span>现居</span><span>(必填)</span></p>
+      <p class="i-tip"><span>祖籍</span><span></span></p>
+      <input class="i-input" readonly @focus="addrFlag = true" placeholder="请输入祖籍" type="text" v-model="params.ancestral" name="" id="">
+
+      <p class="i-tip"><span>现居</span><span></span></p>
       <input class="i-input" v-model="params.residence" placeholder="请输入现居" type="text" name="" id="">
 
       <p class="i-tip"><span>公司</span><span></span></p>
@@ -33,7 +33,7 @@
       <input class="i-input" v-model="params.industry" placeholder="请输入行业" type="text" name="" id="">
 
       <p class="i-tip"><span>自我介绍</span><span></span></p>
-      <textarea class="pub-textarea" v-model="params.industry" placeholder="请输入自我介绍" type="text" name="" id=""></textarea>
+      <textarea class="pub-textarea" v-model="params.introduce" placeholder="请输入自我介绍" type="text" name="" id=""></textarea>
 
       <div class="sign-btn" @click="submit">提交</div>
     </div>
@@ -45,13 +45,15 @@
 
 <script>
 import dateFormat from '../../utils/dateFormat'
+import { beforeRouteLeave } from '@/common/js/mixin.js'
 import LinkageAddr from '@/components/linkageAddr/index.vue'
-import { activityApplyApiF, listParentApiF } from "@/service/requestFun.js"
+import { userInfoApiF, userUpdateApiF } from "@/service/requestFun.js"
 import puGetSearch from '@/utils/puGetSearch'
 // import { LinkageTime, LinkageDate, LinkageAddr } from '@/components';
 // @ is an alias to /src
 export default {
   name: 'MineInfo',
+  mixins: [beforeRouteLeave],
   data () {
     return {
       dateNum: 0,
@@ -64,46 +66,67 @@ export default {
           values: [],
           className: 'slot1'
      }],
-     delegationName: '',
+    //  delegationName: '',
      applyId: null,
+     headimage: '',
      params: {
-       activityId: '1',
-       name: '', // 姓名
-       tel: '', // 手机
+       realName: '', // 姓名
        ancestral: '', // 祖籍
-       idcard: '', // 身份证
+       idCard: '', // 身份证
        residence: '', // 现居地
        delegationId: '', // 代表团
        company: '', // 公司
        position: '', // 职务
-       industry: '' // 行业
+       industry: '', // 行业
+       introduce: '', // 介绍
+       headImageFile: '' // 图像
      }
     }
   },
   components: { LinkageAddr },
   methods: {
-    submit() {
-      // this.$router.push({
-      //   name: 'activeDetail'
-      //   // name: 'signSuccess'
-      //   // name: 'reviewStatus'
-      // })
-      if (this.applyId) {
-        this.params.id = this.applyId
-      }
-      activityApplyApiF(this.params).then((result) => {
-        this.$toast('提交成功')
-
-        setTimeout(() => {
-          this.$router.push({
-            name: 'MeetSummary'
-          })
-        }, 1500)
+    userInfoApiFA() {
+      userInfoApiF().then((result) => {
+        let {
+          realName,
+          ancestral,
+          idCard,
+          residence,
+          delegationId,
+          company,
+          position,
+          industry,
+          introduce,
+          headImageFile, headimage } = result
+        this.params.realName = realName
+        this.params.ancestral = ancestral
+        this.params.idCard = idCard
+        this.params.residence = residence
+        this.params.delegationId = delegationId
+        this.params.company = company
+        this.params.position = position
+        this.params.industry = industry
+        this.params.introduce = introduce
+        this.params.headImageFile = headImageFile
+        this.headimage = headimage
+        console.log(this.params)
       }).catch(() => {
 
       })
     },
-    handleConfirm(args, type, divide = '-') {
+    userUpdateApiFA() {
+      userUpdateApiF(this.params).then(() => {
+        this.$toast('填写成功')
+        setTimeout(() => {
+          this.$router.go(-1)
+        }, 1500);
+      }).catch(() => {})
+    },
+    submit() {
+      this.userUpdateApiFA()
+      console.log(this.params)
+    },
+    handleConfirm(args, type, divide = '') {
       let { val, bool } = args[0];
       if (bool) {
         this[type] = val.join(divide);
@@ -111,31 +134,22 @@ export default {
         this[`${type}Flag`] = false;
       }
     },
-    listParentApiFA(fun) {
-      listParentApiF(2, fun).then((result) => {
-        this.numberSlot[0].values = result.map(({name, key}) => {
-          return { name: name, key: key }
-        })
-      }).catch((err) => {
-        
-      });
-    },
     pickerSure(data) {
-      this.delegationName = data[0].name
+      // this.delegationName = data[0].name
       this.params.delegationId = data[0].key
       this.pickerFlag = false
+    },
+    onFileChange(e) {
+      let fileName = e.target.files[0].name;
+      this.params.headImageFile = e.target.files[0]
+      console.log(fileName)
     }
   },
   
   watch: { },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
-  },
   mounted () {
     document.title = '填写个人信息'
-    this.applyId = this.$route.params.applyId
-    this.listParentApiFA(this.listParentApiFA.bind(this))
+    this.userInfoApiFA()
   }
 }
 </script>

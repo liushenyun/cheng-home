@@ -30,6 +30,7 @@
       }
       .b_con {
         display: flex;
+        margin-bottom: rem(10);
       }
       .b_l {
         width: rem(102);
@@ -60,6 +61,7 @@
             height: rem(164);
             background: #999;
             margin: 0 rem(8) rem(10) 0;
+            border-radius: rem(10);
           }
         }
       }

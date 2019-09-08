@@ -17,33 +17,25 @@
     <p class="pw-sub-title">·公开 公正 透明 及时 有效 规范 共创美好未来·</p>
 
     <ul>
-      <li @click="toWelfareIntroduceA">
-        <span><p>基金会介绍</p><p>Foundation introduction</p></span>
-        <img src="../../image/welfare_intro_icon.png" alt="">
+      <li>
+        <p>闫村祠堂修缮资助项目捐款人明细</p>
+        <p>执行机构：一般是个人或当地宗亲会</p>
+        <p>资助时间：2019年9月</p>
+        <p>资助地点：闫村祠堂</p>
+        <p>资金管理：成勇</p>
+        <div class="dis-btn-wrap">
+          <span>查看详细</span>
+        </div>
       </li>
-      <li @click="toWelfareIntroduceA">
-        <span><p>基金会介绍</p><p>Foundation introduction</p></span>
-        <img src="../../image/welfare_intro_icon.png" alt="">
-      </li>
-      <li @click="toWelfareIntroduceA">
-        <span><p>基金会介绍</p><p>Foundation introduction</p></span>
-        <img src="../../image/welfare_intro_icon.png" alt="">
-      </li>
-      <li @click="toWelfareIntroduceA">
-        <span><p>基金会介绍</p><p>Foundation introduction</p></span>
-        <img src="../../image/welfare_intro_icon.png" alt="">
-      </li>
-      <li @click="toWelfareInfoA">
-        <span><p>信息公开</p><p>Information disclosure</p></span>
-        <img src="../../image/welfare_info_icon.png" alt="">
-      </li>
-      <li @click="toWelfareActionA">
-        <span><p>基金会行动</p><p>Foundation action</p></span>
-        <img src="../../image/welfare_active_icon.png" alt="">
-      </li>
-      <li @click="toFundingApplyA">
-        <span><p>资助申请</p><p>Funding application</p></span>
-        <img src="../../image/welfare_apply_icon.png" alt="">
+       <li>
+        <p>闫村祠堂修缮资助项目捐款人明细</p>
+        <p>执行机构：一般是个人或当地宗亲会</p>
+        <p>资助时间：2019年9月</p>
+        <p>资助地点：闫村祠堂</p>
+        <p>资金管理：成勇</p>
+        <div class="dis-btn-wrap">
+          <span>查看详细</span>
+        </div>
       </li>
     </ul>
     
@@ -52,10 +44,12 @@
 </template>
 
 <script>
+import { beforeRouteLeave } from '@/common/js/mixin.js'
 import dateFormat from '../../utils/dateFormat'
 // @ is an alias to /src
 export default {
   name: 'InformationDisclosure',
+  mixins: [beforeRouteLeave],
   data () {
     return {
       showShare: false

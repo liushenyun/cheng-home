@@ -11,12 +11,19 @@ import {
   activityReapplyApi,
   listParentApi,
   userIsloginApi,
-  sponsorListApi
+  sponsorListApi,
+  codeSendApi,
+  userBindApi,
+  userInfoApi,
+  userUpdateApi,
+  broadcastUpdateApi,
+  broadcastListApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
 import isEmpty from "../utils/isEmpty";
 import { send } from './formdata';
+import formatParams from '../utils/formatParams';
 
 /* ==== 用户http请求提示 =====  */
 // const SuccessTips = (con, callbck, type = 'success') => {
@@ -237,6 +244,121 @@ const sponsorListApiF = () => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
+// 发送验证码
+const codeSendApiF = (data, fun) => packagePromise((resolve, reject) => {
+  let _params = data
+  let vArr = [
+    ['phone', _params.phone, '电话', 'empty|phone']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
+  fetch({
+    url: codeSendApi(),
+    method: 'POST',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 绑定手机号
+const userBindApiF = (data, fun) => packagePromise((resolve, reject) => {
+  let _params = data
+  let vArr = [
+    ['phone', _params.phone, '电话', 'empty|phone'],
+    ['code', _params.code, '验证码', 'empty']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
+  fetch({
+    url: userBindApi(),
+    method: 'POST',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 获取用户信息
+const userInfoApiF = () => packagePromise((resolve, reject) => {
+  fetch({
+    url: userInfoApi(),
+    method: 'GET',
+    data: {}
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 编辑用户信息
+const userUpdateApiF = (data, fun) => packagePromise((resolve, reject) => {
+  let params = formatParams(data)
+  let formData = new FormData();
+  for (let [key, value] of Object.entries(params)) {
+    console.log('key, value', key, value)
+    if (!(key == 'headImageFile' && (value == 'null' || !value))) {
+      formData.append(key, value)
+    }
+  }
+  fetch({
+    url: userUpdateApi(),
+    method: 'POST',
+    header: {
+      // 'Content-Type': 'multipart/form-data'
+    },
+    data: formData
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 上传实时播报内容
+const broadcastUpdateApiF = (data, fun) => packagePromise((resolve, reject) => {
+  let _params = data
+  let vArr = [
+    ['content', _params.content, '发布内容', 'empty']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
+  let params = formatParams(data)
+  let formData = new FormData();
+  for (let [key, value] of Object.entries(params)) {
+    formData.append(key, value)
+  }
+  fetch({
+    url: broadcastUpdateApi(),
+    method: 'POST',
+    data: formData
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 获取实时播报内容
+const broadcastListApiF = (activityId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: broadcastListApi(),
+    method: 'GET',
+    data: {
+      activityId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
 export {
   userIsloginApiF,
   // SuccessTips,
@@ -250,5 +372,11 @@ export {
   activityStatusApiF,
   activityReapplyApiF,
   listParentApiF,
-  sponsorListApiF
+  sponsorListApiF,
+  codeSendApiF,
+  userBindApiF,
+  userInfoApiF,
+  userUpdateApiF,
+  broadcastUpdateApiF,
+  broadcastListApiF
 }

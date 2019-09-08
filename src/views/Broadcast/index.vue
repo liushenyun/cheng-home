@@ -1,41 +1,27 @@
 <template>
   <div class="Broadcast-ctr">
     <ul>
-      <li v-for="(item, index) in 10" :key="index">
-        <p class="b_time">2019/08/20</p>
-        <div class="b_con">
+      <li v-for="(item, index) in pageList" :key="index">
+        <p class="b_time">{{item.date}}</p>
+
+        <div class="b_con" v-for="(subItem, subIndex) in item.list" :key="subIndex">
           <div class="b_l">
-            <img src="../../image/we_icon.png" alt="">
+            <img :src="subItem.headimage" alt="">
           </div>
           <div class="b_r">
-            <p class="b_r_name">成家尧</p>
-            <p class="b_r_title">第六届世界成氏恳亲大会实时播报第六届世界成氏恳亲大会第六届世界成氏恳亲大会实时播报实时播报</p>
+            <p class="b_r_name">{{subItem.nickName}}</p>
+            <p class="b_r_title">{{subItem.content}}</p>
             <div class="b_r_imgs">
-              <img src="../../image/niu_1.png" alt="" />
-              <img src="../../image/niu_1.png" alt="" />
-              <img src="../../image/niu_1.png" alt="" />
-              <img src="../../image/niu_1.png" alt="" />
+              <img v-for="(sItem, sIndex) in subItem.medias" :key="sIndex" :src="sItem.url" alt="" />
+              
             </div>
           </div>
         </div>
+
+        
         
       </li>
 
-      <li>
-        <div class="b_l">
-          <img src="../../image/we_icon.png" alt="">
-        </div>
-        <div class="b_r">
-          <p class="b_r_name">成家尧</p>
-          <p class="b_r_title">第六届世界成氏恳亲大会实时播报第六届世界成氏恳亲大会第六届世界成氏恳亲大会实时播报实时播报</p>
-          <div class="b_r_imgs">
-            <img src="../../image/niu_1.png" alt="" />
-            <img src="../../image/niu_1.png" alt="" />
-            <img src="../../image/niu_1.png" alt="" />
-            <img src="../../image/niu_1.png" alt="" />
-          </div>
-        </div>
-      </li>
 
     </ul>
   </div>
@@ -44,21 +30,29 @@
 <script>
 import dateFormat from '../../utils/dateFormat'
 import { beforeRouteLeave } from '@/common/js/mixin.js'
+import { broadcastListApiF } from '../../service/requestFun.js'
 // @ is an alias to /src
 export default {
   name: 'Broadcast',
   mixins: [beforeRouteLeave],
   data () {
     return {
-      showShare: false
+      showShare: false,
+      pageList: []
     }
   },
   components: {  },
   methods: {
-    
+    broadcastListApiFA() {
+      broadcastListApiF(1).then((result) => {
+        console.log(result)
+        this.pageList = result
+      }).catch(() => {})
+    }
   },
   watch: { },
   mounted () {
+    this.broadcastListApiFA()
   }
 }
 </script>

@@ -60,10 +60,10 @@
             <div class="mine-top-outer">
 
               <div class="mine-info" @click="toEditInfo">
-                <img src="../../image/we_icon.png" alt="">
+                <img :src="dPageParams.headimage" alt="">
                 <span>
-                  <p>成家尧</p>
-                  <p>男 广州深圳</p>
+                  <p>{{dPageParams.realName}}</p>
+                  <p>{{dPageParams.sex == 1 ? '男':'女'}} {{dPageParams.ancestral}}</p>
                 </span>
                 <img src="../../image/mine_edit_icon.png" alt="">
               </div>
@@ -73,7 +73,7 @@
               <ul>
                 <li @click="toMeetTripA"><img src="../../image/mine_lu_ic.png" alt=""><b>我的行程</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
                 <li @click="toBindPhoneA"><img src="../../image/mine_lu_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
-                <li @click="toReleaseA"><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li v-if="dPageParams.broadcast == 1" @click="toReleaseA"><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
               </ul>
             </div>
             <!-- <div class="wait-wrap">
@@ -114,11 +114,13 @@
 
 <script>
 // @ is an alias to /src
-import { apiNewsPageF, userIsloginApiF, activityPageApiF, loginApiF, activityPayApiF } from '@/service/requestFun'
+import { beforeRouteLeave } from '@/common/js/mixin.js'
+import { apiNewsPageF, userIsloginApiF, activityPageApiF, loginApiF, activityPayApiF, userInfoApiF } from '@/service/requestFun'
 import puGetSearch from '../../utils/puGetSearch'
 import { setToken } from '../../common/js/ut'
 export default {
   name: 'home',
+  mixins: [beforeRouteLeave],
   data () {
     return {
       selected: this.$route.params.selected || '个人中心',
@@ -135,6 +137,14 @@ export default {
       pageParams: {
         pageSize: 30,
         currentPage: 1
+      },
+      dPageParams: {
+        headimage: '',
+        realName: '',
+        province: '',
+        city: '',
+        sex: '', // 1 男
+        broadcast: null
       }
     }
   },
@@ -212,21 +222,34 @@ export default {
         }).catch((err) => {
           this.loading = false
         });
+      },
+      userInfoApiFA() {
+        userInfoApiF().then((result) => {
+          this.dPageParams = result
+          console.log(result)
+        }).catch(() => {
+
+        })
       }
   },
   watch: {
-    selected: function (nVal, oVal) {
-      document.title = nVal
+    selected: {
+      handler(nVal, oVal) {
+        let { a, b, c, d } = this.tabObj
+        document.title = nVal
+        if (nVal == a) {
+          this.apiNewsPageFA()
+        }
+
+        if (nVal == d) {
+          this.userInfoApiFA()
+        }
+        console.log(nVal)
+      },
+      immediate: true
     }
   },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
-  },
   mounted () {
-    document.title = this.tabObj.a
-    // this.$store.dispatch('showLoading', true)
-    this.apiNewsPageFA()
   }
 }
 </script>

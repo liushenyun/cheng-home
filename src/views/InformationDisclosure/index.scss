@@ -47,35 +47,31 @@
     li {
       background: linear-gradient(103deg,rgba(232,197,122,1),rgba(255,255,255,1),rgba(252,217,162,1));
       box-shadow:  rem(2) rem(4) rem(10) rgba(133,133,133,0.36);
-      padding: rem(29) rem(24);
+      padding: rem(30) rem(24);
       position: relative;
       margin-bottom: rem(28);
-      height: rem(240);
-      text-align: center;
-      line-height: rem(240);
       width: 100%;
-      
-      color: #FFF;
-      // padding-left: rem(60);
-      img {
-        position: absolute;
-        left: rem(44);
-        top: 50%;
-        transform: translateY(-50%);
-        width: rem(76);
-        height: rem(81);
+      color: #774A05;
+      p {
+        font-size: $size-a;
+        margin-bottom: rem(21);
       }
-      span {
-        display: inline-block;
-        vertical-align: middle;
-        p:nth-of-type(1) {
-          font-size: rem(36);
-          letter-spacing: rem(8);
-          font-weight: bolder;
-          margin-bottom: rem(10);
-        }
-        p:nth-of-type(2) {
-          font-size: rem(14);
+      p:nth-of-type(1) {
+        font-size: $size-d;
+      }
+      .dis-btn-wrap {
+        overflow: hidden;
+        // height: rem(48);
+        text-align: right;
+        span {
+          display: inline-block;
+          vertical-align: middle;
+          padding: rem(12) rem(67) rem(16) rem(30);
+          border: rem(2) solid rgba(166,6,5,1);
+          border-radius: rem(24);
+          font-size: rem(24);
+          background: url('../../image/dis_right_ic.png') no-repeat rem(140) center;
+          background-size: rem(32) rem(32);
         }
       }
     }

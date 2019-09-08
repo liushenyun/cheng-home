@@ -30,3 +30,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 缺切图
 1，绑定手机波浪图
+
+
+import { beforeRouteLeave } from '@/common/js/mixin.js'
+// @ is an alias to /src
+export default {
+  name: 'BindPhone',
+  mixins: [beforeRouteLeave],
