@@ -71,10 +71,6 @@ export default {
     }
   },
   watch: { },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
-  },
   mounted () {
   }
 }

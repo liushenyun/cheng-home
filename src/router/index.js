@@ -25,6 +25,13 @@ const Broadcast = () => import('../views/Broadcast/index')
 const HelpSpecification = () => import('../views/HelpSpecification/index')
 const MemberTerms = () => import('../views/MemberTerms/index')
 const InformationDisclosure = () => import('../views/InformationDisclosure/index')
+const ChengOrigin = () => import('../views/ChengOrigin/index')
+const ChengDistribution = () => import('../views/ChengDistribution/index')
+const FamilyTree = () => import('../views/FamilyTree/index')
+const ChengCelebrity = () => import('../views/ChengCelebrity/index')
+const ClansmenAssociation = () => import('../views/ClansmenAssociation/index')
+const CulturalResearch = () => import('../views/CulturalResearch/index')
+
 Vue.use(Router)
 const VueRouter = new Router({
   mode: 'history',
@@ -138,7 +145,38 @@ const VueRouter = new Router({
         path: '/informationDisclosure',
         name: 'informationDisclosure',
         component: InformationDisclosure
+    },
+    { // 成氏源流
+        path: '/chengOrigin',
+        name: 'chengOrigin',
+        component: ChengOrigin
+    },
+    { // 成氏分布
+        path: '/chengDistribution',
+        name: 'chengDistribution',
+        component: ChengDistribution
+    },
+    { // 成氏家谱
+        path: '/familyTree',
+        name: 'familyTree',
+        component: FamilyTree
+    },
+    { // 成氏名人
+        path: '/chengCelebrity',
+        name: 'chengCelebrity',
+        component: ChengCelebrity
+    },
+    { // 成氏名人
+        path: '/clansmenAssociation',
+        name: 'clansmenAssociation',
+        component: ClansmenAssociation
+    },
+    { // 文化研究会
+        path: '/culturalResearch',
+        name: 'culturalResearch',
+        component: CulturalResearch
     }
+    // CulturalResearch
   ]
 })
 
@@ -151,7 +189,13 @@ const DOC_TITLE = {
     'broadcast': '六大专题',
     'memberTerms': '会员条款',
     'helpSpecification': '求助规范',
-    'informationDisclosure': '信息公开'
+    'informationDisclosure': '信息公开',
+    'chengOrigin': '成氏源流',
+    'chengDistribution': '成氏分布',
+    'familyTree': '成氏家谱',
+    'chengCelebrity': '成氏名人',
+    'clansmenAssociation': '宗亲总会',
+    'culturalResearch': '文化研究会'
 }
 VueRouter.afterEach((to, from) => {
     let { name } = to

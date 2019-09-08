@@ -109,3 +109,20 @@ textarea {
   padding: 0 rem(6);
   border-radius: rem(6)
 }
+
+.wait-wrap {
+  padding-top: rem(100);
+  text-align: center;
+  img {
+    width: rem(444);
+    height: rem(314);
+    margin-bottom: rem(98);
+  }
+  p {
+    color: #EAA01E;
+    font-size: rem(40);
+    line-height: rem(56);
+    letter-spacing: rem(10);
+    font-weight: bolder;
+  }
+}

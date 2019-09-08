@@ -12,16 +12,16 @@
 
               <div class="h-fun-wrap">
                 <ul class="hf-ul-same">
-                  <li><img src='../../image/h_btn-1.png' /><p>成氏源流</p></li>
-                  <li><img src='../../image/h_btn-2.png' /><p>成氏分布</p></li>
-                  <li><img src='../../image/h_btn-3.png' /><p>成氏族谱</p></li>
-                  <li><img src='../../image/h_btn-4.png' /><p>成氏名人</p></li>
+                  <li @click="toChengOriginA"><img src='../../image/h_btn-1.png' /><p>成氏源流</p></li>
+                  <li @click="toChengDistributionA"><img src='../../image/h_btn-2.png' /><p>成氏分布</p></li>
+                  <li @click="toFamilyTreeA"><img src='../../image/h_btn-3.png' /><p>成氏族谱</p></li>
+                  <li @click="toChengCelebrityA"><img src='../../image/h_btn-4.png' /><p>成氏名人</p></li>
                 </ul>
                 <ul class="hf-ul-same">
-                  <li><img src='../../image/h_btn-5.png' /><p>宗亲总会</p></li>
+                  <li @click="toClansmenAssociationA"><img src='../../image/h_btn-5.png' /><p>宗亲总会</p></li>
                   <li @click="toPublicWelfareA"><img src='../../image/h_btn-6.png' /><p>成氏公益</p></li>
                   <li @click="toInformationDisclosureA"><img src='../../image/h_btn-7.png' /><p>信息公开</p></li>
-                  <li><img src='../../image/h_btn-8.png' /><p>文化研究会</p></li>
+                  <li @click="toCulturalResearchA"><img src='../../image/h_btn-8.png' /><p>文化研究会</p></li>
                 </ul>
               </div>
 
@@ -73,7 +73,7 @@
               <ul>
                 <li @click="toMeetTripA"><img src="../../image/mine_lu_ic.png" alt=""><b>我的行程</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
                 <li @click="toBindPhoneA"><img src="../../image/mine_lu_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
-                <li v-if="dPageParams.broadcast == 1" @click="toReleaseA"><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toReleaseA" v-if="dPageParams.broadcast == 1"><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
               </ul>
             </div>
             <!-- <div class="wait-wrap">
@@ -123,7 +123,7 @@ export default {
   mixins: [beforeRouteLeave],
   data () {
     return {
-      selected: this.$route.params.selected || '个人中心',
+      selected: this.$route.params.selected || '走进成氏',
       tabObj: {
         a: '走进成氏',
         b: '成氏论坛',
@@ -151,6 +151,36 @@ export default {
   components: {
   },
   methods: {
+      toChengOriginA() {
+        this.$router.push({
+          name: 'chengOrigin'
+        })
+      },
+      toChengDistributionA() {
+        this.$router.push({
+          name: 'chengDistribution'
+        })
+      },
+      toFamilyTreeA() {
+        this.$router.push({
+          name: 'familyTree'
+        })
+      },
+      toChengCelebrityA() {
+        this.$router.push({
+          name: 'chengCelebrity'
+        })
+      },
+      toClansmenAssociationA() {
+        this.$router.push({
+          name: 'clansmenAssociation'
+        })
+      },
+      toCulturalResearchA() {
+        this.$router.push({
+          name: 'culturalResearch'
+        })
+      },
       toInformationDisclosureA() {
         this.$router.push({
           name: 'informationDisclosure'

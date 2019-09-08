@@ -1,6 +1,6 @@
 <template>
   <div class="sign-success-ctr">
-    WelfareAction
+    WelfareAction多岁的撒
   </div>
 </template>
 
@@ -16,25 +16,8 @@ export default {
   },
   components: {  },
   methods: {
-    backHomeA() {
-      this.$router.push({
-        name: 'home'
-      })
-    },
-    toMineA() {
-      this.$router.push({
-        name: 'home',
-        params: {
-          selected: '个人中心'
-        }
-      })
-    }
   },
   watch: { },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
-  },
   mounted () {
   }
 }
