@@ -3,14 +3,14 @@
     <div class="bp-inner">
       <p class="bp-tip">绑定手机号</p>
       <div class="bp-input-wrap bp-tel">
-        <img src="../../image/mine_bind_ic.png" alt="">
+        <img class="bp-phone-img" src="../../image/bind_phone_icon.png" alt="">
         <div class="dp-input_div">
           <input type="text" maxlength="11" v-model="params.phone" placeholder="请输入手机号">
         </div>
       </div>
 
       <div class="bp-input-wrap">
-        <img src="../../image/mine_bind_ic.png" alt="">
+        <img class="bp-code-img" src="../../image/bind_code_icon.png" alt="">
         <div class="dp-input_div">
           <input type="text" v-model="params.code" maxlength="6" placeholder="请输入验证码">
         </div>

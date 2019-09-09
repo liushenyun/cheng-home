@@ -46,10 +46,15 @@
     height: rem(82);
     border: rem(1) solid rgba(181,181,181,1);
     border-radius: rem(40);
-    img {
+    .bp-phone-img {
       width: rem(32);
       height: rem(50);
       margin-right: rem(20);
+    }
+    .bp-code-img {
+      width: rem(35);
+      height: rem(40);
+      margin-right: rem(17);
     }
     .dp-input_div {
       flex: 1;

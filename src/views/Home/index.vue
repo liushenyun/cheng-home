@@ -268,6 +268,7 @@ export default {
         let { a, b, c, d } = this.tabObj
         document.title = nVal
         if (nVal == a) {
+          this.pageList = []
           this.apiNewsPageFA()
         }
 

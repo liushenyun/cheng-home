@@ -17,7 +17,10 @@ import {
   userInfoApi,
   userUpdateApi,
   broadcastUpdateApi,
-  broadcastListApi
+  broadcastListApi,
+  tripInfoApi,
+  tripCreateApi,
+  tripUpdateApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
@@ -359,6 +362,61 @@ const broadcastListApiF = (activityId) => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
+// 查看行程信息
+const tripInfoApiF = (activityId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: tripInfoApi(),
+    method: 'GET',
+    data: {
+      activityId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 活动行程添加
+const tripCreateApiF = (data, fun) => packagePromise((resolve, reject) => {
+  // let _params = data
+  // let vArr = [
+  //   ['phone', _params.phone, '电话', 'empty|phone'],
+  //   ['code', _params.code, '验证码', 'empty']
+  // ]
+  // let _Validated = Validate(vArr);
+  // if (!_Validated) { return };
+  fetch({
+    url: tripCreateApi(),
+    method: 'POST',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 更新行程信息
+const tripUpdateApiF = (data, fun) => packagePromise((resolve, reject) => {
+  // let _params = data
+  // let vArr = [
+  //   ['phone', _params.phone, '电话', 'empty|phone'],
+  //   ['code', _params.code, '验证码', 'empty']
+  // ]
+  // let _Validated = Validate(vArr);
+  // if (!_Validated) { return };
+  fetch({
+    url: tripUpdateApi(),
+    method: 'POST',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
 export {
   userIsloginApiF,
   // SuccessTips,
@@ -378,5 +436,8 @@ export {
   userInfoApiF,
   userUpdateApiF,
   broadcastUpdateApiF,
-  broadcastListApiF
+  broadcastListApiF,
+  tripInfoApiF,
+  tripCreateApiF,
+  tripUpdateApiF
 }

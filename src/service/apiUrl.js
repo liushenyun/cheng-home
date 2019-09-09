@@ -53,6 +53,15 @@ const broadcastUpdateApi = () => `${Domain}/api/activity/broadcast/update`
 // 获取实时播报内容
 const broadcastListApi = () => `${Domain}/api/activity/broadcast/list`
 
+// 查看行程信息
+const tripInfoApi = () => `${Domain}/api/activity/trip/info`
+
+// 活动行程添加
+const tripCreateApi = () => `${Domain}/api/activity/trip/create`
+
+// 更新行程信息
+const tripUpdateApi = () => `${Domain}/api/activity/trip/update`
+
 export {
   userIsloginApi,
   newsPageApi,
@@ -71,5 +80,8 @@ export {
   userInfoApi,
   userUpdateApi,
   broadcastUpdateApi,
-  broadcastListApi
+  broadcastListApi,
+  tripInfoApi,
+  tripCreateApi,
+  tripUpdateApi
 };
