@@ -132,21 +132,15 @@ export default {
     goConfirm(v) {
       this.paramsGo.departureTime = dateFormat(v, 'yyyy-MM-dd hh:mm:ss')
       // this.paramsGo.arrivalTime = dateFormat(v, 'yyyy-MM-dd hh:mm')
-      console.log(this.paramsGo)
-      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
     },
     goConfirmB(v) {
       this.paramsGo.arrivalTime = dateFormat(v, 'yyyy-MM-dd hh:mm:ss')
-      console.log(this.paramsGo)
-      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
     },
     backConfirm(v) {
       this.paramsBack.departureTime = dateFormat(v, 'yyyy-MM-dd hh:mm:ss')
-      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
     },
     backConfirmB(v) {
       this.paramsBack.arrivalTime = dateFormat(v, 'yyyy-MM-dd hh:mm:ss')
-      console.log(dateFormat(v, 'yyyy-MM-dd hh:mm'))
     },
     mtTitleA(f) {
       this.currentTap = f
@@ -158,7 +152,6 @@ export default {
       } else {
         this.paramsBack.vehicle = v[0].name
       }
-      console.log(v)
     },
     submit() {
       let _f = this.trafficTools[0].values
@@ -187,7 +180,6 @@ export default {
         } else {
           this.tripCreateApiFA(_params)
         }
-        console.log(this.paramsBack)
       }
     },
     handleConfirm(args, type, divide = '-') {
@@ -208,7 +200,6 @@ export default {
       }
     },
     accommodationPickSure(data) {
-      console.log(data[0])
       this.paramsGo.accommodationFlag = data[0]
       this.accommodationPickFlag = false
     },
@@ -236,25 +227,6 @@ export default {
           let { type, vehicle } = v
           let _vehicleStr = ''
           _f.forEach(k => {if (k.key == vehicle) {_vehicleStr = k.name}});
-          console.log(_vehicleStr)
-
-          // paramsGo: {
-          //   activityId: 1,
-          //   departureTime: '',
-          //   arrivalTime: '',
-          //   vehicle: '',
-          //   arrivalLocation: '',
-          //   accommodationFlag: '是', // 1是0否
-          //   peopleNumber: ''
-          // },
-          // paramsBack: {
-          //   activityId: 1,
-          //   departureTime: '',
-          //   arrivalTime: '',
-          //   vehicle: '',
-          //   departureLocation: '',
-          //   peopleNumber: ''
-          // }
           if (type == 1) { // GO
             this.tripGoId = v.id
             this.paramsGo.departureTime = v.departureTime
@@ -271,9 +243,7 @@ export default {
             this.paramsBack.departureLocation = v.departureLocation
             this.paramsBack.peopleNumber = v.peopleNumber
           }
-          console.log(v)
         })
-        console.log(result)
       }).catch(() => {
         
       });
