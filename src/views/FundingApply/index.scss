@@ -1,89 +1,85 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
-.sign-success-ctr {
+.FundingApply-ctr {
   height: 100%;
   width: 100%;
-  background: $color-b;
+  background: #FFF;
   overflow: auto;
-  padding-bottom: rem(20);
-  padding: rem(51) rem(42) rem(0) rem(42);
-  .sign-success-wrap {
-    position: relative;
-    background: #FFF;
-    height: 100%;
-    overflow: auto;
-    border-radius: rem(10);
-    padding: rem(64) rem(56);
+  .FA_top-wrap {
+    padding: rem(37) rem(44) rem(24) rem(44);
+    min-height: rem(900);
+    background: url('../../image/funding_apply_bg.jpg') no-repeat left top;
+    background-size: 100% 100%;
   }
-  .sign-con {
-    height: 100%;
+  .pw-sub-title {
+    color: #A60605;
+    font-size: $size-c;
+    padding-bottom: rem(20);
+    border-bottom: rem(1) solid rgba(250,222,172,.82);
     text-align: center;
-    padding-top: rem(91);
-    box-sizing: border-box;
-    img {
-      width: rem(168);
-      height: rem(168);
-    }
-    .s-tip1 {
-      font-size: rem(40);
-      line-height: rem(88);
-      font-weight: bolder;
-      color: #333;
-    }
-    .s-tip2 {
-      font-size: rem(28);
-      line-height: rem(46);
-      font-weight: bolder;
-      color: #333;
-      b {
-        color: #C11111;
-        font-weight: bolder;
+    margin-bottom: rem(23);
+  }
+  .pw-title {
+    color: #B2700B;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(32);
+    div {
+      flex: 1;
+      img {
+        height: rem(29);
+        width: rem(94);
       }
     }
-    .share-active-btn,
-    .back-home {
-      height: rem(64);
-      line-height: rem(64);
-      text-align: center;
-      border-radius: rem(6);
-      margin-left: 10%;
-      width: 80%;
+    div:nth-of-type(1) {
+      text-align: right;
     }
-    .share-active-btn {
-      background: #FFC460;
-      color: #B70909;
-      margin: rem(88) 0 rem(46) 10%;
+    div:nth-of-type(2) {
+      text-align: left;
     }
-    .back-home {
-      color: #C11111;
-      border: rem(2) solid rgba(255,196,96,1);
-      background:linear-gradient(125deg,rgba(255,196,96,1),rgba(244,240,188,1),rgba(243,204,122,1));
+    span {
+      margin: 0 rem(20);
+    }
+    p:nth-of-type(1) {
+      font-size: rem(36);
     }
   }
-  .share-btn-s {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    padding: 0 rem(100) rem(20) rem(100);
-    span {
-      display: inline-block;
-      text-align: center;
-      img {
-        width: rem(84);
-        height: rem(84);
-      }
+
+  ul {
+    
+    li {
+      background: linear-gradient(103deg,rgba(232,197,122,1),rgba(255,255,255,1),rgba(252,217,162,1));
+      box-shadow:  rem(2) rem(4) rem(10) rgba(133,133,133,0.36);
+      padding: rem(30) rem(24);
+      position: relative;
+      margin-bottom: rem(28);
+      width: 100%;
+      color: #774A05;
       p {
-        font-size: rem(26);
-        margin-top: rem(6);
+        font-size: $size-a;
+        margin-bottom: rem(21);
       }
-    }
-    span:nth-of-type(1) {
-      float: left;
-    }
-    span:nth-of-type(1) {
-      float: right;
+      p:nth-of-type(1) {
+        font-size: $size-d;
+      }
+      .dis-btn-wrap {
+        overflow: hidden;
+        // height: rem(48);
+        text-align: right;
+        span {
+          display: inline-block;
+          vertical-align: middle;
+          padding: rem(12) rem(67) rem(16) rem(30);
+          border: rem(2) solid rgba(166,6,5,1);
+          border-radius: rem(24);
+          font-size: rem(24);
+          background: url('../../image/dis_right_ic.png') no-repeat rem(140) center;
+          background-size: rem(32) rem(32);
+        }
+      }
     }
   }
 }
+
+

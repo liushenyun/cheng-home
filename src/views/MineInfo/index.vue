@@ -8,7 +8,7 @@
           <p>(点击头像修改)</p>
         </span>
         <img :src="headimage" alt="">
-        <input type="file" name="myfile" accept=".png, .jpg" @change="onFileChange($event)" />
+        <input type="file" name="myfile"  @change="onFileChange($event)" />
       </div>
 
       <p class="i-tip"><span>姓名</span><span></span></p>

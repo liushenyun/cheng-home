@@ -16,7 +16,7 @@
       </div>
       <div class="btns-r" @click="toHelpSpecificationA">
         <span>
-          <p>求助规范 》</p>
+          <p>救助规范 》</p>
           <p>Help specification</p>
         </span>
       </div>

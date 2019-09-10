@@ -8,7 +8,7 @@
             <img class="img-show" :src="item.fileSrc" alt="">
           </li>
           <li class="up-load-btn">
-            <input type="file" name="myfile" accept=".png, .jpg" @change="onFileChange($event)" />
+            <input type="file" name="myfile" @change="onFileChange($event)" />
             <span>
               <img src="../../image/upload_ic.png" alt="">
               <p>上传图片</p>
