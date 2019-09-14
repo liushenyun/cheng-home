@@ -31,6 +31,10 @@ const FamilyTree = () => import('../views/FamilyTree/index')
 const ChengCelebrity = () => import('../views/ChengCelebrity/index')
 const ClansmenAssociation = () => import('../views/ClansmenAssociation/index')
 const CulturalResearch = () => import('../views/CulturalResearch/index')
+const WelfareList = () => import('../views/WelfareList/index')
+const MyPublicWelfare = () => import('../views/MyPublicWelfare/index')
+const FundraisingDetail = () => import('../views/FundraisingDetail/index')
+const FundraisingPay = () => import('../views/FundraisingPay/index')
 
 Vue.use(Router)
 const VueRouter = new Router({
@@ -175,8 +179,28 @@ const VueRouter = new Router({
         path: '/culturalResearch',
         name: 'culturalResearch',
         component: CulturalResearch
+    },
+    { // 公益项目列表
+        path: '/welfareList',
+        name: 'welfareList',
+        component: WelfareList
+    },
+    { // 我的公益
+        path: '/myPublicWelfare',
+        name: 'myPublicWelfare',
+        component: MyPublicWelfare
+    },
+    { // 筹款详情
+        path: '/fundraisingDetail',
+        name: 'fundraisingDetail',
+        component: FundraisingDetail
+    },
+    { // 成氏公益-捐款页面
+        path: '/fundraisingPay',
+        name: 'fundraisingPay',
+        component: FundraisingPay
     }
-    // CulturalResearch
+    // FundraisingPay
   ]
 })
 
@@ -195,7 +219,13 @@ const DOC_TITLE = {
     'familyTree': '成氏家谱',
     'chengCelebrity': '成氏名人',
     'clansmenAssociation': '宗亲总会',
-    'culturalResearch': '文化研究会'
+    'culturalResearch': '文化研究会',
+    'welfareList': '公益项目',
+    'welfareIntroduce': '基金会介绍',
+    'welfareInfo': '信息公开',
+    'myPublicWelfare': '我的公益',
+    'fundraisingDetail': '筹款详情',
+    'FundraisingPay': '捐款'
 }
 VueRouter.afterEach((to, from) => {
     let { name } = to

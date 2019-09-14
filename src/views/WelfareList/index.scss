@@ -1,0 +1,98 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.WelfareList-ctr {
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+  padding-bottom: rem(100);
+  position: relative;
+  .wel-apply-btn {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: rem(98);
+    font-size: rem(36);
+    color: #FFF;
+    text-align: center;
+    line-height: rem(98);
+    background:linear-gradient(103deg,rgba(255,38,38,1),rgba(255,141,28,1));
+  }
+  .wel-con-outer {
+    min-height: 100%;
+    overflow: auto;
+    background: #F4F4F4;
+    ul {
+      padding: rem(24) rem(30);
+    }
+    li {
+      padding: rem(14) rem(10);
+      background: #FFF;
+      margin-bottom: rem(30);
+      border-radius: rem(10);
+      .wel-item-top {
+        padding-bottom: rem(20);
+        border-bottom: rem(1) solid rgba(255,233,196,.6);
+        display: flex;
+        align-items: center;
+        .wel-img {
+          height: rem(176);
+          width: rem(176);
+          border-radius: rem(10);
+          margin-right: rem(18);
+        }
+        .wel-con {
+          flex: 1;
+          .wel-title {
+            font-size: $size-d;
+            font-weight: bolder;
+            line-height: 1.2;
+            margin-bottom: rem(36);
+          }
+          .wel-tar-outer {
+            display: flex;
+            span {
+              padding: rem(14) rem(10);
+              background:rgba(238,207,154,.2);
+              white-space: nowrap;
+              border-radius: rem(10);
+              p {
+                text-align: center;
+                color: #FB4D38;
+                font-size: $size-c;
+              }
+              p:nth-of-type(1) {
+                margin-bottom: rem(10);
+              }
+            }
+          }
+        }
+      }
+      .wel-item-bottom {
+        padding: rem(14) 0 0 0;
+        display: flex;
+        align-items: center;
+        font-size: $size-c;
+        img {
+          width: rem(78);
+          height: rem(78);
+        }
+        .wel-bottom-1 {
+          margin: 0 rem(30) 0 rem(10);
+        }
+        .wel-bottom-2 {
+          color: $color-c;
+        }
+        .wel-bottom-3 {
+          margin: 0 rem(10) 0 rem(0);
+          color: #FF5F00;
+        }
+        .wel-bottom-4 {
+          flex: 1;
+          text-align: right;
+          color: $color-e;
+        }
+      }
+    }
+  }
+}

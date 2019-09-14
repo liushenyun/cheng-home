@@ -71,9 +71,10 @@
 
             <div class="mine-action-outer">
               <ul>
-                <li @click="toMeetTripA"><img src="../../image/mine_lu_ic.png" alt=""><b>我的行程</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
-                <li @click="toBindPhoneA"><img src="../../image/mine_lu_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
-                <li @click="toReleaseA" v-if="dPageParams.broadcast == 1"><img src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toMeetTripA"><img class="mine-li-img_a" src="../../image/mine_lu_ic.png" alt=""><b>我的行程</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toBindPhoneA"><img class="mine-li-img_b" src="../../image/mine_bind_ic.png" alt=""><b>绑定手机</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toMyPublicWelfareA"><img  class="mine-li-img_c" src="../../image/my-wefale_icon.png" alt=""><b>我的公益</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
+                <li @click="toReleaseA" v-if="dPageParams.broadcast == 1"><img  class="mine-li-img_d" src="../../image/la_ba_ic.png" alt=""><b>六大实时播报</b><img src="../../image/jin_tou_left_ic.png" alt=""></li>
               </ul>
             </div>
             <!-- <div class="wait-wrap">
@@ -151,6 +152,11 @@ export default {
   components: {
   },
   methods: {
+      toMyPublicWelfareA() {
+        this.$router.push({
+          name: 'myPublicWelfare'
+        })
+      },
       toChengOriginA() {
         this.$router.push({
           name: 'chengOrigin'

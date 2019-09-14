@@ -27,8 +27,8 @@
         <span><p>基金会行动</p><p>Foundation action</p></span>
         <img src="../../image/welfare_active_icon.png" alt="">
       </li>
-      <li @click="toFundingApplyA">
-        <span><p>资助申请</p><p>Funding application</p></span>
+      <li @click="toWelfareListA">
+        <span><p>公益项目</p><p>Funding application</p></span>
         <img src="../../image/welfare_apply_icon.png" alt="">
       </li>
     </ul>
@@ -64,9 +64,9 @@ export default {
         name: 'welfareAction'
       })
     },
-    toFundingApplyA() {
+    toWelfareListA() {
       this.$router.push({
-        name: 'fundingApply'
+        name: 'welfareList'
       })
     }
   },

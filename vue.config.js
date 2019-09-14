@@ -1,4 +1,4 @@
-let d = 'http://bmaas9.natappfree.cc'
+let d = 'http://hndn7e.natappfree.cc'
 module.exports = {
     devServer: {
         proxy: {

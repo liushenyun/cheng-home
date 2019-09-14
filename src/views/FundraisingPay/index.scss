@@ -1,0 +1,73 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.FundraisingPay-ctr {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding-bottom: rem(118);
+  // padding: rem(87) rem(42) rem(20) rem(42);
+  .mine-top-outer {
+    padding-top: rem(36);
+    height: rem(260);
+    background: url('../../image/mine_bg_ic.png') no-repeat left center;
+    background-size: 100% 100%;
+  }
+  .mine-info {
+    height: rem(126);
+    padding: 0 rem(46);
+    display: flex;
+    align-items: center;
+    // padding-top: rem(50);
+    img:nth-of-type(1) {
+      width: rem(126);
+      height: rem(126);
+      border-radius: 50%;
+    }
+    span {
+      flex: 1;
+      padding: 0 rem(22);
+      color: #FFF;
+      p:nth-of-type(1) {
+        font-size: $size-d;
+        margin-bottom: rem(16);
+      }
+    }
+    img:nth-of-type(2) {
+      width: rem(31);
+      height: rem(31);
+    }
+  }
+  .Fundrais-money-outer {
+    position: relative;
+    transform: translateY(-50%);
+    text-align: center;
+    span {
+      display: inline-block;
+      padding: rem(8) rem(30);
+      color: #FB4D38;
+      border-radius: rem(20);
+      p {
+        font-weight: bolder;
+      }
+      p:nth-of-type(1) {
+        font-size: $size-b;
+        margin-bottom: rem(6);
+      }
+      p:nth-of-type(2) {
+        font-size: $size-d;
+
+      }
+    }
+    span:nth-of-type(1) {
+      box-shadow:0px rem(4) rem(4) 0px rgba(251,85,59,0.33);
+      margin-right: rem(30);
+      background: #FFF;
+    }
+    span:nth-of-type(2) {
+      background:linear-gradient(87deg,rgba(251,232,162,1),rgba(255,255,255,1),rgba(255,228,165,1));
+      box-shadow:0px rem(4) rem(4) 0px rgba(251,84,59,0.29), 0px rem(4) rem(10) 0px rgba(255,57,80,0.22);
+    }
+  }
+
+  
+}

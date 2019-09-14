@@ -185,10 +185,24 @@
         border-radius: rem(6);
         margin-bottom: rem(20);
         align-items: center;
-        img:nth-of-type(1) {
+        .mine-li-img_a {
           width: rem(52);
           height: rem(42);
         }
+        .mine-li-img_b {
+          width: rem(35);
+          height: rem(52);
+        }
+        .mine-li-img_c {
+          width: rem(31);
+          height: rem(26);
+        }
+        .mine-li-img_d {
+          width: rem(46);
+          height: rem(38);
+        }
+        
+        
         b{
           flex: 1;
           font-weight: bolder;

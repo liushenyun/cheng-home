@@ -10,20 +10,44 @@
         <div><img src="../../image/welfar_word_bg_right.png" alt=""></div>
       </div>
       <p class="pw-sub-title">·实事求是 敬畏公益 永怀感恩之心·</p>
+
+      <div class="Funding-con">
+        <p class="Funding-con-title">想筹多少钱</p>
+        <div class="Funding-con-input"> <input type="text"> </div>
+        <p class="Funding-con-title">筹款标题</p>
+        <div class="Funding-con-input"> <input type="text"> </div>
+        <p class="Funding-con-title">筹款发起单位/人</p>
+        <div class="Funding-con-input"> <input type="text"> </div>
+        <p class="Funding-con-title">救助说明</p>
+        <div class="Funding-con-input">
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="Funding-bottom-wrap">
+      <p class="Funding-bottom-title">添加证明图片</p>
+      <div class="re-img-wrap">
+        <ul>
+          <li class="" v-for="(item, index) in imgList" :key="index">
+            <img class="img-show" :src="item.fileSrc" alt="">
+          </li>
+          <li class="up-load-btn">
+            <input type="file" name="myfile" @change="onFileChange($event)" />
+            <span>
+              <img src="../../image/upload_ic.png" alt="">
+              <p>上传图片</p>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fund-submit-btn">提交</div>
     </div>
     
-    <ul>
-      <li>
-        <p>闫村祠堂修缮资助项目捐款人明细</p>
-        <p>执行机构：一般是个人或当地宗亲会</p>
-        <p>资助时间：2019年9月</p>
-        <p>资助地点：闫村祠堂</p>
-        <p>资金管理：成勇</p>
-        <div class="dis-btn-wrap">
-          <span>查看详细</span>
-        </div>
-      </li>
-    </ul>
+    
+
   </div>
 </template>
 
@@ -38,7 +62,8 @@ export default {
     return {
       showShare: false,
       loading: false,
-      hasMoreData: true
+      hasMoreData: true,
+      imgList: []
     }
   },
   components: {  },
@@ -47,6 +72,17 @@ export default {
       if (this.hasMoreData) {
         this.loading = true
         setTimeout(() => { this.pageParams.currentPage += 1 }, 0);
+      }
+    },
+    onFileChange(e) {
+      let files = e.target.files[0];
+      let _oFReader = new FileReader()
+      _oFReader.readAsDataURL(files)
+      _oFReader.onload = ev => {
+        this.imgList.push({
+          files: files,
+          fileSrc: ev.target.result
+        })
       }
     }
   },

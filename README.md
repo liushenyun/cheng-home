@@ -29,7 +29,8 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 缺切图
-1，绑定手机波浪图
+1. 公益项目向右箭头
+2. 我的公益 =》我的证书右箭头
 
 
 import { beforeRouteLeave } from '@/common/js/mixin.js'

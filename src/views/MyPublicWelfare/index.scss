@@ -1,0 +1,95 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.meet-trip-ctr {
+  height: 100%;
+  width: 100%;
+  background: $color-b;
+  overflow: auto;
+  padding-bottom: rem(20);
+  padding: rem(87) rem(42) rem(20) rem(42);
+  .mt-form-wrap {
+    background: #FFF;
+    height: 100%;
+    overflow: auto;
+    border-radius: rem(10);
+    padding: rem(20) rem(24) rem(34) rem(24);
+    // .i-tip {
+    //   font-size: $size-c;
+    //   font-weight: bolder;
+    //   margin-bottom: rem(15);
+    //   span:nth-of-type(2) {
+    //     color: #D52121
+    //   }
+    // }
+    .mt-title {
+      height: rem(70);
+      text-align: center;
+      display: flex;
+      margin-bottom: rem(42);
+      p {
+        line-height: rem(70);
+        height: 100%;
+        flex: 1;
+        font-size: rem(32);
+        color: $color-c;
+        letter-spacing: rem(1);
+        font-weight: bolder;
+      }
+      p.active {
+        background: url('../../image/mt_trip_btn_active.png') no-repeat top center;
+        background-size: auto 100%;
+        color: #FFF;
+      }
+    }
+    .meet-info-wrap {
+      ul {
+    
+        li {
+          background: linear-gradient(103deg,rgba(232,197,122,1),rgba(255,255,255,1),rgba(252,217,162,1));
+          box-shadow:  rem(2) rem(4) rem(10) rgba(133,133,133,0.36);
+          padding: rem(30) rem(24);
+          position: relative;
+          margin-bottom: rem(28);
+          width: 100%;
+          color: #774A05;
+          p {
+            font-size: $size-a;
+            margin-bottom: rem(21);
+          }
+          p:nth-of-type(1) {
+            font-size: $size-d;
+          }
+          .dis-btn-wrap {
+            overflow: hidden;
+            // height: rem(48);
+            text-align: right;
+            span {
+              display: inline-block;
+              vertical-align: middle;
+              padding: rem(12) rem(30);
+              border: rem(2) solid rgba(166,6,5,1);
+              border-radius: rem(24);
+              margin-left: rem(16);
+              font-size: 0;
+              i {
+                font-size: rem(24);
+                vertical-align: middle;
+                margin-right: rem(6);
+              }
+              img {
+                width: rem(32);
+                height: rem(32);
+                vertical-align: middle;
+              }
+            }
+            span.active {
+              color: #FFF;
+              border: 0;
+              background:linear-gradient(0deg,rgba(255,196,96,1),rgba(255,120,30,1),rgba(255,196,96,1)), url('../../image/dis_right_ic.png') no-repeat rem(150) center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
