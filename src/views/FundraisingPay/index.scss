@@ -39,33 +39,76 @@
   }
   .Fundrais-money-outer {
     position: relative;
-    transform: translateY(-50%);
-    text-align: center;
-    span {
-      display: inline-block;
-      padding: rem(8) rem(30);
-      color: #FB4D38;
-      border-radius: rem(20);
-      p {
-        font-weight: bolder;
-      }
-      p:nth-of-type(1) {
-        font-size: $size-b;
-        margin-bottom: rem(6);
-      }
-      p:nth-of-type(2) {
-        font-size: $size-d;
-
-      }
-    }
-    span:nth-of-type(1) {
-      box-shadow:0px rem(4) rem(4) 0px rgba(251,85,59,0.33);
-      margin-right: rem(30);
+    transform: translateY(rem(-42));
+    padding: 0 rem(30);
+    .Fundrais-money-inner {
       background: #FFF;
+      box-shadow:0px rem(2) rem(8) rem(1) rgba(251,84,59,0.29);
+      border-radius: rem(10);
+      min-height: rem(100);
+      padding: rem(30);
+      .FM-title {
+        margin-bottom: rem(30);
+        font-size: $size-d;
+        font-weight: bolder;
+        padding-left: rem(12);
+        position: relative;
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: rem(6);
+          content: '';
+          background: #FFA63D;
+        }
+      }
+      .FM-money-wrap {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: rem(18);
+        li {
+          width: rem(192);
+          height: rem(70);
+          line-height: rem(70);
+          text-align: center;
+          border-radius: rem(10);
+          border: 1px solid rgba(191,191,191,.6);
+        }
+        li.active {
+          border: 0;
+          background: #FFDDAA;
+          color: #EE3A13;
+        }
+      }
+      .FM-input-conunt {
+        margin-top: rem(30);
+        .pub-input {
+          border: 1px solid rgba(102,102,102,.6);
+          padding-left: rem(12);
+          margin-bottom: 0;
+        }
+      }
+      
     }
-    span:nth-of-type(2) {
+    .FM-ni {
+      margin-top: rem(40);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .Fm-submit-btn {
+      margin-top: rem(200);
+      margin-left: 20%;
+      width: 60%;
+      height: rem(70);
+      line-height: rem(70);
+      text-align: center;
       background:linear-gradient(87deg,rgba(251,232,162,1),rgba(255,255,255,1),rgba(255,228,165,1));
-      box-shadow:0px rem(4) rem(4) 0px rgba(251,84,59,0.29), 0px rem(4) rem(10) 0px rgba(255,57,80,0.22);
+      box-shadow:0px rem(1) rem(6) rem(3) rgba(251,84,59,0.29);
+      border-radius: rem(36);
+      color: #D3381F;
+      font-size: rem(32);
     }
   }
 

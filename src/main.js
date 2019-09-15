@@ -7,7 +7,7 @@ import 'mint-ui/lib/style.css'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
   Cell, Toast, Picker,
   Loadmore, InfiniteScroll, Spinner,
-  DatetimePicker } from 'mint-ui'
+  DatetimePicker, Switch } from 'mint-ui'
 import LinkageBase from './components/linkageBase';
 import PickerS from './components/PickerS/index'
 import ShowScan from './components/ShowScan/index'
@@ -27,6 +27,7 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 Vue.component(Cell.name, Cell);
 Vue.component(Picker.name, Picker);
 Vue.component(DatetimePicker.name, DatetimePicker);
+Vue.component(Switch.name, Switch);
 
 Object.assign(Vue.prototype, {
   $toast: Toast,
