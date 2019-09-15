@@ -109,7 +109,6 @@ export default {
         this.params.introduce = introduce
         this.params.headImageFile = headImageFile
         this.headimage = headimage
-        console.log(this.params)
       }).catch(() => {
 
       })
@@ -124,7 +123,6 @@ export default {
     },
     submit() {
       this.userUpdateApiFA()
-      console.log(this.params)
     },
     handleConfirm(args, type, divide = '') {
       let { val, bool } = args[0];
@@ -142,7 +140,6 @@ export default {
     onFileChange(e) {
       let fileName = e.target.files[0].name;
       this.params.headImageFile = e.target.files[0]
-      console.log(fileName)
     }
   },
   

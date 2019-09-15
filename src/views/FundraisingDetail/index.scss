@@ -5,6 +5,54 @@
   width: 100%;
   overflow: auto;
   padding-bottom: rem(118);
+  .Fund-cert-outer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 10;
+    .Fund-cert-inner {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      .cert-close {
+        text-align: right;
+        margin-bottom: rem(20);
+        span {
+          padding: rem(20);
+          color: #FFF;
+          font-size: rem(30);
+        } 
+      }
+      .cert-img {
+        text-align: center;
+        img {
+          height: rem(770);
+          width: auto;
+        }
+      }
+      .cert-btn {
+        min-width: rem(400);
+        max-width: 80%;
+        margin-left: 10%;
+        margin-top: rem(40);
+        text-align: center;
+        height: rem(72);
+        line-height: rem(72);
+        color: #D3381F;
+        font-size: rem(32);
+        background:linear-gradient(87deg,rgba(251,232,162,1),rgba(255,255,255,1),rgba(255,228,165,1));
+        box-shadow:0px rem(1) rem(8) rem(1) rgba(255,255,255,0.29);
+        border-radius: rem(36);
+        font-weight: bolder;
+        letter-spacing: rem(2);
+      }
+    }
+  }
   .Fundr-share-btn {
     position: fixed;
     left: 0;
@@ -40,6 +88,10 @@
       border-radius: rem(36);
     }
   }
+  .FundraisingDetail-con {
+    height: 100%;
+    overflow: auto;
+  }
   // padding: rem(87) rem(42) rem(20) rem(42);
   .mine-top-outer {
     padding-top: rem(36);
@@ -67,9 +119,14 @@
         margin-bottom: rem(16);
       }
     }
-    img:nth-of-type(2) {
-      width: rem(31);
-      height: rem(31);
+    i{
+      padding: rem(4) rem(16);
+      color: #FB4D38;
+      font-size: rem(26);
+      background:linear-gradient(87deg,rgba(220,200,129,1),rgba(255,255,255,1),rgba(254,218,135,1));
+      // border: 1px solid rgba(250,205,137,1);
+      box-shadow: rem(1) rem(2) rem(3) 0px rgba(107,0,9,0.42);
+      border-radius: rem(18);
     }
   }
   .Fundrais-money-outer {
@@ -110,6 +167,20 @@
       min-height: rem(100);
       box-shadow:0px rem(2) rem(8) rem(1) rgba(251,84,59,0.29);
       border-radius: rem(10);
+    }
+    .Fun-des-imgs {
+      margin-top: rem(30);
+      overflow: hidden;
+      img {
+        width: rem(200);
+        height: rem(200);
+        float: left;
+        margin-right: rem(29);
+        margin-bottom: rem(20);
+      }
+      img:nth-child(3n+3) {
+        margin-right: rem(0);
+      }
     }
   }
 

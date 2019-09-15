@@ -8,20 +8,17 @@
   padding-bottom: rem(20);
   padding: rem(87) rem(42) rem(20) rem(42);
   .mt-form-wrap {
+    position: relative;
     background: #FFF;
     height: 100%;
     overflow: auto;
     border-radius: rem(10);
-    padding: rem(20) rem(24) rem(34) rem(24);
-    // .i-tip {
-    //   font-size: $size-c;
-    //   font-weight: bolder;
-    //   margin-bottom: rem(15);
-    //   span:nth-of-type(2) {
-    //     color: #D52121
-    //   }
-    // }
+    padding: rem(120) rem(24) rem(34) rem(24);
     .mt-title {
+      position: absolute;
+      left: 0;
+      top: rem(20);
+      width: 100%;
       height: rem(70);
       text-align: center;
       display: flex;
@@ -42,6 +39,8 @@
       }
     }
     .meet-info-wrap {
+      height: 100%;
+      overflow: auto;
       ul {
     
         li {

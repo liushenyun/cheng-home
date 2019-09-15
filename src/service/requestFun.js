@@ -20,7 +20,18 @@ import {
   broadcastListApi,
   tripInfoApi,
   tripCreateApi,
-  tripUpdateApi
+  tripUpdateApi,
+  crowdfundingPageApi,
+  crowdfundingInfoApi,
+  crowdfundingRecordPageApi,
+  crowdfundingPageLaunchedApi,
+  crowdfundingPagePartApi,
+  crowdfundingCreateApi,
+  crowdfundingUpdateApi,
+  crowdfundingRecordCreateApi,
+  crowdfundingRecordCertApi,
+  newsInfoApi,
+  activityInfoApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
@@ -99,7 +110,6 @@ const loginApiF = (data, fun) => packagePromise((resolve, reject) => {
       resolve(msg)
     })
     .catch(err => {
-      console.log(err)
       // debugger
       localStorage.setItem('PU-isLogin', 'NO')
       reject(err)
@@ -304,7 +314,6 @@ const userUpdateApiF = (data, fun) => packagePromise((resolve, reject) => {
   let params = formatParams(data)
   let formData = new FormData();
   for (let [key, value] of Object.entries(params)) {
-    console.log('key, value', key, value)
     if (!(key == 'headImageFile' && (value == 'null' || !value))) {
       formData.append(key, value)
     }
@@ -417,6 +426,176 @@ const tripUpdateApiF = (data, fun) => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
+// 资助申请【列表】
+const crowdfundingPageApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: crowdfundingPageApi(),
+    method: 'GET',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 资助申请【详情】
+const crowdfundingInfoApiF = (crowdfundingId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: crowdfundingInfoApi(),
+    method: 'GET',
+    data: {
+      crowdfundingId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 资助记录【列表】
+const crowdfundingRecordPageApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: crowdfundingRecordPageApi(),
+    method: 'GET',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 我发起的资助申请【列表】
+const crowdfundingPageLaunchedApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: crowdfundingPageLaunchedApi(),
+    method: 'GET',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 我参与的资助申请【列表】
+const crowdfundingPagePartApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: crowdfundingPagePartApi(),
+    method: 'GET',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 资助申请
+const crowdfundingApplyApi = (data, fun) => packagePromise((resolve, reject) => {
+  let _params = data
+  let _url = null
+  if (_params.id) {
+    _url = crowdfundingUpdateApi()
+  } else {
+    delete _params.id
+    _url = crowdfundingCreateApi()
+  }
+  let vArr = [
+    ['targetMoney', _params.targetMoney, '目标金额', 'empty'],
+    ['title', _params.title, '标题', 'empty'],
+    ['originator', _params.originator, '发起人/单位', 'empty'],
+    ['description', _params.description, '描述', 'empty']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
+  let params = formatParams(data)
+  let formData = new FormData();
+  for (let [key, value] of Object.entries(params)) {
+    formData.append(key, value)
+  }
+  fetch({
+    url: _url,
+    method: 'POST',
+    data: formData
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 资助记录【支付】
+const crowdfundingRecordCreateApiF = (data) => packagePromise((resolve, reject) => {
+  let _params = data
+  let vArr = [
+    ['money', _params.money, '金额', 'empty']
+  ]
+  let _Validated = Validate(vArr);
+  if (!_Validated) { return };
+  fetch({
+    url: crowdfundingRecordCreateApi(),
+    method: 'POST',
+    header: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 资助记录【获取捐赠证书】
+const crowdfundingRecordCertApiF = (crowdfundingId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: crowdfundingRecordCertApi(),
+    method: 'GET',
+    data: {
+      crowdfundingId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// // 新闻详情
+const newsInfoApiF = (newsId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: newsInfoApi(),
+    method: 'GET',
+    data: {
+      newsId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 获取活动详情
+const activityInfoApiF = (activityId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: activityInfoApi(),
+    method: 'GET',
+    data: {
+      activityId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// activityInfoApi
+
 export {
   userIsloginApiF,
   // SuccessTips,
@@ -439,5 +618,15 @@ export {
   broadcastListApiF,
   tripInfoApiF,
   tripCreateApiF,
-  tripUpdateApiF
+  tripUpdateApiF,
+  crowdfundingPageApiF,
+  crowdfundingInfoApiF,
+  crowdfundingRecordPageApiF,
+  crowdfundingPageLaunchedApiF,
+  crowdfundingPagePartApiF,
+  crowdfundingApplyApi,
+  crowdfundingRecordCreateApiF,
+  crowdfundingRecordCertApiF,
+  newsInfoApiF,
+  activityInfoApiF
 }

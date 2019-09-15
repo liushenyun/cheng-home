@@ -28,7 +28,7 @@
               <div class="new-wrap">
                 <nav> <a @click="tapActive('news')" :class="activeType == 'news'? 'active': ''">成氏新闻</a> <a @click="tapActive('activity')" :class="activeType == 'activity'? 'active': ''">成氏活动</a> </nav>
                 <ul class="new-con">
-                  <li v-for="(item, index) in pageList" :key="index">
+                  <li v-for="(item, index) in pageList" :key="index" @click="toDetailA(activeType, item)">
                     <img :src='item.icon' alt="图片" />
                     <p>{{item.title}}</p>
                     <p><span>{{item.date}}</span><span>{{item.location}}</span></p>
@@ -152,6 +152,11 @@ export default {
   components: {
   },
   methods: {
+      toDetailA(type, item) {
+        this.$router.push({
+          path: `/detailA/${type}/${item.id}`
+        })
+      },
       toMyPublicWelfareA() {
         this.$router.push({
           name: 'myPublicWelfare'
@@ -225,7 +230,7 @@ export default {
       },
       toClickA () {
         this.$router.push({
-          name: 'MeetSummary'
+          name: 'meetSummary'
         })
       },
       tapActive(type) {
@@ -262,7 +267,6 @@ export default {
       userInfoApiFA() {
         userInfoApiF().then((result) => {
           this.dPageParams = result
-          console.log(result)
         }).catch(() => {
 
         })
@@ -281,7 +285,6 @@ export default {
         if (nVal == d) {
           this.userInfoApiFA()
         }
-        console.log(nVal)
       },
       immediate: true
     }

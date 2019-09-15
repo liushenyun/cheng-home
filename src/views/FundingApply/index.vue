@@ -13,14 +13,14 @@
 
       <div class="Funding-con">
         <p class="Funding-con-title">想筹多少钱</p>
-        <div class="Funding-con-input"> <input type="text"> </div>
+        <div class="Funding-con-input"> <input type="text" v-model="pageParams.targetMoney" placeholder="请输入"> </div>
         <p class="Funding-con-title">筹款标题</p>
-        <div class="Funding-con-input"> <input type="text"> </div>
+        <div class="Funding-con-input"> <input type="text" v-model="pageParams.title" placeholder="请输入"> </div>
         <p class="Funding-con-title">筹款发起单位/人</p>
-        <div class="Funding-con-input"> <input type="text"> </div>
+        <div class="Funding-con-input"> <input type="text" v-model="pageParams.originator" placeholder="请输入"> </div>
         <p class="Funding-con-title">救助说明</p>
         <div class="Funding-con-input">
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <textarea name="" id="" cols="30" rows="10" v-model="pageParams.description" placeholder="请输入"></textarea>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
         </ul>
       </div>
 
-      <div class="fund-submit-btn">提交</div>
+      <div class="fund-submit-btn" @click="toSubmitA">提交</div>
     </div>
     
     
@@ -53,27 +53,29 @@
 
 <script>
 import { beforeRouteLeave } from '@/common/js/mixin.js'
-import dateFormat from '../../utils/dateFormat'
+import {
+  crowdfundingInfoApiF,
+  crowdfundingApplyApi
+} from "@/service/requestFun.js"
+
 // @ is an alias to /src
 export default {
   name: 'InformationDisclosure',
   mixins: [beforeRouteLeave],
   data () {
     return {
-      showShare: false,
-      loading: false,
-      hasMoreData: true,
-      imgList: []
+      imgList: [],
+      crowdfundingId: null,
+      pageParams: {
+        title: '',
+        targetMoney: '',
+        originator: '',
+        description: ''
+      }
     }
   },
   components: {  },
   methods: {
-    loadMore() {
-      if (this.hasMoreData) {
-        this.loading = true
-        setTimeout(() => { this.pageParams.currentPage += 1 }, 0);
-      }
-    },
     onFileChange(e) {
       let files = e.target.files[0];
       let _oFReader = new FileReader()
@@ -84,6 +86,37 @@ export default {
           fileSrc: ev.target.result
         })
       }
+    },
+    crowdfundingInfoApiFA() {
+      crowdfundingInfoApiF(this.crowdfundingId).then((result) => {
+        this.pageParams.targetMoney = result.targetMoneyDesc
+        this.pageParams.title = result.title
+        this.pageParams.originator = result.originator
+        this.pageParams.description = result.description
+      }).catch((err) => {
+        
+      });
+    },
+    crowdfundingApplyApiA() {
+      let _obj = Object.assign({}, this.pageParams)
+      let _imgList = this.imgList
+      _obj.id = this.crowdfundingId
+      _obj.mediaLength = _imgList.length
+      _imgList.forEach((v, i) => {
+        _obj[`mediaFile[${i}]`] = v.files
+        _obj[`mediaType[${i}]`] = 1
+      })
+      crowdfundingApplyApi(_obj).then((result) => {
+        this.$toast('提交成功')
+        setTimeout(() => {
+          this.$router.go(-1)
+        }, 1500);
+      }).catch((err) => {
+        
+      });
+    },
+    toSubmitA() {
+      this.crowdfundingApplyApiA()
     }
   },
   watch: { },
@@ -92,6 +125,11 @@ export default {
     next()
   },
   mounted () {
+    let _id = this.$route.params.id
+    if (_id) {
+      this.crowdfundingId = _id
+      this.crowdfundingInfoApiFA()
+    }
   }
 }
 </script>

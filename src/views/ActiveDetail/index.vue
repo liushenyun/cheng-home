@@ -36,9 +36,12 @@
 
 <script>
 import dateFormat from '../../utils/dateFormat'
+import { beforeRouteLeave } from '@/common/js/mixin.js'
+import { activityInfoApiF } from '../../service/requestFun.js'
 // @ is an alias to /src
 export default {
   name: 'ActiveDetail',
+  mixins: [beforeRouteLeave],
   data () {
     return {
       showShare: false
@@ -46,28 +49,17 @@ export default {
   },
   components: {  },
   methods: {
-    backHomeA() {
-      this.$router.push({
-        name: 'home'
-      })
-    },
-    toMineA() {
-      this.$router.push({
-        name: 'home',
-        params: {
-          selected: '个人中心'
-        }
-      })
-    },
     singA() {
+    },
+    activityInfoApiFA() {
+      activityInfoApiF(1).then((reslut) => {
+
+      }).catch(() => {})
     }
   },
   watch: { },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
-  },
   mounted () {
+    this.activityInfoApiFA()
   }
 }
 </script>

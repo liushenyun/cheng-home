@@ -62,6 +62,40 @@ const tripCreateApi = () => `${Domain}/api/activity/trip/create`
 // 更新行程信息
 const tripUpdateApi = () => `${Domain}/api/activity/trip/update`
 
+// 资助申请【列表】
+const crowdfundingPageApi = () => `${Domain}/api/crowdfunding/page`
+
+// 资助申请【详情】
+const crowdfundingInfoApi = () => `${Domain}/api/crowdfunding/info`
+
+// 资助记录【列表】
+const crowdfundingRecordPageApi = () => `${Domain}/api/crowdfunding/record/page`
+
+// 我发起的资助申请【列表】
+const crowdfundingPageLaunchedApi = () => `${Domain}/api/crowdfunding/page/launched`
+
+// 我参与的资助申请【列表】
+const crowdfundingPagePartApi = () => `${Domain}/api/crowdfunding/page/part`
+
+// 资助申请【创建】
+const crowdfundingCreateApi = () => `${Domain}/api/crowdfunding/create`
+
+// 资助申请【更新】
+const crowdfundingUpdateApi = () => `${Domain}/api/crowdfunding/update`
+
+// 资助记录【支付】
+const crowdfundingRecordCreateApi = () => `${Domain}/api/crowdfunding/record/create`
+
+// 资助记录【获取捐赠证书】
+const crowdfundingRecordCertApi = () => `${Domain}/api/crowdfunding/record/cert`
+
+// 新闻详情
+const newsInfoApi = () => `${Domain}/api/news/info`
+
+// 获取活动详情
+const activityInfoApi = () => `${Domain}/api/activity/info`
+
+// /api/activity/info
 export {
   userIsloginApi,
   newsPageApi,
@@ -83,5 +117,16 @@ export {
   broadcastListApi,
   tripInfoApi,
   tripCreateApi,
-  tripUpdateApi
+  tripUpdateApi,
+  crowdfundingPageApi,
+  crowdfundingInfoApi,
+  crowdfundingRecordPageApi,
+  crowdfundingPageLaunchedApi,
+  crowdfundingPagePartApi,
+  crowdfundingCreateApi,
+  crowdfundingUpdateApi,
+  crowdfundingRecordCreateApi,
+  crowdfundingRecordCertApi,
+  newsInfoApi,
+  activityInfoApi
 };

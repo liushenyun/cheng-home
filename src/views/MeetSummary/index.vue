@@ -62,10 +62,10 @@ export default {
   },
   components: {
   },
-  beforeRouteLeave(to, from, next) {
-    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
-    next()
-  },
+  // beforeRouteLeave(to, from, next) {
+  //   history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+  //   next()
+  // },
   computed: {
     statusText: function() {
       let _status = this.pageData.status + ''

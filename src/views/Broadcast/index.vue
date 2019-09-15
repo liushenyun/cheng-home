@@ -12,7 +12,7 @@
             <p class="b_r_name">{{subItem.nickName}}</p>
             <p class="b_r_title">{{subItem.content}}</p>
             <div class="b_r_imgs">
-              <img v-for="(sItem, sIndex) in subItem.medias" :key="sIndex" :src="sItem.url" alt="" />
+              <img @click="topreviewImageA(sItem.url, subItem.medias)" v-for="(sItem, sIndex) in subItem.medias" :key="sIndex" :src="sItem.url" alt="" />
               
             </div>
           </div>
@@ -31,6 +31,8 @@
 import dateFormat from '../../utils/dateFormat'
 import { beforeRouteLeave } from '@/common/js/mixin.js'
 import { broadcastListApiF } from '../../service/requestFun.js'
+import { jsConfigApi } from '../../service/apiUrl'
+import wechat from '../../common/js/wechat'
 // @ is an alias to /src
 export default {
   name: 'Broadcast',
@@ -45,9 +47,22 @@ export default {
   methods: {
     broadcastListApiFA() {
       broadcastListApiF(1).then((result) => {
-        console.log(result)
         this.pageList = result
       }).catch(() => {})
+    },
+    topreviewImageA(current, urls) {
+      let _self = this
+      let _current = current.split('?')[0]
+      let _urls = [] 
+      urls.forEach(k => {
+        _urls.push(k.url.split('?')[0])
+      });
+      wechat.config(wechat.properties.interface.previewImage, jsConfigApi(), function(r) {
+        wx.previewImage({
+          current: _current, // 当前显示图片的http链接
+          urls: _urls // 需要预览的图片http链接列表
+        })
+      })
     }
   },
   watch: { },

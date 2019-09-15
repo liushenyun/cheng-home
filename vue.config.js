@@ -1,4 +1,6 @@
-let d = 'http://hndn7e.natappfree.cc'
+// let d = 'http://hndn7e.natappfree.cc'
+// let d = 'http://192.168.7.200:8088'
+let d = 'http://m.chengmall.cn'
 module.exports = {
     devServer: {
         proxy: {

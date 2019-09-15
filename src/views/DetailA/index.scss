@@ -1,0 +1,43 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.DetailA-ctr {
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+  overflow: auto;
+  padding: rem(24) rem(30);
+  .DetailA-con {
+    height: 100%;
+    overflow: auto;
+    background:rgba(254,244,228, .7);
+    padding: rem(29) rem(21);
+    .d-title {
+      font-weight: bolder;
+      font-size: $size-d;
+      line-height: 1.2;
+    }
+    .d-line {
+      height: 1px;
+      background:rgba(250,205,137,.4);
+      width: 100%;
+      margin: rem(20) 0 rem(24) 0;
+    }
+    .d-des {
+      display: flex;
+      margin-bottom: rem(16);
+      align-items: center;
+      color: #666;
+      .d-des-1 {
+        flex: 1;
+      }
+      img {
+        width: rem(32);
+        height: rem(19);
+        margin-right: rem(4);
+      }
+    }
+    .get-con-wrap {
+      line-height: 1.2
+    }
+  }
+}

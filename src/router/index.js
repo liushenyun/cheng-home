@@ -35,6 +35,7 @@ const WelfareList = () => import('../views/WelfareList/index')
 const MyPublicWelfare = () => import('../views/MyPublicWelfare/index')
 const FundraisingDetail = () => import('../views/FundraisingDetail/index')
 const FundraisingPay = () => import('../views/FundraisingPay/index')
+const DetailA = () => import('../views/DetailA/index')
 
 Vue.use(Router)
 const VueRouter = new Router({
@@ -46,8 +47,8 @@ const VueRouter = new Router({
         component: Home
     },
     {
-        path: '/MeetSummary',
-        name: 'MeetSummary',
+        path: '/meetSummary',
+        name: 'meetSummary',
         component: MeetSummary
     },
     {
@@ -191,7 +192,7 @@ const VueRouter = new Router({
         component: MyPublicWelfare
     },
     { // 筹款详情
-        path: '/fundraisingDetail',
+        path: '/fundraisingDetail/:id',
         name: 'fundraisingDetail',
         component: FundraisingDetail
     },
@@ -199,8 +200,13 @@ const VueRouter = new Router({
         path: '/fundraisingPay',
         name: 'fundraisingPay',
         component: FundraisingPay
+    },
+    { // 成氏公益-捐款页面
+        path: '/detailA/:type/:id',
+        name: 'detailA',
+        component: DetailA
     }
-    // FundraisingPay
+    // DetailA
   ]
 })
 
@@ -225,7 +231,8 @@ const DOC_TITLE = {
     'welfareInfo': '信息公开',
     'myPublicWelfare': '我的公益',
     'fundraisingDetail': '筹款详情',
-    'FundraisingPay': '捐款'
+    'FundraisingPay': '捐款',
+    'detailA': '查看详情'
 }
 VueRouter.afterEach((to, from) => {
     let { name } = to

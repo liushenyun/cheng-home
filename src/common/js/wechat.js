@@ -10,7 +10,7 @@ const wechat = {};
 wechat.properties = {
     appId:"wx19e86539dded8a42",
     debug: false,
-    interface :{
+    interface: {
         onMenuShareTimeline:'onMenuShareTimeline',
         onMenuShareAppMessage:'onMenuShareAppMessage',
         onMenuShareQQ:'onMenuShareQQ',

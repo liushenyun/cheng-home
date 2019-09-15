@@ -18,7 +18,6 @@ function getDateFromSomedayWithDistance(someday, n, type = '-') {
   let _type = type || '-';
   let _someday = someday || new Date();
   let _n = Number(n);
-  console.log(_someday);
   let getDates = new Date(_someday); // 2017-1-30 || 2017.1.30 || 2017/1/30 || new Date();
   let setDay = getDates.setDate(getDates.getDate() + _n);
   let trueDay = new Date(setDay);

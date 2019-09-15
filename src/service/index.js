@@ -79,7 +79,6 @@ const fetchs = (options, fun) => {
           }
         } else {
           Vue.prototype.$toast('系统错误')
-          console.log('系统错误')
         }
       })
       .catch((error) => {

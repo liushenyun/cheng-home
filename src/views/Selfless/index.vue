@@ -35,6 +35,7 @@ export default {
     selfSubmitA() {
       let _this = this
       wechat.config(wechat.properties.interface.chooseWXPay, jsConfigApi(), function(r) {
+        
         sponsorDonationApiF(_this.params).then((result) => {
           wechat.chooseWxPay(result, function (res) {
               _this.$router.push({
