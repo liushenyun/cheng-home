@@ -114,13 +114,28 @@ export default {
       })
     },
     userUpdateApiFA() {
-      userUpdateApiF(this.params).then(() => {
+      let param = this.params;
+      for(let x in param){
+          let s = param[x];
+          if(s == "" || s == null || s == undefined ){
+            param[x] = '' ;
+          }
+      }
+      userUpdateApiF(param).then(() => {
         this.$toast('填写成功')
         setTimeout(() => {
           this.$router.go(-1)
         }, 1500);
       }).catch(() => {})
     },
+    // userUpdateApiFA() {
+    //   userUpdateApiF(this.params).then(() => {
+    //     this.$toast('填写成功')
+    //     setTimeout(() => {
+    //       this.$router.go(-1)
+    //     }, 1500);
+    //   }).catch(() => {})
+    // },
     submit() {
       this.userUpdateApiFA()
     },
