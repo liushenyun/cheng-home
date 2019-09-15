@@ -38,7 +38,8 @@
         <input class="i-input" v-model="paramsBack.vehicle" readonly @focus="trafficToolsFlag = true" placeholder="请选择交通工具" type="text" name="" id="">
 
         <p class="i-tip"><span>出发位置</span><span></span></p>
-        <input class="i-input" v-model="paramsBack.departureLocation" readonly @focus="arrivalLocationFlag = true" placeholder="请选择到达位置" type="text" name="" id="">
+        <!-- <input class="i-input" v-model="paramsBack.departureLocation" readonly @focus="arrivalLocationFlag = true" placeholder="请选择到达位置" type="text" name="" id=""> -->
+        <input class="i-input" v-model="paramsBack.departureLocation" placeholder="出发位置" type="text" name="" id="">
 
         <p class="i-tip"><span>同行人数</span><span></span></p>
         <input class="i-input" v-model="paramsBack.peopleNumber" placeholder="请输入" type="number" name="" id="">
@@ -87,7 +88,7 @@ export default {
         {
           flex: 1,
           defaultIndex: 0,
-          values: [{key: '1', name: '飞机'}, {key: '2', name: '火车'}, {key: '3', name: '汽车'}, {key: '4', name: '自驾'}],
+          values: [{key: '1', name: '飞机'}, {key: '2', name: '火车'}, {key: '3', name: '汽车'}, {key: '4', name: '船'} ,{key: '5', name: '自驾'}],
           className: 'slot1'
         }
       ],
