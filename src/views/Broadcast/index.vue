@@ -13,13 +13,13 @@
             <p class="b_r_title">{{subItem.content}}</p>
             <div class="b_r_imgs">
               <img @click="topreviewImageA(sItem.url, subItem.medias)" v-for="(sItem, sIndex) in subItem.medias" :key="sIndex" :src="sItem.url" alt="" />
-              
+
             </div>
           </div>
         </div>
 
-        
-        
+
+
       </li>
 
 
@@ -53,7 +53,7 @@ export default {
     topreviewImageA(current, urls) {
       let _self = this
       let _current = current.split('?')[0]
-      let _urls = [] 
+      let _urls = []
       urls.forEach(k => {
         _urls.push(k.url.split('?')[0])
       });
