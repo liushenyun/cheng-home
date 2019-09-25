@@ -39,3 +39,5 @@ import { beforeRouteLeave } from '@/common/js/mixin.js'
 export default {
   name: 'BindPhone',
   mixins: [beforeRouteLeave],
+  
+  test
