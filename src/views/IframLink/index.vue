@@ -39,7 +39,7 @@ export default {
       console.log(list)
       if(list.id == 1){
         this.$router.push({
-        path: `/meetSummary`  //六大活动页面     
+        path: `/meetSummary`  //六大活动页面
       }) }else{
         this.$router.push({
         path: `/activitedInfo`,
@@ -48,7 +48,7 @@ export default {
         }
       });
       }
-      
+
     }
   },
 

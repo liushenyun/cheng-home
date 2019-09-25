@@ -1,21 +1,21 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
-.top {   
+.top {
     .img{
         margin-bottom: rem(27);
         text-align: center;
         margin:auto auto;
         margin-top: rem(13);
         width: rem(690);
-        height: auto;    
-        
+        height: auto;
+
         border-radius: rem(10);
-        background-image:url('../../image/activitedListBackground.jpg'); 
+        background-image:url('../../image/activitedListBackground.jpg');
        .txt{
            text-align: left;
            display: flex;
            padding: rem(22) 0 rem(22) rem(28);
-        
+
            .txtColor{
                width: rem(8);
                height: rem(31);
@@ -27,7 +27,7 @@
                font-size: rem(30);
                line-height: rem(35);
            }
-       } 
+       }
        .forDiv{
                margin-bottom: rem(5);
                padding-bottom: rem(15);
@@ -36,9 +36,9 @@
             width: rem(660);
             height: rem(238);
             background: #F9DFBA;
-            margin:auto rem(15); 
-            border-radius: rem(10) rem(10) 0 0;  
-                     
+            margin:auto rem(15);
+            border-radius: rem(10) rem(10) 0 0;
+
         }
         .topTxt{
             width: rem(660);
@@ -47,7 +47,7 @@
             margin:auto auto;
             padding-left: rem(15) !important;
             padding-top: rem(10);
-            border-radius:  0 0 rem(10) rem(10);   
+            border-radius:  0 0 rem(10) rem(10);
             .topdivTxt{
                 font-size: rem(26);
                 font-weight:bold;
@@ -67,7 +67,7 @@
                 }
             }
         }
-        
+
     }
 
   }   //周年庆活动
@@ -79,9 +79,9 @@
         margin:auto auto;
         margin-top: rem(13);
         width: rem(690);
-        // height: rem(770);     
+        // height: rem(770);
         border-radius: rem(10);
-        background-image:url('../../image/activitedListBackground.jpg'); 
+        background-image:url('../../image/activitedListBackground.jpg');
        .txt{
            text-align: left;
            display: flex;
@@ -97,14 +97,14 @@
                font-size: rem(30);
                line-height: rem(35);
            }
-       } 
+       }
         .topDiv{
             width: rem(660);
             height: rem(238);
             background: #F9DFBA;
-            margin:auto rem(15); 
-            border-radius: rem(10) rem(10) 0 0;  
-                     
+            margin:auto rem(15);
+            border-radius: rem(10) rem(10) 0 0;
+
         }
         .topTxt{
             width: rem(660);
@@ -114,7 +114,7 @@
             padding-left: rem(15) !important;
             padding-top: rem(10);
             margin-bottom: rem(15);
-            border-radius:  0 0 rem(10) rem(10);   
+            border-radius:  0 0 rem(10) rem(10);
             .topdivTxt{
                 font-size: rem(26);
                 font-weight:bold;
@@ -134,8 +134,7 @@
                 }
             }
         }
-        
+
     }
 
   }
-  
