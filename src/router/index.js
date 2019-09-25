@@ -36,7 +36,9 @@ const MyPublicWelfare = () => import('../views/MyPublicWelfare/index')
 const FundraisingDetail = () => import('../views/FundraisingDetail/index')
 const FundraisingPay = () => import('../views/FundraisingPay/index')
 const DetailA = () => import('../views/DetailA/index')
-
+const activitedInfo = () => import('../views/activitedInfo/index')
+const activitedList = () => import('../views/activitedList/index')
+const IframLink = () => import('../views/IframLink/index')
 Vue.use(Router)
 const VueRouter = new Router({
   mode: 'history',
@@ -205,6 +207,21 @@ const VueRouter = new Router({
         path: '/detailA/:type/:id',
         name: 'detailA',
         component: DetailA
+    },
+    { // 活动详情
+        path: '/activitedInfo',
+        name: 'activitedInfo',
+        component: activitedInfo
+    },
+    { // 活动列表
+        path: '/activitedList',
+        name: 'activitedList',
+        component: activitedList
+    },
+    { // iframe页面
+        path: '/IframLink',
+        name: 'IframLink',
+        component: IframLink
     }
     // DetailA
   ]
@@ -232,12 +249,16 @@ const DOC_TITLE = {
     'myPublicWelfare': '我的公益',
     'fundraisingDetail': '筹款详情',
     'FundraisingPay': '捐款',
-    'detailA': '查看详情'
+    'detailA': '查看详情',
+    'activitedInfo': '活动详情',
+    'activitedList': '活动列表',
+    'IframLink': '第六届世界成氏恳亲大会视频/照片直播'
 }
 VueRouter.afterEach((to, from) => {
     let { name } = to
     document.title = DOC_TITLE[name] || '成氏之家'
-    console.log(to, from)
+    console.log(to, from);
+    console.log("标题主页")
 })
 
 // VueRouter.beforeRouteLeave((to, from, next) => {

@@ -51,7 +51,22 @@
         .b_r_title {
           font-size: rem(28);
           line-height: rem(38);
-          margin-bottom: rem(20);
+          margin-bottom: rem(20);         
+        }
+        
+        .active{  //判断是否展示或收起
+          overflow:hidden; 
+          text-overflow:ellipsis; //元素宽度超过时  用省略号代替剩下的溢出
+          display:-webkit-box; 
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2; 
+        }
+        .unfold{
+          margin: rem(20);          
+        }
+        .b_r_text{
+          text-align: right;
+          color:gray;
         }
         .b_r_imgs {
           height: auto;

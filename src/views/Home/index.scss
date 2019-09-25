@@ -52,6 +52,11 @@
         width: 50%;
         text-align: center;
         position: relative;
+        .imgTxt{
+          width: rem(30);
+          height: rem(30);
+          float: right;
+        }
       }
       a.active {
         color: #CD1D1F

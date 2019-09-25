@@ -60,7 +60,7 @@ export default {
      delegationName: '',
      applyId: null,
      params: {
-       activityId: '1',
+       activityId: '', //动态id
        name: '', // 姓名
        tel: '', // 手机
        ancestral: '', // 祖籍
@@ -75,7 +75,12 @@ export default {
   },
   components: { LinkageAddr },
   methods: {
-    submit() {
+    getId(){
+      let router = this.$route;
+      let id = router.query.activityId;  
+      this.params.activityId = id;   
+    },
+    submit() {      
       // this.$router.push({
       //   name: 'activeDetail'
       //   // name: 'signSuccess'
@@ -86,11 +91,23 @@ export default {
       }
       activityApplyApiF(this.params).then((result) => {
         this.$toast('提交成功')
-
+        let t = this;
+        debugger
         setTimeout(() => {
+          let router = t.$route;
+          let id = router.params.activityId;  
+        if(id == 1){
           this.$router.push({
             name: 'MeetSummary'
           })
+        }else{
+          this.$router.push({
+            name: 'activitedInfo',
+            query:{
+              activityId : id
+            }
+          })
+        } 
         }, 1500)
       }).catch(() => {
 
@@ -124,10 +141,12 @@ export default {
   beforeRouteLeave(to, from, next) {
     history.pushState(null, null, location.search.replace(/code/g, 'XX'))
     next()
-  },
-  mounted () {
+  },  
+  mounted () {  
+    this.getId();  
     this.applyId = this.$route.params.applyId
     this.listParentApiFA(this.listParentApiFA.bind(this))
+
   }
 }
 </script>

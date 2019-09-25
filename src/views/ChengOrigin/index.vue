@@ -1,10 +1,9 @@
 <template>
-  <div class="sign-success-ctr">
-      <div class="wait-wrap">
-        <img src="../../image/wait_icon.jpg">
-        <p>相关功能逐步开放</p>
-        <p>·敬请期待·</p>
-      </div>
+  <div class="top">
+    <div class="colorDiv">
+        <img src="../../image/activitedListBackground.jpg">
+        <span>[成氏来源] 郕国数百年兴衰史</span>
+    </div>
   </div>
 </template>
 

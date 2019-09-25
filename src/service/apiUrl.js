@@ -95,7 +95,8 @@ const newsInfoApi = () => `${Domain}/api/news/info`
 // 获取活动详情
 const activityInfoApi = () => `${Domain}/api/activity/info`
 
-// /api/activity/info
+// 活动列表
+const activityListApi = () => `${Domain}/api/activity/list`
 export {
   userIsloginApi,
   newsPageApi,
@@ -128,5 +129,6 @@ export {
   crowdfundingRecordCreateApi,
   crowdfundingRecordCertApi,
   newsInfoApi,
-  activityInfoApi
+  activityInfoApi,
+  activityListApi
 };

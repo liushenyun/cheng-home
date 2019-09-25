@@ -31,7 +31,8 @@ import {
   crowdfundingRecordCreateApi,
   crowdfundingRecordCertApi,
   newsInfoApi,
-  activityInfoApi
+  activityInfoApi,
+  activityListApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
@@ -593,8 +594,18 @@ const activityInfoApiF = (activityId) => packagePromise((resolve, reject) => {
     })
     .catch(err => reject(err))
 })
-
-// activityInfoApi
+// 获取活动列表
+const activityListApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: activityListApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
 
 export {
   userIsloginApiF,
@@ -628,5 +639,6 @@ export {
   crowdfundingRecordCreateApiF,
   crowdfundingRecordCertApiF,
   newsInfoApiF,
-  activityInfoApiF
+  activityInfoApiF,
+  activityListApiF
 }

@@ -55,6 +55,13 @@ wechat.properties = {
  * @param url 后台获取参数的的接口
  */
 wechat.config = function(inter, url, callback){
+    let jsApiList = [];
+    if(inter instanceof Array){
+        jsApiList = inter;
+    }else{
+        jsApiList.push(inter);
+    }
+    
     fetch({
         url: url,
         method: 'GET',
@@ -68,7 +75,7 @@ wechat.config = function(inter, url, callback){
             timestamp: data.timestamp, // 必填，生成签名的时间戳
             nonceStr: data.nonceStr, // 必填，生成签名的随机串
             signature: data.signature,// 必填，签名，见附录1
-            jsApiList: [inter] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            jsApiList: jsApiList // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
         callback && callback(1111)
       })
@@ -150,7 +157,6 @@ wechat.chooseWxPay = function(data,cb){
  * 分享到朋友圈
  */
 wechat.onMenuShareTimeline = function(res,confirmFun,cancelFun){
-
     var title = res.title;
     var link = res.link;
     var image = res.image;
@@ -196,5 +202,40 @@ wechat.onMenuShareAppMessage = function(res,confirmFun,cancelFun){
     });
 
 };
+
+/**
+ * 微信分享朋友圈
+ */
+wechat.updateTimelineShareData = function(param,cb){
+    wx.updateTimelineShareData({
+        title: param.title, // 分享标题
+        link: param.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: param.imgUrl, // 分享图标
+        success: function(data) {
+            if(cb){
+                cb(data);
+            }
+        }
+      });
+};
+
+
+/**
+ * 微信分享好友
+ */
+wechat.updateAppMessageShareData = function(param,cb){
+    wx.updateAppMessageShareData({
+        title: param.title, // 分享标题
+        desc: param.desc,
+        link: param.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: param.imgUrl, // 分享图标
+        success: function(data) {
+            if(cb){
+                cb(data);
+            }
+        }
+      });
+};
+
 
 export default wechat
