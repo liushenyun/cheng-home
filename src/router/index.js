@@ -39,6 +39,7 @@ const DetailA = () => import('../views/DetailA/index')
 const activitedInfo = () => import('../views/activitedInfo/index')
 const activitedList = () => import('../views/activitedList/index')
 const IframLink = () => import('../views/IframLink/index')
+const ChengOriginInfo = () => import('../views/ChengOriginInfo/index')
 Vue.use(Router)
 const VueRouter = new Router({
   mode: 'history',
@@ -158,6 +159,11 @@ const VueRouter = new Router({
         name: 'chengOrigin',
         component: ChengOrigin
     },
+    { // 成氏源流详情页
+      path: '/ChengOriginInfo',
+      name: 'ChengOriginInfo',
+      component: ChengOriginInfo
+    },
     { // 成氏分布
         path: '/chengDistribution',
         name: 'chengDistribution',
@@ -252,7 +258,9 @@ const DOC_TITLE = {
     'detailA': '查看详情',
     'activitedInfo': '活动详情',
     'activitedList': '活动列表',
-    'IframLink': '第六届世界成氏恳亲大会视频/照片直播'
+    'IframLink': '第六届世界成氏恳亲大会视频/照片直播',
+    'ChengOriginInfo': '成氏源流详情'
+
 }
 VueRouter.afterEach((to, from) => {
     let { name } = to

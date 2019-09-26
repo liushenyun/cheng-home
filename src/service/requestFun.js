@@ -32,7 +32,10 @@ import {
   crowdfundingRecordCertApi,
   newsInfoApi,
   activityInfoApi,
-  activityListApi
+  activityListApi,
+  sourceListApi,
+  sourceInfoApi,
+  familyTreeApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
@@ -606,6 +609,44 @@ const activityListApiF = (data, fun) => packagePromise((resolve, reject) => {
     })
     .catch(err => reject(err))
 })
+// 获取成氏源流 列表
+const sourceListApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: sourceListApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+// 获取成氏源流 详情页
+const sourceInfoApiF = (sourceId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: sourceInfoApi(),
+    method: 'GET',
+    data :{
+      sourceId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+// 获取成氏族谱 列表
+const familyTreeApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: familyTreeApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
 
 export {
   userIsloginApiF,
@@ -640,5 +681,8 @@ export {
   crowdfundingRecordCertApiF,
   newsInfoApiF,
   activityInfoApiF,
-  activityListApiF
+  activityListApiF,
+  sourceListApiF,
+  sourceInfoApiF,
+  familyTreeApiF
 }

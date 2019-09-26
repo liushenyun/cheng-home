@@ -1,9 +1,61 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
-.sign-success-ctr {
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  padding-bottom: rem(20);
-  padding: rem(51) rem(42) rem(0) rem(42);
+
+.top {
+  .selectDiv{
+    width: 100%;
+    //text-align: center;
+    .select{
+      width: 30%;
+      border: 1px solid #555555;
+      border-radius: rem(10);
+      height: rem(55);
+      margin: rem(10);
+      appearance:none;
+      padding-left: rem(15);
+      background: url("../../image/selectjian.png") no-repeat scroll right center transparent;
+    }
+  }
+  .colorDiv{
+    border-bottom: rem(1) solid gray;
+    width:93%;
+    height:rem(80);
+    margin: 0 rem(30);
+    //margin-top: rem(20);
+    display: flex;
+    .txt{
+      display: flex;
+      padding: auto 0;
+      margin: auto 0;
+      width: 100%;
+      .book1 img{
+        width: rem(33);
+        height: rem(37);
+        margin: auto 0;
+        padding: 0 rem(10);
+      }
+      .jian1{
+        position: absolute;
+        margin-right: rem(20) !important; ;
+        right: 0;
+        margin-top: rem(5);
+      }
+      .jian1 img{
+        width: rem(16);
+        height: rem(20);
+      }
+      div{
+        margin: auto 0;
+        font-size: rem(24);
+        color: #653A07;
+        font-weight: bold;
+      }
+    }
+  }
+  .background-odd{
+
+  }
+  .background-even{
+    background:linear-gradient(83deg,rgba(255,138,0,1),rgba(242,185,140,1)) !important;
+  }
 }

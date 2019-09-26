@@ -97,6 +97,12 @@ const activityInfoApi = () => `${Domain}/api/activity/info`
 
 // 活动列表
 const activityListApi = () => `${Domain}/api/activity/list`
+// 成氏源流列表
+const sourceListApi = () => `${Domain}/api/source/page`
+// 成氏源流详情页
+const sourceInfoApi = () => `${Domain}/api/source/info`
+// 成氏族谱列表
+const familyTreeApi = () => `${Domain}/api/genealogy/page`
 export {
   userIsloginApi,
   newsPageApi,
@@ -130,5 +136,8 @@ export {
   crowdfundingRecordCertApi,
   newsInfoApi,
   activityInfoApi,
-  activityListApi
+  activityListApi,
+  sourceListApi,
+  sourceInfoApi,
+  familyTreeApi
 };

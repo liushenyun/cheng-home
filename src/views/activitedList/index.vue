@@ -21,31 +21,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="bottom">
-      <div class="img">
-       
-        <div class="txt">
-          <div class="txtColor"></div>
-          <div class="activitedTxt">走访活动</div>
-        </div>
-        <div class="topDiv"></div>
-        <div class="topTxt">
-          <p class="topdivTxt">活动名称名称</p>
-          <div class="bottomTxt">
-            <p class="leftTxt">深圳宝安</p>
-            <div class="rightTxt">19/08/03 周六</div>
-          </div>
-        </div>
-        <div class="topDiv"></div>
-        <div class="topTxt">
-          <p class="topdivTxt">活动名称名称</p>
-          <div class="bottomTxt">
-            <p class="leftTxt">深圳宝安</p>
-            <div class="rightTxt">19/08/03 周六</div>
-          </div>
-        </div>
-      </div>
-    </div>-->
+
   </div>
 </template>
 
@@ -83,7 +59,7 @@ export default {
       console.log(list)
       if(list.id == 1){
         this.$router.push({
-        path: `/meetSummary`  //六大活动页面     
+        path: `/meetSummary`  //六大活动页面
       }) }else{
         this.$router.push({
         path: `/activitedInfo`,
@@ -92,7 +68,7 @@ export default {
         }
       });
       }
-      
+
     }
   },
 
