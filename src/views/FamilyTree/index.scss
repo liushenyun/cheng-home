@@ -2,26 +2,40 @@
 @import '../../common/css/const';
 
 .top {
+  height: 100%;
+  .indexDiv{
+
+  }
+  .nodata{
+    text-align: center;
+    margin-top: rem(300);
+  }
   .selectDiv{
     width: 100%;
     //text-align: center;
+    margin-top: rem(20);
+    margin-bottom: rem(10) !important;
+    //>select:nth-child(1) {
+    //  width: 26% !important;
+    //}
     .select{
-      width: 30%;
-      border: 1px solid #555555;
+      width: 25%;
+      border: rem(2) solid #555555;
       border-radius: rem(10);
       height: rem(55);
-      margin: rem(10);
+      margin: rem(10) rem(30);
       appearance:none;
       padding-left: rem(15);
-      background: url("../../image/selectjian.png") no-repeat scroll right center transparent;
+      background: url("../../image/downsmall.png") no-repeat scroll rem(150) center transparent;
     }
   }
   .colorDiv{
-    border-bottom: rem(1) solid gray;
+    //border-bottom: rem(1) solid gray;
+    background:linear-gradient(119deg,rgba(245,178,98,1),rgba(246,212,146,1));
     width:93%;
     height:rem(80);
-    margin: 0 rem(30);
-    //margin-top: rem(20);
+    margin: rem(20) rem(30);
+    border-radius: rem(10);
     display: flex;
     .txt{
       display: flex;
@@ -36,7 +50,7 @@
       }
       .jian1{
         position: absolute;
-        margin-right: rem(20) !important; ;
+        margin-right: rem(50) !important; ;
         right: 0;
         margin-top: rem(5);
       }

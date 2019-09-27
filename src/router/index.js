@@ -29,6 +29,7 @@ const ChengOrigin = () => import('../views/ChengOrigin/index')
 const ChengDistribution = () => import('../views/ChengDistribution/index')
 const FamilyTree = () => import('../views/FamilyTree/index')
 const ChengCelebrity = () => import('../views/ChengCelebrity/index')
+const ChengCelebrityInfo = () => import('../views/ChengCelebrityInfo/index')
 const ClansmenAssociation = () => import('../views/ClansmenAssociation/index')
 const CulturalResearch = () => import('../views/CulturalResearch/index')
 const WelfareList = () => import('../views/WelfareList/index')
@@ -40,6 +41,7 @@ const activitedInfo = () => import('../views/activitedInfo/index')
 const activitedList = () => import('../views/activitedList/index')
 const IframLink = () => import('../views/IframLink/index')
 const ChengOriginInfo = () => import('../views/ChengOriginInfo/index')
+const FamilyTreeInfo = () => import('../views/FamilyTreeInfo/index')
 Vue.use(Router)
 const VueRouter = new Router({
   mode: 'history',
@@ -174,10 +176,20 @@ const VueRouter = new Router({
         name: 'familyTree',
         component: FamilyTree
     },
+    { // 成氏家谱详情页
+      path: '/FamilyTreeInfo',
+      name: 'FamilyTreeInfo',
+      component: FamilyTreeInfo
+    },
     { // 成氏名人
         path: '/chengCelebrity',
         name: 'chengCelebrity',
         component: ChengCelebrity
+    },
+    { // 成氏名人
+        path: '/chengCelebrityInfo',
+        name: 'chengCelebrityInfo',
+        component: ChengCelebrityInfo
     },
     { // 成氏名人
         path: '/clansmenAssociation',
@@ -259,7 +271,8 @@ const DOC_TITLE = {
     'activitedInfo': '活动详情',
     'activitedList': '活动列表',
     'IframLink': '第六届世界成氏恳亲大会视频/照片直播',
-    'ChengOriginInfo': '成氏源流详情'
+    'ChengOriginInfo': '成氏源流详情',
+    'FamilyTreeInfo': '成氏家谱详情'
 
 }
 VueRouter.afterEach((to, from) => {

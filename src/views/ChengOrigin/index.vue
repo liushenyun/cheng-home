@@ -29,7 +29,7 @@
 import { beforeRouteLeave } from '@/common/js/mixin.js'
 import { sourceListApiF } from "@/service/requestFun"; //成氏源流列表接口
 import {dateFormat} from "../../utils/dateFormat";
-import { sourceListApiF } from "@/service/requestFun"; //城市信息
+
 export default {
   name: 'DetailMain',
   mixins: [beforeRouteLeave],
@@ -51,13 +51,9 @@ export default {
           // let t = this;
           // let v = this;
           sourceListApiF(this.pageParams).then(result => {
-                  // t.info = res;
-                  console.log("ee")
-                  console.log(result)
                   this.loading = false
                   let { totalPage, currentPage, data } = result
                   this.pageList = this.pageList.concat(data)
-
                   this.hasMoreData = !(totalPage <= currentPage)
               }).catch();
       },
@@ -71,19 +67,17 @@ export default {
               }, 0);
           }
       },
-      jumpOriginInfo (item) {  //item参数 @click() 参数绑定相同  item in pageList
+      jumpOriginInfo(item){  //item参数 @click() 参数绑定相同  item in pageList
           let t = item.id;
           this.$router.push({
               path: `/ChengOriginInfo`,
               query: {
                   activityId: t //传id 路由跳转详情页activitedInfo
               }
-          })
-      },
-      listCity (parentId){
+          });
 
       },
-      backHomeA () {
+    backHomeA () {
       this.$router.push({
         name: 'MeetSummary'
       })

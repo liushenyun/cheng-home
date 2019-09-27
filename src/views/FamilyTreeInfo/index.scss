@@ -1,0 +1,71 @@
+@import '../../common/css/rem';
+@import '../../common/css/const';
+.top {
+    //height:100%;
+    background: #FEF4E4;
+    margin: 0 rem(30);
+    .indexDiv{
+        height:100%;
+    }
+    .colorDiv{
+        height:rem(80);
+        border-radius:rem(10);
+        margin-top: rem(20);
+        display: flex;
+        .txt{
+            margin: rem(30) rem(15);
+            margin-top: rem(30) ;
+            font-size: rem(30);
+            color: #333333;
+            font-weight: bold;
+        }
+    }
+    .lineDiv{
+        background: #FACD89;
+        width: 100%;
+        height: rem(5);
+        opacity: .4;
+        margin: rem(23) 0;
+    }
+    .txtPicture{
+        height: 100%;
+        .authurTxt{
+            font-size: rem(24);
+            color: #666666;
+            margin: 0 rem(20);
+            .rightTxt{
+                justify-content: flex-end;
+                float: right;
+                line-height: rem(20);
+                padding-right: rem(10);
+                img{
+                    width: rem(31);
+                    height: rem(19);
+                    margin-right: rem(10);
+                }
+            }
+        }
+        .picturetext{
+            line-height: rem(60) !important;
+            font-size: rem(30);
+            padding: 0 rem(20);
+            margin-top: rem(10);
+            img{
+                margin: rem(20) 0;
+                height: rem(224);
+            }
+            //.bottomTxt{
+            //    font-size: rem(24);
+            //    color: #666666;
+            //    line-height: rem(40);
+            //    margin-top: rem(16);
+            //}
+
+        }
+        p{
+
+        }
+
+    }
+
+  }

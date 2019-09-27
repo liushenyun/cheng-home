@@ -97,12 +97,31 @@ const activityInfoApi = () => `${Domain}/api/activity/info`
 
 // 活动列表
 const activityListApi = () => `${Domain}/api/activity/list`
+
 // 成氏源流列表
 const sourceListApi = () => `${Domain}/api/source/page`
+
 // 成氏源流详情页
 const sourceInfoApi = () => `${Domain}/api/source/info`
+
 // 成氏族谱列表
 const familyTreeApi = () => `${Domain}/api/genealogy/page`
+
+// 成氏族谱 详情页
+const genealogyApi = () => `${Domain}/api/genealogy/info`
+
+// 成氏族谱 三级联动 省市区分布
+const levelListApi = () => `${Domain}/common/city/parent`
+
+// 成氏名人列表
+const celebrityApi = () => `${Domain}/api/celebrity/page`
+
+// 成氏名人详情
+const celebrityInfoApi = () => `${Domain}/api/celebrity/info`
+
+// 成氏名人   朝代
+const dynastyApi = () => `${Domain}/common/dictionary/list/parent`
+
 export {
   userIsloginApi,
   newsPageApi,
@@ -139,5 +158,10 @@ export {
   activityListApi,
   sourceListApi,
   sourceInfoApi,
-  familyTreeApi
+  familyTreeApi,
+  levelListApi,
+  genealogyApi,
+  celebrityApi,
+  celebrityInfoApi,
+  dynastyApi
 };

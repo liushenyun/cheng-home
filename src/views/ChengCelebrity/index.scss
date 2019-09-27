@@ -1,9 +1,75 @@
 @import '../../common/css/rem';
 @import '../../common/css/const';
-.sign-success-ctr {
+
+.top {
   height: 100%;
-  width: 100%;
-  overflow: auto;
-  padding-bottom: rem(20);
-  padding: rem(51) rem(42) rem(0) rem(42);
+  .indexDiv{
+
+  }
+  .nodata{
+    text-align: center;
+    margin-top: rem(300);
+  }
+  .selectDiv{
+    width: 100%;
+    //text-align: center;
+    margin-top: rem(20);
+    margin-bottom: rem(10) !important;
+    //>select:nth-child(1) {
+    //  width: 26% !important;
+    //}
+    .select{
+      width: 93%;
+      border: rem(2) solid #555555;
+      border-radius: rem(10);
+      height: rem(55);
+      margin: rem(10) rem(30);
+      appearance:none;
+      padding-left: rem(15);
+      background: url("../../image/downsmall.png") no-repeat scroll 95% center transparent;
+    }
+  }
+  .colorDiv{
+    //border-bottom: rem(1) solid gray;
+    background:linear-gradient(119deg,rgba(245,178,98,1),rgba(246,212,146,1));
+    width:93%;
+    height:rem(80);
+    margin: rem(20) rem(30);
+    border-radius: rem(10);
+    display: flex;
+    .txt{
+      display: flex;
+      padding: auto 0;
+      margin: auto 0;
+      width: 100%;
+      .book1 img{
+        width: rem(33);
+        height: rem(37);
+        margin: auto 0;
+        padding: 0 rem(10);
+      }
+      .jian1{
+        position: absolute;
+        margin-right: rem(50) !important; ;
+        right: 0;
+        margin-top: rem(5);
+      }
+      .jian1 img{
+        width: rem(16);
+        height: rem(20);
+      }
+      div{
+        margin: auto 0;
+        font-size: rem(24);
+        color: #653A07;
+        font-weight: bold;
+      }
+    }
+  }
+  .background-odd{
+
+  }
+  .background-even{
+    background:linear-gradient(83deg,rgba(255,138,0,1),rgba(242,185,140,1)) !important;
+  }
 }

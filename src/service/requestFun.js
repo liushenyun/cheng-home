@@ -35,7 +35,12 @@ import {
   activityListApi,
   sourceListApi,
   sourceInfoApi,
-  familyTreeApi
+  familyTreeApi,
+  levelListApi,
+  genealogyApi,
+  celebrityApi,
+  celebrityInfoApi,
+  dynastyApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
@@ -647,7 +652,78 @@ const familyTreeApiF = (data, fun) => packagePromise((resolve, reject) => {
     })
     .catch(err => reject(err))
 })
+// 获取成氏族谱 详情页
+const genealogyApiF = (genealogyId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: genealogyApi(),
+    method: 'GET',
+    data :{
+      genealogyId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+// 获取成氏族谱 三级联动  省市区分布
+const levelListApiF = (parentId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: levelListApi(),
+    method: 'GET',
+    data :{
+      parentId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
 
+// 获取成氏名人 列表
+const celebrityApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: celebrityApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+});
+
+// 获取成氏名人 列表
+const celebrityInfoApiF = (celebrityId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: celebrityInfoApi(),
+    method: 'GET',
+    data:{
+      celebrityId
+    }
+    }
+  )
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+});
+
+// 获取成氏名人 朝代
+const dynastyApiF = (type) => packagePromise((resolve, reject) => {
+  fetch({
+    url: dynastyApi(),
+    method: 'GET',
+    data :{
+      type
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
 export {
   userIsloginApiF,
   // SuccessTips,
@@ -684,5 +760,10 @@ export {
   activityListApiF,
   sourceListApiF,
   sourceInfoApiF,
-  familyTreeApiF
+  familyTreeApiF,
+  levelListApiF,
+  genealogyApiF,//族谱
+  celebrityApiF, //名人
+  celebrityInfoApiF, //名人
+  dynastyApiF //朝代
 }
