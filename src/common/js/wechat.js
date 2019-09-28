@@ -45,7 +45,9 @@ wechat.properties = {
         openProductSpecificView:'openProductSpecificView',
         addCard:'addCard',
         chooseCard:'chooseCard',
-        openCard:'openCard'
+        openCard:'openCard',
+        updateAppMessageShareData:"updateAppMessageShareData",
+        updateTimelineShareData:"updateTimelineShareData"
     }
 };
 
@@ -61,7 +63,7 @@ wechat.config = function(inter, url, callback){
     }else{
         jsApiList.push(inter);
     }
-    
+
     fetch({
         url: url,
         method: 'GET',

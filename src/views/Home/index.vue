@@ -205,7 +205,7 @@ export default {
   },
   components: {},
   methods: {
-    toDetailA(type, item) {   
+    toDetailA(type, item) {
       if(item.id == 1){
         this.$router.push({
             path: `/meetSummary`
@@ -234,10 +234,10 @@ export default {
       //     break;
       // }
     },
-    jumpList(type) {   //点击按钮跳转不同的页面  
+    jumpList(type) {   //点击按钮跳转不同的页面
       switch (type) {
         case "news":
-          alert("跳转新闻页面");
+          // alert("跳转新闻页面");
           break;
         case "activity": //获取活动详情数据
           this.$router.push({

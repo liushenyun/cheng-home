@@ -20,7 +20,7 @@
       <div class="colorDiv" v-for="(item,index) in pageList" @click="jumpFamilyTreeInfo(item)" :class="{'background-even':index % 2 == 0}" >
         <div class="txt">
           <div class="book1"><img src="../../image/book.png"></div>
-          <div>{{item.typeName}}.{{item.title}}</div>
+          <div class="familyTxt">{{item.typeName}}.{{item.title}}</div>
           <div class="jian1"><img src="../../image/jiantou.png"></div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="index" style="width:100%;height:100%">
-     <!-- <iframe src="https://live.photoplus.cn/live/99609970?accessFrom=live#/livepp" frameborder="0" style="width:100%;height:100%;overflow:scroll"></iframe> -->
-     <iframe src="http://dev.chengmall.cn/login" frameborder="0" style="width:100%;height:100%;overflow:scroll"></iframe>
+      <iframe src="https://live.photoplus.cn/live/99609970?accessFrom=live#/livepp" frameborder="0" style="width:100%;height:100%;overflow:scroll"></iframe>
+<!--     <iframe src="http://dev.chengmall.cn/login" frameborder="0" style="width:100%;height:100%;overflow:scroll"></iframe>-->
   </div>
 </template>
 

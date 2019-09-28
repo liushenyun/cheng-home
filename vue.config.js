@@ -1,7 +1,7 @@
 // let d = 'http://hndn7e.natappfree.cc'
 
-// let d = 'http://192.168.7.200:8088'  //开发环境
-let d = 'http://m.chengmall.cn'  //生产环境
+let d = 'http://192.168.7.200:8088'  //开发环境
+// let d = 'http://m.chengmall.cn'  //生产环境
 
 module.exports = {
     devServer: {

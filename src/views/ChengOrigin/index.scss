@@ -4,7 +4,7 @@
     .colorDiv{
         background:linear-gradient(119deg,rgba(245,178,98,1),rgba(246,212,146,1));
         width:93%;
-        height:rem(80);
+        height:rem(100);
         border-radius:rem(10);
         margin: 0 rem(30);
         margin-top: rem(20);
@@ -15,6 +15,9 @@
             margin: auto 0;
             width: 100%;
             position: relative;
+            .originTxt{
+                font-size: rem(30);
+            }
             .book1 img{
                 width: rem(33);
                 height: rem(37);
@@ -25,7 +28,7 @@
                 position: absolute;
                 margin-right: rem(20) !important; ;
                 right: 0;
-                margin-top: rem(5);
+                margin-top: rem(10);
             }
             .jian1 img{
                 width: rem(16);

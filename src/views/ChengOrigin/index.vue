@@ -6,7 +6,7 @@
       <div class="colorDiv" @click="jumpOriginInfo(item)" v-for="(item,index) in pageList" :class="{'background-even':index % 2 == 0}" > <!--如果偶数项加载不同的背景颜色类-->
         <div class="txt">
           <div class="book1"><img src="../../image/book.png"></div>
-          <div>[{{item.typeName}}] {{item.title}}</div>
+          <div class="originTxt">[{{item.typeName}}] {{item.title}}</div>
           <div class="jian1"><img src="../../image/jiantou.png"></div>
         </div>
       </div>
