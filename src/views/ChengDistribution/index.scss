@@ -6,6 +6,27 @@
   .indexDiv{
     height: auto;
   }
+  .imgTXT{
+    text-align: center;
+    margin-top: rem(30);
+    span{
+      position: absolute;
+      left: rem(345);
+      font-size: rem(30);
+      font-weight: bold;
+      color: #563722;
+    }
+    img{
+      width: rem(224);
+      height: rem(43);
+    }
+    div{
+      font-weight: bold;
+      font-size: rem(26);
+      color: #563722;
+      margin: rem(26) 0;
+    }
+  }
   .nodata{
     text-align: center;
     margin-top: rem(300);
@@ -41,6 +62,90 @@
       appearance:none;
       padding-left: rem(15);
       background: url("../../image/downsmall.png") no-repeat scroll rem(600) center transparent;
+    }
+    .inputdiv{
+      width: 93%;
+      height: rem(60);
+      border: rem(2) solid #555555;
+      border-radius: rem(10);
+      margin: rem(10) rem(30);
+      margin-bottom: rem(20) !important;
+      padding-left: rem(15);
+
+      .inputtxt{
+        width: 100%;
+        margin-top: rem(10);
+        display: flex;
+        .i1{
+          width: 20%;
+          text-align-last: justify;
+        }
+        .i0{
+          width: 25%;
+          text-align-last: justify;
+        }
+        .i2{
+          width: 80%;
+          input{
+            width: 100%;
+          }
+        }
+      }
+
+    }
+    .textdiv{
+      margin-bottom: rem(20) !important;
+      width: 93%;
+      height: rem(120);
+      border: rem(2) solid #555555;
+      border-radius: rem(10);
+      margin: rem(10) rem(30);
+      padding-left: rem(15);
+      .texttxt{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding-top: rem(10);
+        .t1{
+          width: 20%;
+          text-align-last: justify;
+        }
+        .t2{
+          width: 80%;
+          textarea{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .imgdiv{
+      margin-top: rem(-20) !important;
+      margin-bottom: rem(30) !important;
+      width: 93%;
+      height: rem(190);
+      margin: rem(10) rem(30);
+      display: flex;
+      .img1{
+        //background: #FACD89;
+        margin: rem(30);
+        width: rem(160);
+        height: rem(160);
+        border-radius: rem(10);
+        background:rgba(250,205,137,0.6);
+        .m1 {
+          margin-top: rem(23);
+          text-align: center;
+          p{
+            color: #E15C3E;
+            font-size: rem(24);
+          }
+          img{
+            width: rem(67);
+            height: rem(67);
+          }
+        }
+      }
     }
   }
   .colorDivCenter{
@@ -84,6 +189,9 @@
     }
   }
   .bottomTxtDiv{
+    bottom: 0;
+    position: absolute;
+    margin-bottom: rem(30);
     width: 100%;
     padding: 0 auto;
     text-align: center;
@@ -91,33 +199,98 @@
     font-size: rem(20);
   }
   .colorDiv{
-    background:#FACD89;
+    background:#FCE8CB;
     width:rem(660);
     height:rem(80);
     margin: rem(20) rem(45);
     border-radius: rem(10);
     display: flex;
-    .txt{
+    .txtone{
+      span{
+        font-size: rem(30);
+        color: #DF1E1E;
+        font-weight: bold;
+      }
+      .p1,.p2{
+        margin: 0 rem(50);
+      }
+      .p3{
+        margin-left: rem(120);
+      }
       display: flex;
       padding: auto 0;
       margin: auto 0;
       width: 100%;
-      .book1 img{
-        width: rem(33);
-        height: rem(37);
+      .b1,.b2{
+        margin: auto rem(55);
+      }
+      .b1 span{
+        //position: absolute;
+        //left: rem(115);
+        //bottom: rem(10);
+        font-weight: bold;
+        font-size: rem(26);
+        color: #C58320;
+      }
+      .b3{
+        margin-left: rem(135);
+      }
+      .b1 img{
+        width: rem(45);
+        height: rem(62);
+      }
+
+      div{
         margin: auto 0;
-        padding: 0 rem(10);
+        font-size: rem(24);
+        color: #653A07;
+        font-weight: bold;
       }
-      .jian1{
-        position: absolute;
-        margin-right: rem(50) !important; ;
-        right: 0;
-        margin-top: rem(5);
+    }
+    .txt{
+      span{
+        font-size: rem(30);
+        color: #DF1E1E;
+        font-weight: bold;
       }
-      .jian1 img{
-        width: rem(16);
-        height: rem(20);
+      .p1,.p2{
+        margin: 0 rem(50);
       }
+      .p3{
+        margin-left: rem(120);
+      }
+      display: flex;
+      padding: auto 0;
+      margin: auto 0;
+      width: 100%;
+
+      //添加下面这些属性
+      height: 100%;
+      background: url("../../image/rank.png") no-repeat;
+      background-size: rem(45) rem(62);
+      background-position:top rem(10) left rem(55) ;
+      //添加上面这些属性
+      .b1,.b2{
+        margin: auto rem(55);
+      }
+      .b2{
+        margin-left: rem(70);
+      }
+      .b1 p{
+        font-weight: bold;
+        font-size: rem(26);
+        color: #C58320;
+        margin: 0 0 rem(10) rem(15) !important;
+        line-height: rem(20);
+      }
+      .b3{
+        margin-left: rem(125);
+      }
+      .b1 img{
+        width: rem(45);
+        height: rem(62);
+      }
+
       div{
         margin: auto 0;
         font-size: rem(24);
@@ -126,10 +299,5 @@
       }
     }
   }
-  .background-odd{
 
-  }
-  .background-even{
-    background:linear-gradient(83deg,rgba(255,138,0,1),rgba(242,185,140,1)) !important;
-  }
 }
