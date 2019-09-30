@@ -77,10 +77,10 @@ export default {
   methods: {
     getId(){
       let router = this.$route;
-      let id = router.query.activityId;  
-      this.params.activityId = id;   
+      let id = router.params.activityId;
+      this.params.activityId = id;
     },
-    submit() {      
+    submit() {
       // this.$router.push({
       //   name: 'activeDetail'
       //   // name: 'signSuccess'
@@ -92,22 +92,21 @@ export default {
       activityApplyApiF(this.params).then((result) => {
         this.$toast('提交成功')
         let t = this;
-        debugger
         setTimeout(() => {
-          let router = t.$route;
-          let id = router.params.activityId;  
-        if(id == 1){
-          this.$router.push({
-            name: 'MeetSummary'
-          })
-        }else{
-          this.$router.push({
-            name: 'activitedInfo',
-            query:{
-              activityId : id
+            let id = t.params.activityId;
+            console.log(id)
+            if(id == 1){
+                t.$router.push({
+                    name: 'meetSummary'
+                })
+            }else{
+                t.$router.push({
+                    name: 'activitedInfo',
+                    query:{
+                        activityId : id
+                    }
+                })
             }
-          })
-        } 
         }, 1500)
       }).catch(() => {
 
@@ -127,7 +126,7 @@ export default {
           return { name: name, key: key }
         })
       }).catch((err) => {
-        
+
       });
     },
     pickerSure(data) {
@@ -136,14 +135,14 @@ export default {
       this.pickerFlag = false
     }
   },
-  
+
   watch: { },
   beforeRouteLeave(to, from, next) {
     history.pushState(null, null, location.search.replace(/code/g, 'XX'))
     next()
-  },  
-  mounted () {  
-    this.getId();  
+  },
+  mounted () {
+    this.getId();
     this.applyId = this.$route.params.applyId
     this.listParentApiFA(this.listParentApiFA.bind(this))
 

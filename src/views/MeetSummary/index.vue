@@ -163,7 +163,10 @@ export default {
       let { pay, status } = this.pageData;
       if (status == 0) {
         this.$router.push({
-          name: "sign"
+          name: "sign",
+          params:{
+            activityId:1
+          }
         });
       } else if (status == 2) {
         this.$router.push({
