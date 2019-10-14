@@ -7,7 +7,7 @@ import 'mint-ui/lib/style.css'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
   Cell, Toast, Picker,
   Loadmore, InfiniteScroll, Spinner,
-  DatetimePicker, Switch } from 'mint-ui'
+  DatetimePicker, Switch, MessageBox,Popup  } from 'mint-ui'
 import LinkageBase from './components/linkageBase';
 import PickerS from './components/PickerS/index'
 import ShowScan from './components/ShowScan/index'
@@ -28,7 +28,8 @@ Vue.component(Cell.name, Cell);
 Vue.component(Picker.name, Picker);
 Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.component(Switch.name, Switch);
-
+Vue.component(MessageBox.name, MessageBox); //弹框组件  页面调用无效
+Vue.component(Popup.name, Popup);
 Object.assign(Vue.prototype, {
   $toast: Toast,
   $eventQueue: new EventQueue()

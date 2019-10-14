@@ -40,7 +40,13 @@ import {
   genealogyApi,
   celebrityApi,
   celebrityInfoApi,
-  dynastyApi
+  dynastyApi,
+  villageApi,
+  statisticsApi,
+  submitApi,
+  cashInfoApi,
+  withdrawApi,
+  withdrawListApi
 } from './apiUrl';
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
@@ -435,6 +441,47 @@ const tripUpdateApiF = (data, fun) => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
+// 我的资助申请【详情】 已筹款金额 title这些
+const cashInfoApiF = (crowdfundingId) => packagePromise((resolve, reject) => {
+  fetch({
+    url: cashInfoApi(),
+    method: 'GET',
+    data: {
+      crowdfundingId
+    }
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 我的资助申请  提现
+const withdrawApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: withdrawApi(),
+    method: 'POST',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 我的资助申请 提现列表
+const withdrawListApiF = (data) => packagePromise((resolve, reject) => {
+  fetch({
+    url: withdrawListApi(),
+    method: 'GET',
+    data
+  })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+});
+
 // 资助申请【列表】
 const crowdfundingPageApiF = (data) => packagePromise((resolve, reject) => {
   fetch({
@@ -681,6 +728,32 @@ const levelListApiF = (parentId) => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
+// 获取成氏   城镇村 分布
+const villageApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: villageApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 查看成氏分布
+const statisticsApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: statisticsApi(),
+    method: 'GET',
+    data
+  }, fun)
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
 // 获取成氏名人 列表
 const celebrityApiF = (data, fun) => packagePromise((resolve, reject) => {
   fetch({
@@ -719,6 +792,19 @@ const dynastyApiF = (type) => packagePromise((resolve, reject) => {
       type
     }
   })
+    .then(msg => {
+      resolve(msg)
+    })
+    .catch(err => reject(err))
+})
+
+// 成氏分布提交资料
+const submitApiF = (data, fun) => packagePromise((resolve, reject) => {
+  fetch({
+    url: submitApi(),
+    method: 'POST',
+    data : data
+  }, fun)
     .then(msg => {
       resolve(msg)
     })
@@ -765,5 +851,12 @@ export {
   genealogyApiF,//族谱
   celebrityApiF, //名人
   celebrityInfoApiF, //名人
-  dynastyApiF //朝代
+  dynastyApiF, //朝代
+  villageApiF,
+  statisticsApiF,
+  submitApiF,
+  cashInfoApiF,
+  withdrawApiF,
+  withdrawListApiF
+
 }

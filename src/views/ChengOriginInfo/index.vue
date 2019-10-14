@@ -55,8 +55,7 @@
         components: {},
         methods: {
             initSourceInfo () {
-                let router = this.$route;
-                let Id = router.query.activityId; //拿到地址栏参数id
+                let Id = this.$route.query.activityId; //拿到地址栏参数id
                 let t = this;
                 sourceInfoApiF(Id).then(result => {
                     console.log(result);

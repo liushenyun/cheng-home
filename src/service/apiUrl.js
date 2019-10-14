@@ -89,6 +89,15 @@ const crowdfundingRecordCreateApi = () => `${Domain}/api/crowdfunding/record/cre
 // 资助记录【获取捐赠证书】
 const crowdfundingRecordCertApi = () => `${Domain}/api/crowdfunding/record/cert`
 
+// 我的筹款  已筹款金额 title等
+const cashInfoApi = () => `${Domain}/api/crowdfunding/info/money`
+
+// 我的筹款  申请提现
+const withdrawApi = () => `${Domain}/api/crowdfunding/withdraw`
+
+// 我的资助提现  申请提现 列表
+const withdrawListApi = () => `${Domain}/api/crowdfunding/withdraw/page`
+
 // 新闻详情
 const newsInfoApi = () => `${Domain}/api/news/info`
 
@@ -112,6 +121,15 @@ const genealogyApi = () => `${Domain}/api/genealogy/info`
 
 // 成氏族谱 三级联动 省市区分布
 const levelListApi = () => `${Domain}/common/city/parent`
+
+// 获取成氏  县 村落
+const villageApi = () => `${Domain}/api/distribute/list/village`
+
+// 获取成氏分布查看  信息
+const statisticsApi = () => `${Domain}/api/distribute/statistics`
+
+// 成氏分布提交资料
+const submitApi = () => `${Domain}/api/distribute/create`
 
 // 成氏名人列表
 const celebrityApi = () => `${Domain}/api/celebrity/page`
@@ -163,5 +181,11 @@ export {
   genealogyApi,
   celebrityApi,
   celebrityInfoApi,
-  dynastyApi
+  dynastyApi,
+  villageApi,
+  statisticsApi,
+  submitApi,
+  cashInfoApi,
+  withdrawApi, //申请提现
+  withdrawListApi //提现列表
 };

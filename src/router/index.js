@@ -35,6 +35,7 @@ const CulturalResearch = () => import('../views/CulturalResearch/index')
 const WelfareList = () => import('../views/WelfareList/index')
 const MyPublicWelfare = () => import('../views/MyPublicWelfare/index')
 const FundraisingDetail = () => import('../views/FundraisingDetail/index')
+const myFundraising = () => import('../views/myFundraising/index') //我的筹款
 const FundraisingPay = () => import('../views/FundraisingPay/index')
 const DetailA = () => import('../views/DetailA/index')
 const activitedInfo = () => import('../views/activitedInfo/index')
@@ -216,6 +217,11 @@ const VueRouter = new Router({
         name: 'fundraisingDetail',
         component: FundraisingDetail
     },
+    { // 我的筹款
+      path: '/myfundraising',
+      name: 'myfundraising',
+      component: myFundraising
+    },
     { // 成氏公益-捐款页面
         path: '/fundraisingPay',
         name: 'fundraisingPay',
@@ -266,6 +272,7 @@ const DOC_TITLE = {
     'welfareInfo': '信息公开',
     'myPublicWelfare': '我的公益',
     'fundraisingDetail': '筹款详情',
+    'myfundraising': '我的筹款',
     'FundraisingPay': '捐款',
     'detailA': '查看详情',
     'activitedInfo': '活动详情',
@@ -281,7 +288,6 @@ VueRouter.afterEach((to, from) => {
     console.log(to, from);
     console.log("标题主页")
 })
-
 // VueRouter.beforeRouteLeave((to, from, next) => {
 //   console.log('leave', to, from, next)
 //     // next()

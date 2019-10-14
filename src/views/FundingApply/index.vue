@@ -3,7 +3,7 @@
     <div class="FA_top-wrap">
       <div class="pw-title">
         <div> <img src="../../image/welfar_word_bg_left.png" alt=""> </div>
-        
+
         <span> <p>资助申请</p>
           <!-- <p>CHENG MALL FOUNDATION</p> -->
         </span>
@@ -45,8 +45,8 @@
 
       <div class="fund-submit-btn" @click="toSubmitA">提交</div>
     </div>
-    
-    
+
+
 
   </div>
 </template>
@@ -94,7 +94,7 @@ export default {
         this.pageParams.originator = result.originator
         this.pageParams.description = result.description
       }).catch((err) => {
-        
+
       });
     },
     crowdfundingApplyApiA() {
@@ -102,18 +102,20 @@ export default {
       let _imgList = this.imgList
       _obj.id = this.crowdfundingId
       _obj.mediaLength = _imgList.length
+
       _imgList.forEach((v, i) => {
         _obj[`mediaFile[${i}]`] = v.files
         _obj[`mediaType[${i}]`] = 1
       })
-      crowdfundingApplyApi(_obj).then((result) => {
-        this.$toast('提交成功')
-        setTimeout(() => {
-          this.$router.go(-1)
-        }, 1500);
-      }).catch((err) => {
-        
-      });
+      debugger
+      // crowdfundingApplyApi(_obj).then((result) => {
+      //   this.$toast('提交成功')
+      //   setTimeout(() => {
+      //     this.$router.go(-1)
+      //   }, 1500);
+      // }).catch((err) => {
+      //
+      // });
     },
     toSubmitA() {
       this.crowdfundingApplyApiA()

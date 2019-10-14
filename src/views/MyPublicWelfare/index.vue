@@ -107,7 +107,14 @@ export default {
     },
     toFunDetailA(item) {
       this.$router.push({
-        path: '/fundraisingDetail/' + item.id
+          name: 'myfundraising',
+          params: {
+              id: item.id
+          }
+          // path: `/myfundraising`,
+          // query:{
+          //     id: item.id
+          // }
       })
     },
     toFundingApplyA(item) {
@@ -119,7 +126,7 @@ export default {
       })
     }
   },
-  
+
   watch: { },
   mounted () {
     this.crowdfundingPagePartApiFA()
