@@ -39,10 +39,7 @@ export default {
   components: {  },
   methods: {
     getAction() {
-      let _type = this.type
-      if (_type == 'news') {
-        this.newsInfoApiFA()
-      }
+      this.newsInfoApiFA()
     },
     newsInfoApiFA(){
       newsInfoApiF(this.id).then((result) => {
@@ -57,6 +54,7 @@ export default {
   },
   watch: { },
   mounted () {
+      debugger
     this.type = this.$route.params.type
     this.id = this.$route.params.id
     this.getAction()

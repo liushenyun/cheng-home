@@ -227,8 +227,8 @@ const VueRouter = new Router({
         name: 'fundraisingPay',
         component: FundraisingPay
     },
-    { // 成氏公益-捐款页面
-        path: '/detailA/:type/:id',
+    { // 成氏新闻详情页
+        path: '/detailA/:id',
         name: 'detailA',
         component: DetailA
     },
@@ -271,6 +271,7 @@ const DOC_TITLE = {
     'welfareIntroduce': '基金会介绍',
     'welfareInfo': '信息公开',
     'myPublicWelfare': '我的公益',
+    'publicWelfare': '成氏公益',
     'fundraisingDetail': '筹款详情',
     'myfundraising': '我的筹款',
     'FundraisingPay': '捐款',

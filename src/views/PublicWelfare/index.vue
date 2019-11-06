@@ -4,7 +4,7 @@
       <div>
         <img src="../../image/welfar_word_bg_left.png" alt="">
       </div>
-      
+
       <span>
         <p>成氏商城公益基金会</p>
         <p>CHENG MALL FOUNDATION</p>
@@ -32,7 +32,7 @@
         <img src="../../image/welfare_apply_icon.png" alt="">
       </li>
     </ul>
-    
+
 
   </div>
 </template>
@@ -60,14 +60,17 @@ export default {
       })
     },
     toWelfareActionA() {
-      this.$router.push({
-        name: 'welfareAction'
-      })
+        this.$toast('开发中...')
+      // this.$router.push({
+      //   name: 'welfareAction'
+      // })
+
     },
     toWelfareListA() {
-      this.$router.push({
-        name: 'welfareList'
-      })
+        this.$toast('开发中...')
+      // this.$router.push({
+      //   name: 'welfareList'
+      // })
     }
   },
   watch: { },
@@ -77,5 +80,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './index'
+@import './index';
 </style>

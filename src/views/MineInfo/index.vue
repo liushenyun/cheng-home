@@ -13,7 +13,7 @@
 
       <p class="i-tip"><span>姓名</span><span></span></p>
       <input class="i-input" v-model="params.realName" placeholder="请输入姓名" type="text" name="" id="">
-      
+
       <p class="i-tip"><span>身份证</span><span></span></p>
       <input class="i-input" v-model="params.idCard" placeholder="请输入身份证" maxlength="18" type="text" name="" id="">
 
@@ -153,11 +153,13 @@ export default {
       this.pickerFlag = false
     },
     onFileChange(e) {
-      let fileName = e.target.files[0].name;
-      this.params.headImageFile = e.target.files[0]
+        let file = e.target.files[0];
+        let fileName = file.name;
+        this.params.headImageFile = file;
+        this.headimage = URL.createObjectURL(file);
     }
   },
-  
+
   watch: { },
   mounted () {
     document.title = '填写个人信息'

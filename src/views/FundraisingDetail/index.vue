@@ -69,6 +69,8 @@
         <!-- <div class="cert-btn" @click="savePhoto">保存图片</div> -->
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -143,14 +145,14 @@ export default {
       crowdfundingRecordCertApiF(this.crowdfundingId).then((result) => {
         this.certUrl = result
       }).catch((err) => {
-        
+
       });
     },
     crowdfundingInfoApiFA() {
       crowdfundingInfoApiF(this.crowdfundingId).then((result) => {
         this.pageData = result
       }).catch((err) => {
-        
+
       });
     },
     crowdfundingRecordPageApiFA() {
@@ -167,7 +169,7 @@ export default {
       })
     }
   },
-  
+
   watch: { },
   mounted () {
     this.crowdfundingId = this.$route.params.id

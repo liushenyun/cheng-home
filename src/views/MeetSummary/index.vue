@@ -101,9 +101,10 @@ export default {
   },
   methods: {
     jumpIfram() {
-      this.$router.push({
-        name: "IframLink"
-      });
+      // this.$router.push({
+      //   name: "IframLink"
+      // });
+        this.$toast("直播已结束！")
     },
     toBroadcastA() {
       this.$router.push({

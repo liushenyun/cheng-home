@@ -206,35 +206,30 @@ export default {
   components: {},
   methods: {
     toDetailA(type, item) {
-      if(item.id == 1){
-        this.$router.push({
-            path: `/meetSummary`
+      switch (type) {
+        case "news":
+          this.$router.push({
+            path: `/detailA/${item.id}`
           });
-      } else {
-        this.$router.push({
-            path: `/activitedInfo`,
-            query: {
-              activityId: item.id //传id 路由跳转详情页activitedInfo
+          break;
+        case "activity": //获取活动详情数据
+            if(item.id == 1){
+                this.$router.push({
+                    path: `/meetSummary`
+                });
+            } else {
+                this.$router.push({
+                    path: `/activitedInfo`,
+                    query: {
+                        activityId: item.id //传id 路由跳转详情页activitedInfo
+                    }
+                });
             }
-          });
+          break;
       }
-      // switch (item.id) {
-      //   case "news":
-      //     this.$router.push({
-      //       path: `/detailA/${type}/${item.id}`
-      //     });
-      //     break;
-      //   case "activity": //获取活动详情数据
-      //     this.$router.push({
-      //       path: `/activitedInfo`,
-      //       query: {
-      //         activityId: item.id //传id 路由跳转详情页activitedInfo
-      //       }
-      //     });
-      //     break;
-      // }
     },
-    jumpList(type) {   //点击按钮跳转不同的页面
+    jumpList(type) {//点击按钮跳转不同的页面
+
       switch (type) {
         case "news":
           // alert("跳转新闻页面");

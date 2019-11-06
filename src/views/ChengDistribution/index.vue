@@ -305,7 +305,17 @@
                     console.log(result);
                     let { totalPage, currentPage, data } = result
                     self.total = result.total; //成氏分布总人口数量total
-                    this.pageList = result.list;
+                    let list = result.list;
+                    let pageList = [];
+                    if(list.length > 0){
+                      for(let x in list){
+                          let item = list[x];
+                          if(item){
+                              pageList[x] = item;
+                          }
+                      }
+                    }
+                    this.pageList = pageList;
                     if(result.info){
                         this.info = result.info;
                     }
